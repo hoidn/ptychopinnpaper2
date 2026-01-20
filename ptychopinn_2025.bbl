@@ -1,0 +1,112 @@
+\begin{thebibliography}{10}
+
+\bibitem{Babu2023EdgePtycho}
+Aswin~Varghese Babu, Tao Zhou, Swarnendu Kandel, Vinayak Banakha, Kang Li, Sha
+  Li, Junjing Deng, Youssef S.~G. Nashed, Ross Harder, Mathew~J. Cherukara, and
+  Charudatta Phatak.
+\newblock Deep learning at the edge enables real-time streaming ptychographic
+  imaging.
+\newblock {\em Nature Communications}, 14:7059, 2023.
+
+\bibitem{Bunk2008Overlap}
+Oliver Bunk, Martin Dierolf, S{\o}ren Kynde, Ian Johnson, Olof Marti, and Franz
+  Pfeiffer.
+\newblock Influence of the overlap parameter on the convergence of the
+  ptychographical iterative engine.
+\newblock {\em Ultramicroscopy}, 108(5):481--487, 2008.
+
+\bibitem{Cherukara2020PtychoNN}
+Mathew~J. Cherukara, Tao Zhou, Youssef S.~G. Nashed, Alexander Hexemer, Ross
+  Harder, Oleg~G. Shpyrko, Jun Wang, Sunil~K. Sinha, and Subramanian K. R.~S.
+  Sankaranarayanan.
+\newblock Ai-enabled high-resolution scanning coherent diffraction imaging.
+\newblock {\em Applied Physics Letters}, 117(4):044103, 2020.
+
+\bibitem{Dong2018CMI}
+Xue Dong, Xingchen Pan, Cheng Liu, and Jianqiang Zhu.
+\newblock Single shot multi-wavelength phase retrieval with coherent modulation
+  imaging.
+\newblock {\em Optics Letters}, 43(8):1762--1765, 2018.
+
+\bibitem{GuizarSicairos2021PhysicsToday}
+Manuel Guizar-Sicairos and Pierre Thibault.
+\newblock Ptychography: A solution to the phase problem.
+\newblock {\em Physics Today}, 74(9):42--48, 2021.
+
+\bibitem{Hoidn2023PtychoPINN}
+Oliver Hoidn, Aashwin~Ananda Mishra, and Apurva Mehta.
+\newblock Physics constrained unsupervised deep learning for rapid, high
+  resolution scanning coherent diffraction reconstruction.
+\newblock {\em Scientific Reports}, 13:22789, 2023.
+
+\bibitem{Kharitonov2022SciRep}
+Konstantin Kharitonov, Masoud Mehrjoo, Mabel Ruiz-Lopez, Barbara Keitel, Svea
+  Kreis, Seung-gi Gang, Rui Pan, Alessandro Marras, Jonathan Correa,
+  Cornelia~B. Wunderer, and Elke Pl{\"o}njes.
+\newblock Single-shot ptychography at a soft x-ray free-electron laser.
+\newblock {\em Scientific Reports}, 12(1):14430, 2022.
+
+\bibitem{Maiden2012Annealing}
+Andrew~M. Maiden, Matthew~J. Humphry, Matthew~C. Sarahan, Bernd Kraus, and
+  John~M. Rodenburg.
+\newblock An annealing algorithm to correct positioning errors in ptychography.
+\newblock {\em Ultramicroscopy}, 120:64--72, 2012.
+
+\bibitem{Maiden2009UltramicroscopyPIE}
+Andrew~M. Maiden and John~M. Rodenburg.
+\newblock An improved ptychographical phase retrieval algorithm for diffractive
+  imaging.
+\newblock {\em Ultramicroscopy}, 109(10):1256--1262, 2009.
+
+\bibitem{Marchesini2016SHARP}
+Stefano Marchesini, Hari Krishnan, Benedikt~J. Daurer, David~A. Shapiro, Talita
+  Perciano, James~A. Sethian, and Filipe R. N.~C. Maia.
+\newblock Sharp: a distributed gpu-based ptychographic solver.
+\newblock {\em Journal of Applied Crystallography}, 49(4):1245--1252, 2016.
+
+\bibitem{miao1999extending}
+Jianwei Miao, Pambos Charalambous, Janos Kirz, and David Sayre.
+\newblock Extending the methodology of x-ray crystallography to allow imaging
+  of micrometre-sized non-crystalline specimens.
+\newblock {\em Nature}, 400(6742):342--344, 1999.
+
+\bibitem{Seifert2023PoissonGaussian}
+Joachim~P. Seifert, Zhaoning Chen, Myung-Jae Yoon, Andrew Ulvestad, Mathew~J.
+  Cherukara, Youssef S.~G. Nashed, Savannah~M. Wild, and Ross Harder.
+\newblock Maximum-likelihood ptychography in the presence of poisson--gaussian
+  noise.
+\newblock {\em Optics Letters}, 48(18):4897--4900, 2023.
+
+\bibitem{Sidorenko2015Optica}
+Pavel Sidorenko and Oren Cohen.
+\newblock Single-shot ptychography.
+\newblock {\em Optica}, 3(1):9--14, 2016.
+
+\bibitem{LCLSIIHE_DesignPerf}
+{SLAC National Accelerator Laboratory}.
+\newblock {LCLS-II-HE: Design and Performance}.
+\newblock
+  \url{https://lcls.slac.stanford.edu/lcls-ii-he/design-and-performance}, 2023.
+\newblock Accessed: 2025-08-14.
+
+\bibitem{Thibault2012NJPML}
+Pierre Thibault and Manuel Guizar-Sicairos.
+\newblock Maximum-likelihood refinement for coherent diffractive imaging.
+\newblock {\em New Journal of Physics}, 14:063004, 2012.
+
+\bibitem{Zhang2016CMI}
+Fan Zhang, Ir{\`e}ne Peterson, Joan Vila-Comamala, Ana Diaz, Fran{\c{c}}ois
+  Berenguer, Richard Bean, Bo~Chen, Andreas Menzel, Ian~K. Robinson, and
+  John~M. Rodenburg.
+\newblock Phase retrieval by coherent modulation imaging.
+\newblock {\em Nature Communications}, 7:13367, 2016.
+
+\bibitem{Zhang2013Position}
+Fei Zhang, Ir{\`e}ne Peterson, Joan Vila-Comamala, Ana Diaz, Fran{\c{c}}ois
+  Berenguer, Richard Bean, Bo~Chen, Andreas Menzel, Ian~K. Robinson, and
+  John~M. Rodenburg.
+\newblock Translation position determination in ptychographic coherent
+  diffraction imaging.
+\newblock {\em Optics Express}, 21(11):13592--13606, 2013.
+
+\end{thebibliography}
