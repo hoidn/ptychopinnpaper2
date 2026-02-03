@@ -44,53 +44,13 @@
 \newlabel{eq:alphaloginit}{{10}{5}{Poisson negative log-likelihood}{equation.2.10}{}}
 \@writefile{toc}{\contentsline {paragraph}{Amplitude loss for unknown counts.}{5}{section*.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Implementation notes.}{5}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Datasets and Evaluation Protocol}{5}{subsection.2.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}Results}{5}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Reconstruction Quality}{5}{subsection.3.1}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Reconstruction quality metrics at maximum training set size (16,384 images). Values shown are mean $\pm $ standard deviation across 5 trials. Best values per dataset are highlighted in \textcolor {bestval}{green}.}}{6}{table.caption.11}\protected@file@percent }
 \newlabel{tab:results_16384}{{1}{6}{Reconstruction quality metrics at maximum training set size (16,384 images). Values shown are mean $\pm $ standard deviation across 5 trials. Best values per dataset are highlighted in \textcolor {bestval}{green}}{table.caption.11}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Overlap-Free Reconstruction}{6}{subsection.3.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces SIM-LINES-4X reconstruction metrics on the stitched test split. Ground truth uses the simulated object, cropped to the scanned region via scan-coordinate alignment. Test evaluation uses a random subsample (nsamples=1000, seed=7). Phase FRC50 is undefined because the ground-truth phase is constant zero.}}{6}{table.caption.12}\protected@file@percent }
-\newlabel{tab:sim_lines_metrics}{{2}{6}{SIM-LINES-4X reconstruction metrics on the stitched test split. Ground truth uses the simulated object, cropped to the scanned region via scan-coordinate alignment. Test evaluation uses a random subsample (nsamples=1000, seed=7). Phase FRC50 is undefined because the ground-truth phase is constant zero}{table.caption.12}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Data Efficiency}{6}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Out-of-distribution Generalization}{7}{subsection.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Photon-Limited Performance}{7}{subsection.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Computational Performance}{7}{subsection.3.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{7}{section.4}\protected@file@percent }
-\citation{Hoidn2023PtychoPINN}
-\bibstyle{plain}
-\bibdata{references}
-\bibcite{Babu2023EdgePtycho}{1}
-\bibcite{Bunk2008Overlap}{2}
-\bibcite{Cherukara2020PtychoNN}{3}
-\bibcite{Dong2018CMI}{4}
-\bibcite{GuizarSicairos2021PhysicsToday}{5}
-\bibcite{Hoidn2023PtychoPINN}{6}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Model parameters and their default values}}{10}{table.caption.26}\protected@file@percent }
-\newlabel{tab:config_params}{{3}{10}{Model parameters and their default values}{table.caption.26}{}}
-\bibcite{Kharitonov2022SciRep}{7}
-\bibcite{Maiden2012Annealing}{8}
-\bibcite{Maiden2009UltramicroscopyPIE}{9}
-\bibcite{Marchesini2016SHARP}{10}
-\bibcite{miao1999extending}{11}
-\bibcite{Seifert2023PoissonGaussian}{12}
-\bibcite{Sidorenko2015Optica}{13}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Mathematical symbols and conceptual descriptions}}{11}{table.caption.27}\protected@file@percent }
-\newlabel{tab:symbols}{{4}{11}{Mathematical symbols and conceptual descriptions}{table.caption.27}{}}
-\bibcite{LCLSIIHE_DesignPerf}{14}
-\bibcite{Thibault2012NJPML}{15}
-\bibcite{Zhang2016CMI}{16}
-\bibcite{Zhang2013Position}{17}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Reconstruction comparison. Rows: Idealized vs Hybrid probe. Columns: CDI vs Ptycho.}}{13}{figure.caption.1}\protected@file@percent }
-\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:recon_2x2}{{1}{13}{Reconstruction comparison. Rows: Idealized vs Hybrid probe. Columns: CDI vs Ptycho}{figure.caption.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Comparison of methods across in- and out-of-distribution cases.}}{14}{figure.caption.13}\protected@file@percent }
-\newlabel{fig:fivepanel}{{2}{14}{Comparison of methods across in- and out-of-distribution cases}{figure.caption.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Comparison of reconstruction quality with different numbers of diffraction patterns.}}{15}{figure.caption.14}\protected@file@percent }
-\newlabel{fig:smalldat}{{3}{15}{Comparison of reconstruction quality with different numbers of diffraction patterns}{figure.caption.14}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Structural similarity of PtychoPINN, conventional reconstruction (rPIE in Tike), and baseline as a function of training set size.}}{16}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:ssim}{{4}{16}{Structural similarity of PtychoPINN, conventional reconstruction (rPIE in Tike), and baseline as a function of training set size}{figure.caption.15}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Resolution (FRC50) as a function of on-sample photon dose for two variants of the PtychoPINN framework trained with mean absolute error (MAE) and Poisson negative log likelihood (NLL) reconstruction penalties in the self-supervised loss function}}{17}{figure.caption.24}\protected@file@percent }
-\newlabel{fig:dose}{{5}{17}{Resolution (FRC50) as a function of on-sample photon dose for two variants of the PtychoPINN framework trained with mean absolute error (MAE) and Poisson negative log likelihood (NLL) reconstruction penalties in the self-supervised loss function}{figure.caption.24}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces \textbf  {PtychoPINN architecture (compact, vertical).} The model divides amplitudes by a learned scale, infers complex patches with a dual-resolution decoder, then forks: one path trims to an $N\times N$ object (real-space loss), the other feeds physics $F_d$ (extract at coordinates, apply probe, FFT+channelize, rescale). Diffraction supervision uses an amplitude head (MAE) and an intensity head from squaring amplitudes (Poisson NLL). KNN grouping occurs outside the model.}}{18}{figure.caption.29}\protected@file@percent }
-\newlabel{fig:architecture_vertical}{{6}{18}{\textbf {PtychoPINN architecture (compact, vertical).} The model divides amplitudes by a learned scale, infers complex patches with a dual-resolution decoder, then forks: one path trims to an $N\times N$ object (real-space loss), the other feeds physics $F_d$ (extract at coordinates, apply probe, FFT+channelize, rescale). Diffraction supervision uses an amplitude head (MAE) and an intensity head from squaring amplitudes (Poisson NLL). KNN grouping occurs outside the model}{figure.caption.29}{}}
-\gdef \@abspage@last{18}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces SIM-LINES-4X reconstruction metrics on the stitched test split. Ground truth uses the simulated object, cropped to the scanned region via scan-coordinate alignment. Test evaluation uses a random subsample (nsamples=1000, seed=7). Phase FRC50 is undefined because the ground-truth phase is constant zero.}}{6}{table.caption.13}\protected@file@percent }
+\newlabel{tab:sim_lines_metrics}{{2}{6}{SIM-LINES-4X reconstruction metrics on the stitched test split. Ground truth uses the simulated object, cropped to the scanned region via scan-coordinate alignment. Test evaluation uses a random subsample (nsamples=1000, seed=7). Phase FRC50 is undefined because the ground-truth phase is constant zero}{table.caption.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Photon-Limited Performance}{6}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Data Efficiency}{6}{subsection.3.4}\protected@file@percent }
