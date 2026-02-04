@@ -5,28 +5,28 @@
       "label": "gs1 + idealized probe",
       "metrics": {
         "frc50": [
-          165.0,
+          23.0,
           null
         ],
         "mae": [
-          0.06860069766660971,
-          0.05761957474385373
+          0.18535945735020087,
+          0.29566688083881454
         ],
         "ms_ssim": [
-          0.9825637560667662,
-          0.5580462752060718
+          0.8524096385082194,
+          0.2568674375105
         ],
         "mse": [
-          0.007925860047199083,
-          0.016104143239894255
+          0.05569668696603209,
+          0.19421960798438961
         ],
         "psnr": [
-          69.14033959915446,
-          66.06142735611334
+          60.672509980417345,
+          55.24787287880472
         ],
         "ssim": [
-          0.913003650229657,
-          0.9251405425413088
+          0.6202317402694301,
+          0.41015347153771914
         ]
       },
       "registration_offset": [
@@ -73,28 +73,28 @@
       "label": "gs2 + idealized probe",
       "metrics": {
         "frc50": [
-          65.0,
+          165.0,
           null
         ],
         "mae": [
-          0.057795692,
-          0.07886880993990536
+          0.05178207,
+          0.007872062184046418
         ],
         "ms_ssim": [
-          0.9929218132174132,
-          0.1817031568724564
+          0.9926230713836021,
+          0.32794847610441896
         ],
         "mse": [
-          0.0057640704,
-          0.013986818476853288
+          0.0047745653,
+          0.00014456489382199048
         ],
         "psnr": [
-          70.52351084711997,
-          66.67361422439225
+          71.34146526018147,
+          86.53017519340607
         ],
         "ssim": [
-          0.9425888321654929,
-          0.8129895974185721
+          0.9517292476131115,
+          0.9961365852346478
         ]
       },
       "registration_offset": [
@@ -141,11 +141,12 @@
     "alignment": "align_for_evaluation using scan coordinates from global_offsets and stitch_patch_size=20",
     "ground_truth": "simulated lines object (objectGuess) cropped to scanned region",
     "metric_source": "ptycho.evaluation.eval_reconstruction",
+    "regeneration_date": "2026-02-04",
+    "regeneration_scope": "gs1_ideal and gs2_ideal updated on 2026-02-04 (gs2_ideal uses nll_weight=1.0, mae_weight=0.0); other cases remain from 2026-01-27",
+    "regeneration_source": ".artifacts/sim_lines_4x_metrics_2026-01-27/gs1_ideal/metrics.json; .artifacts/sim_lines_4x_metrics_2026-01-27/gs2_ideal_nll/metrics.json",
     "registration": "disabled for this regeneration (no registration_offset in workflow output)",
     "test_sampling": "nimgs-train=2, nimgs-test=2, nepochs=60, batch-size=16",
-    "test_split": "bottom-half spatial split (y-axis)",
-    "regeneration_date": "2026-01-27",
-    "regeneration_source": ".artifacts/sim_lines_4x_metrics_2026-01-27/{gs1_ideal,gs1_custom,gs2_ideal,gs2_custom}/metrics.json"
+    "test_split": "bottom-half spatial split (y-axis)"
   },
   "title": "SIM-LINES-4X reconstruction metrics"
 }
