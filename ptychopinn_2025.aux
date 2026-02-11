@@ -2,6 +2,7 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{LCLSIIHE_DesignPerf}
 \citation{GuizarSicairos2021PhysicsToday}
 \citation{Bunk2008Overlap}
 \citation{Maiden2009UltramicroscopyPIE}
@@ -44,13 +45,55 @@
 \newlabel{eq:alphaloginit}{{10}{5}{Poisson negative log-likelihood}{equation.2.10}{}}
 \@writefile{toc}{\contentsline {paragraph}{Amplitude loss for unknown counts.}{5}{section*.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Implementation notes.}{5}{section*.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Datasets and Evaluation Protocol}{5}{subsection.2.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{5}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Reconstruction Quality}{5}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Supervised Baseline}{5}{subsection.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Datasets and Evaluation Protocol}{5}{subsection.2.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{6}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Reconstruction Quality}{6}{subsection.3.1}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Reconstruction quality metrics at maximum training set size (16,384 images). Values shown are mean $\pm $ standard deviation across 5 trials. Best values per dataset are highlighted in \textcolor {bestval}{green}.}}{6}{table.caption.11}\protected@file@percent }
 \newlabel{tab:results_16384}{{1}{6}{Reconstruction quality metrics at maximum training set size (16,384 images). Values shown are mean $\pm $ standard deviation across 5 trials. Best values per dataset are highlighted in \textcolor {bestval}{green}}{table.caption.11}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Overlap-Free Reconstruction}{6}{subsection.3.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces SIM-LINES-4X reconstruction metrics on the stitched test split. Ground truth uses the simulated object, cropped to the scanned region via scan-coordinate alignment. Test evaluation uses a random subsample (nsamples=1000, seed=7). Phase FRC50 is undefined because the ground-truth phase is constant zero.}}{6}{table.caption.13}\protected@file@percent }
-\newlabel{tab:sim_lines_metrics}{{2}{6}{SIM-LINES-4X reconstruction metrics on the stitched test split. Ground truth uses the simulated object, cropped to the scanned region via scan-coordinate alignment. Test evaluation uses a random subsample (nsamples=1000, seed=7). Phase FRC50 is undefined because the ground-truth phase is constant zero}{table.caption.13}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Photon-Limited Performance}{6}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Data Efficiency}{6}{subsection.3.4}\protected@file@percent }
+\citation{Marchesini2016SHARP}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Synthetic line-pattern reconstruction metrics on the test split. Ground truth is the simulated object.}}{7}{table.caption.13}\protected@file@percent }
+\newlabel{tab:sim_lines_metrics}{{2}{7}{Synthetic line-pattern reconstruction metrics on the test split. Ground truth is the simulated object}{table.caption.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Data Efficiency}{7}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Out-of-distribution Generalization}{7}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Computational Performance}{7}{subsection.3.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{7}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{9}{section.5}\protected@file@percent }
+\bibstyle{plain}
+\bibdata{references}
+\bibcite{Babu2023EdgePtycho}{1}
+\bibcite{Bunk2008Overlap}{2}
+\bibcite{Cherukara2020PtychoNN}{3}
+\bibcite{Dong2018CMI}{4}
+\bibcite{GuizarSicairos2021PhysicsToday}{5}
+\bibcite{Hoidn2023PtychoPINN}{6}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Model parameters, default code values, and settings used for the APS/LCLS experiments in this paper}}{10}{table.caption.23}\protected@file@percent }
+\newlabel{tab:config_params}{{3}{10}{Model parameters, default code values, and settings used for the APS/LCLS experiments in this paper}{table.caption.23}{}}
+\bibcite{Kharitonov2022SciRep}{7}
+\bibcite{Maiden2012Annealing}{8}
+\bibcite{Maiden2009UltramicroscopyPIE}{9}
+\bibcite{Marchesini2016SHARP}{10}
+\bibcite{miao1999extending}{11}
+\bibcite{Seifert2023PoissonGaussian}{12}
+\bibcite{Sidorenko2015Optica}{13}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Mathematical symbols and conceptual descriptions}}{11}{table.caption.24}\protected@file@percent }
+\newlabel{tab:symbols}{{4}{11}{Mathematical symbols and conceptual descriptions}{table.caption.24}{}}
+\bibcite{LCLSIIHE_DesignPerf}{14}
+\bibcite{Zhang2016CMI}{15}
+\bibcite{Zhang2013Position}{16}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Reconstruction comparison. Rows: Idealized vs Hybrid probe. Columns: CDI vs Ptycho.}}{13}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:recon_2x2}{{1}{13}{Reconstruction comparison. Rows: Idealized vs Hybrid probe. Columns: CDI vs Ptycho}{figure.caption.1}{}}
+\newlabel{fig:lowcounts}{{2a}{14}{512 diffraction patterns of the Siemens star test pattern}{figure.caption.12}{}}
+\newlabel{sub@fig:lowcounts}{{a}{14}{512 diffraction patterns of the Siemens star test pattern}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Comparison of reconstruction quality with different numbers of diffraction patterns.}}{14}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:smalldat}{{2}{14}{Comparison of reconstruction quality with different numbers of diffraction patterns}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Resolution (FRC50) as a function of on-sample photon dose for two variants of the PtychoPINN framework trained with mean absolute error (MAE) and Poisson negative log likelihood (NLL) reconstruction penalties in the self-supervised loss function}}{15}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:dose}{{3}{15}{Resolution (FRC50) as a function of on-sample photon dose for two variants of the PtychoPINN framework trained with mean absolute error (MAE) and Poisson negative log likelihood (NLL) reconstruction penalties in the self-supervised loss function}{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Structural similarity of PtychoPINN, the supervised matched-backbone model, and a conventional iterative reference (rPIE in Tike) as a function of training set size.}}{15}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:ssim}{{4}{15}{Structural similarity of PtychoPINN, the supervised matched-backbone model, and a conventional iterative reference (rPIE in Tike) as a function of training set size}{figure.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Comparison of methods for an in-distribution LCLS control (train LCLS XPP, test LCLS XPP) and out-of-distribution transfer (train APS, test LCLS XPP). The reference column shows an ePIE reconstruction of the LCLS data.}}{16}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:fivepanel}{{5}{16}{Comparison of methods for an in-distribution LCLS control (train LCLS XPP, test LCLS XPP) and out-of-distribution transfer (train APS, test LCLS XPP). The reference column shows an ePIE reconstruction of the LCLS data}{figure.caption.16}{}}
+\gdef \@abspage@last{16}

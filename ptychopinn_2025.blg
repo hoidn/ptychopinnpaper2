@@ -3,44 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: ptychopinn_2025.aux
 The style file: plain.bst
 Database file #1: references.bib
-You've used 17 entries,
+You've used 16 entries,
             2118 wiz_defined-function locations,
-            625 strings with 8241 characters,
-and the built_in function-call counts, 7398 in all, are:
-= -- 680
-> -- 535
+            619 strings with 8073 characters,
+and the built_in function-call counts, 7092 in all, are:
+= -- 650
+> -- 522
 < -- 0
-+ -- 213
-- -- 194
-* -- 665
-:= -- 1300
-add.period$ -- 52
-call.type$ -- 17
-change.case$ -- 148
++ -- 208
+- -- 190
+* -- 644
+:= -- 1247
+add.period$ -- 49
+call.type$ -- 16
+change.case$ -- 143
 chr.to.int$ -- 0
-cite$ -- 17
-duplicate$ -- 183
-empty$ -- 444
-format.name$ -- 194
-if$ -- 1428
+cite$ -- 16
+duplicate$ -- 172
+empty$ -- 419
+format.name$ -- 190
+if$ -- 1365
 int.to.chr$ -- 0
-int.to.str$ -- 17
-missing$ -- 16
-newline$ -- 89
-num.names$ -- 34
-pop$ -- 120
+int.to.str$ -- 16
+missing$ -- 15
+newline$ -- 84
+num.names$ -- 32
+pop$ -- 117
 preamble$ -- 1
-purify$ -- 131
+purify$ -- 127
 quote$ -- 0
-skip$ -- 121
+skip$ -- 113
 stack$ -- 0
-substring$ -- 445
-swap$ -- 17
+substring$ -- 422
+swap$ -- 16
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 68
+type$ -- 64
 warning$ -- 0
-while$ -- 60
-width$ -- 19
-write$ -- 190
+while$ -- 57
+width$ -- 18
+write$ -- 179
