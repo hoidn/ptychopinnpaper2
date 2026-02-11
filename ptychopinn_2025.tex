@@ -97,7 +97,7 @@
 \maketitle
 
 \begin{abstract}
-Single-shot coherent imaging is important for XFEL science because it lowers photon dose, removes the overhead of overlapping scans, and enables real-time feedback. We present a \emph{physics-constrained Deep Neural Network (DNN)} that delivers \emph{overlap-free, single-shot} reconstructions in a Fresnel (near-field) CDI geometry and also accelerates conventional multi-shot ptychography. The DNN is \emph{self-supervised}: it learns directly from raw diffraction patterns by enforcing a differentiable forward model of coherent scattering together with a Poisson photon-counting likelihood and a calibrated intensity scale. Two design choices enable robust experimental performance in both single- and multi-shot modes: (i) a \emph{dual-resolution} decoder that prevents exit-wave truncation with realistic, extended probes, and (ii) real-space constraints through coordinate-based grouping that supports arbitrary scan geometries. On APS and LCLS data, the approach reconstructs orders of magnitude faster than iterative solvers, remains accurate at low counts ($\sim\!10^4$ photons/frame) and zero overlap, achieves high fidelity with an order of magnitude less training data than supervised baselines, and generalizes across facilities without retraining. In the Fresnel regime we obtain stable \emph{single-shot} reconstructions using only the probe curvature; that is, with no beam multiplexers or modulators. This unifies single-exposure Fresnel CDI and overlapped ptychography within one computational framework, enabling \emph{high-resolution, dose-efficient operando} imaging at XFELs at substantially higher throughput than previously feasible.
+Single-shot coherent imaging is important for XFEL science because it lowers photon dose, removes the overhead of overlapping scans, and enables real-time feedback. We present a \emph{physics-constrained Deep Neural Network (DNN)} that delivers \emph{overlap-free, single-shot} reconstructions in a Fresnel (near-field) CDI geometry and also accelerates conventional multi-shot ptychography. The DNN is \emph{self-supervised}: it learns directly from raw diffraction patterns by enforcing a differentiable forward model of coherent scattering together with a Poisson photon-counting likelihood and a calibrated intensity scale. Two design choices enable robust experimental performance in both single- and multi-shot modes: (i) a \emph{dual-resolution} decoder that prevents exit-wave truncation with realistic, extended probes, and (ii) real-space constraints through coordinate-based grouping that supports arbitrary scan geometries. On APS and LCLS data, the approach reconstructs at approximately $4.6\times10^3$ diffraction patterns/s for $64\times64$ patches, remains accurate at low counts ($\sim\!10^4$ photons/frame) and zero overlap, and achieves high fidelity with an order of magnitude less training data than the supervised matched-backbone model. It also shows qualitative cross-facility transfer without retraining. In the Fresnel regime we obtain \emph{single-shot} reconstructions using only the probe curvature; that is, with no beam multiplexers or modulators. This unifies single-exposure Fresnel CDI and overlapped ptychography within one computational framework, enabling \emph{high-resolution, dose-efficient operando} imaging at XFELs at substantially higher throughput than previously feasible.
 
 \end{abstract}
 
@@ -291,7 +291,7 @@ A dataset consists of diffraction images from one or more objects measured with 
   x_k \;=\; x'_k \cdot \sqrt{\frac{(N/2)^2}{\big\langle\sum_{i,j} |x'_{ij}|^2\big\rangle}},
   \label{eq:norm}
 \end{align}
-where $x'$ denotes raw measurements and the average is over all images in the dataset. This choice ensures order-unity activations in the neural network: by Parseval's theorem, unit-amplitude real-space objects produce diffraction power of approximately $N^2/4$, so this normalization maps experimental amplitude images to internal activations suited to gradient-based optimization.
+where $x'$ denotes raw measurements and the average is over all images in the dataset. This choice ensures order-unity activations in the neural network: by Parseval's theorem, unit-amplitude real-space objects produce diffraction power of approximately $N^2/4$, so this normalization maps experimental amplitude images to internal activations of order unity.
 %\footnote{The factor of 4 arises from the oversampling requirement that the reconstructed object occupies the central $N/2 \times N/2$ region of an $N \times N$ grid.}
 
 Additionally, we introduce a trainable scalar $\alpha_{\log}$ that converts between the dimensionless internal model activations and per-pixel integrated amplitudes. As discussed in Section~\ref{sec:loss}, the role of $\alpha_{\log}$ is to convert the output \emph{intensity} into physical units of photons per pixel. The final, scaled, network input is $x_{\text{in}} = x \cdot e^{-\alpha_{\log}}$.
@@ -354,16 +354,16 @@ In the results reported here we do not use any real-space loss; training is driv
 All operators in $F_c$ and $F_d$ are differentiable and implemented with padding-aware translations and FFT-based diffraction. Batching is performed over groups $\mathcal{G}_{i,j}$; nearest-neighbor sampling with $n_{\text{samples}}>1$ provides dataset augmentation while preserving local spatial consistency. Default architectural and training hyperparameters are summarized in Table~\ref{tab:config_params}.
 
 \subsection{Datasets and Evaluation Protocol}
-We evaluate on APS Velociprobe Siemens-star data, LCLS-XPP Run1084, and the fly001-synthetic dataset simulated from APS Siemens-star reconstructions (ground truth for Table~\ref{tab:results_16384}). For the Siemens-star experiments, we use a spatial holdout: the top half of the scan is used for training and the bottom half for testing. For out-of-distribution transfer, models trained on APS data are evaluated on LCLS data without retraining, with beamline-specific forward parameters (probe/geometry) substituted at inference.
+We evaluate on APS Velociprobe Siemens-star data, an LCLS (XPP) test pattern dataset (hereafter, LCLS XPP dataset), and the fly001-synthetic dataset simulated from APS Siemens-star reconstructions (ground truth for Table~\ref{tab:results_16384}). For the Siemens-star experiments, we use a spatial holdout: the top half of the scan is used for training and the bottom half for testing. For out-of-distribution transfer, models trained on APS data are evaluated on LCLS data without retraining, with beamline-specific forward parameters (probe/geometry) substituted at inference.
 
 
 \section{Results}
 
-We report results on APS Velociprobe Siemens-star data, LCLS-XPP Run1084, and the fly001-synthetic dataset; see Methods for dataset definitions and evaluation protocol.
+We report results on APS Velociprobe Siemens-star data, the LCLS XPP dataset, and the fly001-synthetic dataset; see Methods for dataset definitions and evaluation protocol.
 
 \subsection{Reconstruction Quality}
 
-Figure~\ref{fig:smalldat} compares reconstructions on APS Siemens-star data across two sampling budgets (512 and 8192 diffraction patterns). The physics-informed model preserves clear edge structure and contrast in both regimes, while the supervised baseline (PtychoNN) degrades visibly at lower data availability. On the fly001-synthetic dataset (simulated from APS Siemens-star reconstructions), the physics-informed model also attains higher phase fidelity than the supervised baseline; see Table~\ref{tab:results_16384}.
+Figure~\ref{fig:smalldat} compares reconstructions on APS Siemens-star data across two sampling budgets (512 and 8192 diffraction patterns). The physics-informed model preserves clear edge structure and contrast in both regimes, while the supervised matched-backbone model (PtychoNN-style) degrades visibly at lower data availability. On the fly001-synthetic dataset (simulated from APS Siemens-star reconstructions), the physics-informed model also attains higher phase fidelity than the supervised matched-backbone model; see Table~\ref{tab:results_16384}.
 
 
 \begin{table}[htbp]
@@ -377,7 +377,7 @@ Figure~\ref{fig:smalldat} compares reconstructions on APS Siemens-star data acro
 Dataset & Method & Amplitude & Phase & Amplitude & Phase \\
 \midrule
 \multirow{2}{*}{fly001-synthetic} 
-& PtychoNN (supervised) & 
+& Supervised matched-backbone & 
   $84.83 \pm 0.23$ & 
   $68.62 \pm 0.02$ & 
   $0.930 \pm 0.002$ & 
@@ -434,7 +434,7 @@ Dataset & Method & Amplitude & Phase & Amplitude & Phase \\
 In overlap-free operation, we set the group size to a single diffraction frame ($C_g = 1$), removing overlap-based real-space consistency. Reconstruction then relies entirely on the diffraction likelihood and the known probe structure (defocused probe/Fresnel geometry). Figure~\ref{fig:recon_2x2} illustrates this single-frame mode compared with multi-position ptychography. Quantitative comparisons across overlap and probe-structuring variants on a synthetic line-pattern dataset are summarized in Table~\ref{tab:sim_lines_metrics} (overlap-free $C_g=1$ vs overlap $C_g=2$).
 \begin{table}[htbp]
 \centering
-\caption{Synthetic line-pattern reconstruction metrics on the test split. Ground truth uses the simulated object. Phase FRC50 is undefined because the ground-truth phase is constant zero.}
+\caption{Synthetic line-pattern reconstruction metrics on the test split. Ground truth is the simulated object.}
 \label{tab:sim_lines_metrics}
 \begin{tabular}{@{}lcccccccc@{}}
 \toprule
@@ -462,20 +462,20 @@ Figure~\ref{fig:dose} summarizes resolution (FRC50) as a function of photon dose
 
 \subsection{Data Efficiency}
 
-Figure~\ref{fig:ssim} illustrates the reconstruction quality (phase SSIM) as a function of dataset size. The physics-informed framework maintains high fidelity (SSIM $> 0.95$) even when trained on as few as 512 diffraction patterns. In contrast, the supervised baseline degrades rapidly below 1024 samples. The horizontal shift between the curves indicates that PtychoPINN achieves comparable quality using roughly an order of magnitude less training data than the supervised approach. This confirms that enforcing the diffraction forward model acts as a powerful regularizer, reducing the number of samples required to constrain the solution. 
+Figure~\ref{fig:ssim} illustrates the reconstruction quality (phase SSIM) as a function of dataset size. The physics-informed framework maintains high fidelity (SSIM $> 0.95$) even when trained on as few as 512 diffraction patterns. In contrast, the supervised matched-backbone model degrades rapidly below 1024 samples. The horizontal shift between the curves indicates that PtychoPINN achieves comparable quality using roughly an order of magnitude less training data than the supervised approach. This confirms that enforcing the diffraction forward model acts as a powerful regularizer, reducing the number of samples required to constrain the solution. In this figure, rPIE (Tike) is included as a conventional iterative reference, not as a learned baseline. 
 
 % [CUT per revision plan A1: Sparse Sampling Robustness subsection removed - content folded into Data Efficiency discussion]
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/ssim.png}
-    \caption{Structural similarity of PtychoPINN, conventional reconstruction (rPIE in Tike), and the PtychoNN baseline as a function of training set size.}
+    \caption{Structural similarity of PtychoPINN, the supervised matched-backbone model, and a conventional iterative reference (rPIE in Tike) as a function of training set size.}
     \label{fig:ssim}
 \end{figure}
 
 \subsection{Out-of-distribution Generalization}
 
-To evaluate out-of-distribution generalization, we train on APS Velociprobe data and reconstruct LCLS-XPP Run1084 without retraining, using beamline-specific forward parameters (probe/geometry). Despite substantial differences in illumination profiles, the physics-informed model retains recognizable LCLS object features (Fig.~\ref{fig:fivepanel}, PINN row), while the supervised baseline degrades markedly. The distribution shift induces phase distortion and reduced quantitative fidelity, but edge structure remains visible in the PINN reconstructions. The reference column in Fig.~\ref{fig:fivepanel} is an ePIE reconstruction of the LCLS data.
+To evaluate out-of-distribution generalization, we train on APS Velociprobe data and reconstruct the LCLS XPP dataset without retraining, using beamline-specific forward parameters (probe/geometry). Despite substantial differences in illumination profiles, the physics-informed model retains recognizable LCLS object features (Fig.~\ref{fig:fivepanel}, PINN row), while the supervised matched-backbone model degrades markedly. This transfer result is qualitative, but still diagnostic: under the same shift, the supervised matched-backbone model largely collapses, whereas the physics-informed model preserves edge structure despite phase distortion and reduced quantitative fidelity. The reference column in Fig.~\ref{fig:fivepanel} is an ePIE reconstruction of the LCLS data.
 
 \begin{figure}[t]
   \centering
@@ -505,7 +505,7 @@ To evaluate out-of-distribution generalization, we train on APS Velociprobe data
 \newcommand{\refAmp}{figures/out-dist-fig/ground_truth_run1084_amplitude.png}
 \newcommand{\refPhs}{figures/out-dist-fig/ground_truth_run1084_phase.png}
 \newcommand{\probeA}{figures/out-dist-fig/fly64_probe_amplitude.png}   % A: APS-2-ID
-\newcommand{\probeB}{figures/out-dist-fig/run1084_probe_amplitude.png} % B: LCLS-XPP
+\newcommand{\probeB}{figures/out-dist-fig/run1084_probe_amplitude.png} % B: LCLS XPP
 
 % ---------- GLOBAL FONTS ----------
 \newcommand{\figfs}{\normalsize}
@@ -623,7 +623,7 @@ To evaluate out-of-distribution generalization, we train on APS Velociprobe data
 \FramePanel{p12a} \FramePanel{p12p}
 
 % =======================
-% Bottom row (PtychoNN)
+% Bottom row (supervised matched-backbone)
 % =======================
 \node[anchor=north west] (p21a) at ($(cell11.south west) + (0,-\panelsepY)$)
   {\IncludeOrPlaceholderWH{\baseIDamp}{\subw}{\subh}};
@@ -683,7 +683,7 @@ To evaluate out-of-distribution generalization, we train on APS Velociprobe data
 \node[anchor=east, font=\bfseries\figfs, text=pinncol] (rowPINN)
   at ($ (cell11.west) + (-5mm,0) $) {PINN};
 \node[anchor=east, font=\bfseries\figfs, text=basecol] (rowBASE)
-  at ($ (cell21.west) + (-5mm,0) $) {PtychoNN};
+  at ($ (cell21.west) + (-5mm,0) $) {Supervised};
 
 % =======================
 % Top-left legend (foreground; never hidden)
@@ -692,22 +692,24 @@ To evaluate out-of-distribution generalization, we train on APS Velociprobe data
   % Create invisible matrix first to get positions
   \matrix (L) [matrix of nodes,
                row sep=5mm, column sep=4mm,
+               ampersand replacement=\&,
                nodes={anchor=west, font=\small},
                anchor=south west] at ($ (grid.north west) + (0, \hdrsepRowOne + 12mm) $)
   {
-    \node[font=\small\bfseries] {A}; & APS-2-ID; & \node (Aimg) {}; \\
-    \node[font=\small\bfseries] {B}; & LCLS-XPP; & \node (Bimg) {}; \\
+    \node[font=\small\bfseries] {A}; \& APS-2-ID; \& \node (Aimg) {}; \\
+    \node[font=\small\bfseries] {B}; \& LCLS XPP; \& \node (Bimg) {}; \\
   };
   % Legend background box fitted around the matrix & images (draw first)
   \node[legendbox, fit=(L) (Aimg) (Bimg)] (legend) {};
   % Now draw content on top
   \matrix (L) [matrix of nodes,
                row sep=5mm, column sep=4mm,
+               ampersand replacement=\&,
                nodes={anchor=west, font=\small},
                anchor=south west] at ($ (grid.north west) + (0, \hdrsepRowOne + 12mm) $)
   {
-    \node[font=\small\bfseries] {A}; & APS-2-ID; & \node (Aimg) {}; \\
-    \node[font=\small\bfseries] {B}; & LCLS-XPP; & \node (Bimg) {}; \\
+    \node[font=\small\bfseries] {A}; \& APS-2-ID; \& \node (Aimg) {}; \\
+    \node[font=\small\bfseries] {B}; \& LCLS XPP; \& \node (Bimg) {}; \\
   };
   % Probe thumbnails in legend
   \def\lgr{0.35cm}
@@ -744,7 +746,7 @@ To evaluate out-of-distribution generalization, we train on APS Velociprobe data
 
 \subsection{Computational Performance}
 
-PtychoPINN processes approximately 4.6k diffraction patterns per second on an NVIDIA RTX 3090, excluding stitching/reassembly time. 
+PtychoPINN processes approximately 4.6k diffraction patterns per second for $64\times64$ patches on an NVIDIA RTX 3090, excluding stitching/reassembly time. Marchesini et al. report SHARP reconstruction of 10,000 frames at $128\times128$ in under 2 s on 16 GPUs for a simulation benchmark~\cite{Marchesini2016SHARP}, i.e., $>$5000 frames/s aggregate. Assuming linear per-GPU normalization from that multi-GPU result gives $>$312.5 frames/s per GPU at $128\times128$; applying $N^2$ size normalization to $64\times64$ gives $>$1250 frames/s per GPU and an estimated per-GPU throughput ratio of approximately $3.7\times$ in favor of PtychoPINN. This ratio is an approximate normalized reference, not a direct matched-condition single-GPU benchmark.
 
 \section{Discussion}
 
@@ -755,7 +757,7 @@ In classical ptychography, translational overlap provides real-space redundancy 
 The Poisson NLL objective matches photon-counting statistics, providing correct likelihood scoring at low intensities where MAE is biased. Because high-$q$ diffraction signal is weak and noise-dominated, an objective that properly weights low-count pixels improves dose efficiency (Fig.~\ref{fig:dose}). This is consistent with qualitative comparisons of low-dose reconstructions (Fig.~\ref{fig:lowcounts}).
 
 \subsection*{Generalization and data efficiency}
-On the Siemens-star spatial holdout, the supervised baseline shows a clear train--test gap, while the physics-informed model maintains comparable resolution across held-out positions (Figs.~\ref{fig:smalldat}, \ref{fig:ssim}). Under a distribution shift (APS$\!\to\!$LCLS), the baseline degrades markedly, whereas the physics-informed model preserves edge structure despite phase distortions (Fig.~\ref{fig:fivepanel}). The SSIM curves further indicate that the physics-constrained model reaches a given fidelity with far fewer training samples (Fig.~\ref{fig:ssim}). Together, these results point to a strong inductive bias from the diffraction forward model that improves both data efficiency and transfer robustness.
+On the Siemens-star spatial holdout, the supervised matched-backbone model shows a clear train--test gap, while the physics-informed model maintains comparable resolution across held-out positions (Figs.~\ref{fig:smalldat}, \ref{fig:ssim}). Under a distribution shift (APS$\!\to\!$LCLS), the supervised matched-backbone model degrades markedly, whereas the physics-informed model preserves edge structure despite phase distortions (Fig.~\ref{fig:fivepanel}). The SSIM curves further indicate that the physics-constrained model reaches a given fidelity with far fewer training samples (Fig.~\ref{fig:ssim}). Together, these results point to a strong inductive bias from the diffraction forward model that improves both data efficiency and transfer robustness.
 
 \subsection*{Implications for modern light sources}
 These capabilities relax overlap requirements and reduce the burden of labeled training data, enabling more flexible experimental design and faster feedback in high-rate CDI workflows. Single-shot Fresnel CDI and improved dose efficiency are particularly relevant for dynamic or radiation-sensitive samples.
