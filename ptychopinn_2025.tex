@@ -92,12 +92,12 @@
 %$^1$SLAC National Accelerator Laboratory, Menlo Park, California, USA \\
 %\texttt{ohoidn@slac.stanford.edu}}
 
-\date{\today}
+\date{}
 
 \maketitle
 
 \begin{abstract}
-Single-shot coherent imaging is important for XFEL science because it lowers photon dose, removes the overhead of overlapping scans, and enables real-time feedback. We present a \emph{physics-constrained Deep Neural Network (DNN)} that delivers \emph{overlap-free, single-shot} reconstructions in a Fresnel (near-field) CDI geometry and also accelerates conventional multi-shot ptychography. The DNN is \emph{self-supervised}: it learns directly from raw diffraction patterns by enforcing a differentiable forward model of coherent scattering together with a Poisson photon-counting likelihood and a calibrated intensity scale. Two design choices enable robust experimental performance in both single- and multi-shot modes: (i) a \emph{dual-resolution} decoder that prevents exit-wave truncation with realistic, extended probes, and (ii) real-space constraints through coordinate-based grouping that supports arbitrary scan geometries. On APS and LCLS data, the approach reconstructs at approximately $4.6\times10^3$ diffraction patterns/s for $64\times64$ patches, remains accurate at low counts ($\sim\!10^4$ photons/frame) and zero overlap, and achieves high fidelity with an order of magnitude less training data than the supervised matched-backbone model. It also shows qualitative cross-facility transfer without retraining. In the Fresnel regime we obtain \emph{single-shot} reconstructions using only the probe curvature; that is, with no beam multiplexers or modulators. This unifies single-exposure Fresnel CDI and overlapped ptychography within one computational framework, enabling \emph{high-resolution, dose-efficient operando} imaging at XFELs at substantially higher throughput than previously feasible.
+Single-shot coherent imaging is important for XFEL science because it lowers photon dose, removes the overhead of overlapping scans, and enables real-time feedback. We present a \emph{physics-constrained Deep Neural Network (DNN)} that delivers \emph{overlap-free, single-shot} reconstructions in a Fresnel (near-field) CDI geometry and also accelerates conventional multi-shot ptychography. The DNN is \emph{self-supervised}: it learns directly from raw diffraction patterns by enforcing a differentiable forward model of coherent scattering together with a Poisson photon-counting likelihood and a calibrated intensity scale. The design enforces real-space constraints through coordinate-based grouping, which allows both single- and multi-shot reconstruction under arbitrary scan geometries. On APS and LCLS data, the approach reconstructs at approximately $4.6\times10^3$ diffraction patterns/s for $64\times64$ patches, remains accurate at low counts ($\sim\!10^4$ photons/frame) and zero overlap, and achieves high fidelity with an order of magnitude less training data than the supervised matched-backbone model. It also shows qualitative cross-facility transfer without retraining. In the Fresnel regime we obtain \emph{single-shot} reconstructions using only the probe curvature; that is, with no beam multiplexers or modulators. This unifies single-exposure Fresnel CDI and overlapped ptychography within one computational framework, enabling \emph{high-resolution, dose-efficient operando} imaging at XFELs at substantially higher throughput than previously feasible.
 
 \end{abstract}
 
@@ -302,7 +302,7 @@ Additionally, we introduce a trainable scalar $\alpha_{\log}$ that converts betw
 The inverse map $G$ follows an encoder–decoder design (as in \cite{Hoidn2023PtychoPINN}), conditioned on $\{x_k\}_{k=1}^{C_g}$ and $\{\vec{r}^{\,\text{rel}}_k\}_{k=1}^{C_g}$, and outputs complex patches $\{O_k\}_{k=1}^{C_g}$. To respect oversampling while avoiding truncation artifacts from realistic probes with extended tails, the decoder allocates most capacity to the central, well-posed region and a lightweight continuation to the periphery.
 
 \paragraph{Extended probe illumination (dual-resolution decoding).}
-CNN architectures are limited to modest dimensions ($N \leq 128$) and we must furthermore restrict high-resolution reconstruction to the central $N/2 \times N/2$ region to satisfy oversampling conditions \cite{miao1999extending}. Probes with extended tails force inefficient use of this limited number of pixels because the real-space area brightly illuminated by the probe is small compared to the total probe area that must be represented to avoid truncation artifacts from non-zero amplitude at the edge of the real-space grid.
+CNN architectures are limited to modest dimensions ($N \leq 128$) because convolutional receptive fields capture long-range interactions only inefficiently in this Fourier inversion setting, and we must furthermore restrict high-resolution reconstruction to the central $N/2 \times N/2$ region to satisfy oversampling conditions \cite{miao1999extending}. Probes with extended tails force inefficient use of this limited number of pixels because the real-space area brightly illuminated by the probe is small compared to the total probe area that must be represented to avoid truncation artifacts from non-zero amplitude at the edge of the real-space grid.
 
 Consequently, given the modest magnitude of $N$, fully inscribing the probe—tails included—within the central $N/2 \times N/2$ pixels may require too much binning. This causes a dilemma: one must choose between truncation artifacts (and possible lack of convergence due to the associated physical inconsistency) and violation of the diffraction-space oversampling condition for coherent imaging.
 
@@ -354,16 +354,16 @@ In the results reported here we do not use any real-space loss; training is driv
 All operators in $F_c$ and $F_d$ are differentiable and implemented with padding-aware translations and FFT-based diffraction. Batching is performed over groups $\mathcal{G}_{i,j}$; nearest-neighbor sampling with $n_{\text{samples}}>1$ provides dataset augmentation while preserving local spatial consistency. Default architectural and training hyperparameters are summarized in Table~\ref{tab:config_params}.
 
 \subsection{Datasets and Evaluation Protocol}
-We evaluate on APS Velociprobe Siemens-star data, an LCLS (XPP) test pattern dataset (hereafter, LCLS XPP dataset), and the fly001-synthetic dataset simulated from APS Siemens-star reconstructions (ground truth for Table~\ref{tab:results_16384}). For the Siemens-star experiments, we use a spatial holdout: the top half of the scan is used for training and the bottom half for testing. For out-of-distribution transfer, models trained on APS data are evaluated on LCLS data without retraining, with beamline-specific forward parameters (probe/geometry) substituted at inference.
+We evaluate on APS Velociprobe Siemens-star data, an LCLS (XPP) test pattern dataset (hereafter, LCLS XPP dataset), and a synthetic Siemens-star dataset simulated from APS Siemens-star reconstructions (ground truth for Table~\ref{tab:results_16384}). For the Siemens-star experiments, we use a spatial holdout: the top half of the scan is used for training and the bottom half for testing. For out-of-distribution transfer, models trained on APS data are evaluated on LCLS data without retraining, with beamline-specific forward parameters (probe/geometry) substituted at inference.
 
 
 \section{Results}
 
-We report results on APS Velociprobe Siemens-star data, the LCLS XPP dataset, and the fly001-synthetic dataset; see Methods for dataset definitions and evaluation protocol.
+We report results on APS Velociprobe Siemens-star data, the LCLS XPP dataset, and the synthetic Siemens-star dataset; see Methods for dataset definitions and evaluation protocol.
 
 \subsection{Reconstruction Quality}
 
-Figure~\ref{fig:smalldat} compares reconstructions on APS Siemens-star data across two sampling budgets (512 and 8192 diffraction patterns). The physics-informed model preserves clear edge structure and contrast in both regimes, while the supervised matched-backbone model (PtychoNN-style) degrades visibly at lower data availability. On the fly001-synthetic dataset (simulated from APS Siemens-star reconstructions), the physics-informed model also attains higher phase fidelity than the supervised matched-backbone model; see Table~\ref{tab:results_16384}.
+Figure~\ref{fig:smalldat} compares reconstructions on APS Siemens-star data across two sampling budgets (512 and 8192 diffraction patterns). The physics-informed model preserves clear edge structure and contrast in both regimes, while the supervised matched-backbone model (PtychoNN-style) degrades visibly at lower data availability. On the synthetic Siemens-star dataset (simulated from APS Siemens-star reconstructions), the physics-informed model also attains higher phase fidelity than the supervised matched-backbone model; see Table~\ref{tab:results_16384}.
 
 
 \begin{table}[htbp]
@@ -376,7 +376,7 @@ Figure~\ref{fig:smalldat} compares reconstructions on APS Siemens-star data acro
 \cmidrule(lr){3-4} \cmidrule(lr){5-6}
 Dataset & Method & Amplitude & Phase & Amplitude & Phase \\
 \midrule
-\multirow{2}{*}{fly001-synthetic} 
+\multirow{2}{*}{synthetic Siemens-star} 
 & Supervised matched-backbone & 
   $84.83 \pm 0.23$ & 
   $68.62 \pm 0.02$ & 
@@ -763,7 +763,7 @@ On the Siemens-star spatial holdout, the supervised matched-backbone model shows
 These capabilities relax overlap requirements and reduce the burden of labeled training data, enabling more flexible experimental design and faster feedback in high-rate CDI workflows. Single-shot Fresnel CDI and improved dose efficiency are particularly relevant for dynamic or radiation-sensitive samples.
 
 \subsection*{Limitations and extensions}
-We assume a fixed, pre-estimated probe during both training and inference; joint probe retrieval within the self-supervised loop is a natural extension. Probe drift and position errors are not modeled explicitly and could be addressed by stochastic position models or differentiable refinement. Extending the approach to Bragg CDI and reflection geometries would primarily require forward-model and sampling adaptations.
+We assume a fixed, pre-estimated probe during both training and inference; joint probe retrieval within the self-supervised loop is a natural extension. Probe drift and position errors are not modeled explicitly and could be addressed by stochastic position models or differentiable refinement. Extending the approach to Bragg CDI and reflection geometries would primarily require forward-model and sampling adaptations. The architecture is modular: the inverse-network backbone, physics operators, and loss can be improved independently. Additional speedups are expected from mixed-precision execution and backbone-level architectural optimization. At fixed wall-time, these gains can be used for better reconstruction quality or higher target resolution. Replacing the CNN backbone with an FNO backbone is a plausible path to better scaling at larger $N$ and improved high-resolution reconstruction quality.
 
 \section{Conclusion}
 Coupling a Poisson photon-counting likelihood with a differentiable forward model yields dose efficiency, robustness to sparse or irregular acquisition, and support for single-shot Fresnel CDI. These properties broaden the practical operating regime of coherent imaging at modern light sources.
