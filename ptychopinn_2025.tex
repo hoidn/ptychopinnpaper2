@@ -216,7 +216,7 @@ Consequently, given the modest magnitude of $N$, fully inscribing the probe—ta
 
 We resolve this by reconstructing the object in high resolution in the central $N/2 \times N/2$ region of the real-space grid and low resolution in the periphery. Presuming the absence of high spatial frequency components in the probe tail, extending the probe times object reconstruction into the periphery does not compromise well-posedness of the inverse problem.
 
-Concretely, we use most channels ($C-4$) of the penultimate decoder layer for the central region and the remaining 4 channels to coarsely reconstruct the periphery:
+Concretely, we split the penultimate decoder layer's channels into a majority set for the central region and the remaining 4 channels to coarsely reconstruct the periphery:
 \begin{align}
   O_{\mathrm{amp}} &= \mathrm{Pad}_{N/4}\!\big(\sigma_A(\mathrm{Conv}(H^{\text{central}}_A))\big)\;+\;
   \sigma_A(\mathrm{ConvUp}(H^{\text{border}}_A))\odot M_{\text{border}},\\
@@ -224,7 +224,7 @@ Concretely, we use most channels ($C-4$) of the penultimate decoder layer for th
   \pi \tanh(\mathrm{ConvUp}(H^{\text{border}}_\phi))\odot M_{\text{border}},\\
   O_k &= O_{\mathrm{amp}}\cdot \exp\!\big(i\,O_{\mathrm{phase}}\big),
 \end{align}
-where $H^{\text{central}}_{\{\cdot\}}$ (the first $C-4$ channels) targets the central region, $H^{\text{border}}_{\{\cdot\}}$ (the last 4 channels) produces a low-resolution continuation, and $M_{\text{border}}$ is a binary mask that isolates the boundary contributions to the outer region. This modification avoids artifacts from truncation of the exit wave and enables stable reconstruction with experimentally realistic probes.
+where $H^{\text{central}}_{\{\cdot\}}$ targets the central region, $H^{\text{border}}_{\{\cdot\}}$ (the last 4 channels) produces a low-resolution continuation, and $M_{\text{border}}$ is a binary mask that isolates the boundary contributions to the outer region. This modification avoids artifacts from truncation of the exit wave and enables stable reconstruction with experimentally realistic probes.
 
 \subsection{Training Objective and Optimization}
 \label{sec:loss}
@@ -673,7 +673,7 @@ These parameters control critical aspects of the reconstruction process and shou
 \texttt{N} & 64 & Patch dimension (pixels) \\
 \texttt{C\_g} & 1 & Patterns per group (code default: 4) \\
 \texttt{K} & 4 & Nearest neighbors for scan-position grouping \\
-\texttt{pad\_object} & True & Restrict object to $N/2 \times N/2$ (enforces reciprocal-space oversampling) \\
+\texttt{pad\_object} & True & Restrict object to $N/2 \times N/2$ for oversampling \\
 \texttt{probe.mask} & False & Apply circular mask to probe \\
 \texttt{gaussian\_smoothing\_sigma} & 0.0 & Gaussian smoothing $\sigma$ applied to probe illumination \\
 \texttt{intensity\_scale.trainable} & True & Whether $\alpha_{\log}$ is optimized during training \\
@@ -688,7 +688,7 @@ $d$ & 3-5 & Encoder depth (resolution-dependent) \\
 \begin{table}[h]
 \renewcommand{\arraystretch}{1.2}
 \centering
-\caption{Mathematical symbols and conceptual descriptions}
+\caption{Symbol definitions}
 \label{tab:symbols}
 \begin{tabular}{lcl}
 \hline
