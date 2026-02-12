@@ -638,11 +638,11 @@ Figure~\ref{fig:fivepanel} compares an in-distribution LCLS control (train LCLS 
 
 \subsection{Computational Performance}
 
-PtychoPINN processes approximately 6.1k diffraction patterns per second at $64\times64$ image resolution and 2.6k patterns per second at $128\times128$ on an NVIDIA RTX 3090, excluding stitching/reassembly time. The upper limit of computational performance in conventional reconstruction is SHARP, whose authors report approximately 300 frames per second per GPU at $128\times128$ ~\cite{Marchesini2016SHARP}. PtychoPINN therefore has approximately a 9-fold advantage in reconstruction throughput compared to state-of-the-art iterative solvers. (The most commonly-used conventional solvers under practical settings, such as least squares maximum likelihood (LSQ-ML) and rPIE, are notably slower than SHARP.)
+PtychoPINN processes approximately 6.1k diffraction patterns per second at $64\times64$ image resolution and 2.6k patterns per second at $128\times128$ on an NVIDIA RTX 3090, excluding stitching/reassembly time. The upper limit of computational performance in conventional reconstruction is SHARP, whose authors report approximately 300 frames per second per GPU at $128\times128$ ~\cite{Marchesini2016SHARP}. PtychoPINN therefore has approximately a 9-fold advantage in reconstruction throughput compared to high-performance iterative solvers. (The most commonly-used conventional solvers under practical settings, such as least squares maximum likelihood (LSQ-ML) and rPIE, are notably slower than SHARP.)
 
 \section{Discussion}
 
-\subsection*{Overlap is optional}
+\subsection*{Overlap-free reconstruction}
 Table~\ref{tab:sim_lines_metrics} reveals a clear interaction between probe structure and overlap. With the idealized (flat-phase) probe, removing overlap ($C_g=1$) drops amplitude SSIM from 0.952 to 0.620; with the experimental (curved) probe, the same change yields 0.968 to 0.904. Probe curvature largely compensates for the loss of overlap-based redundancy, consistent with the expected role of structured phase diversity in Fresnel CDI. These trends indicate that overlap and probe diversity are partially substitutable sources of constraint, but their interaction warrants further study across a broader range of probe geometries.
 
 Making overlap a tunable parameter rather than a hard requirement has concrete implications for experimental design. Scans can use fewer positions, less overlap, or---in the Fresnel regime---no scanning at all, reducing acquisition time and total dose. The framework is also more tolerant of position jitter than overlap-dependent methods, since the reconstruction does not rely on precise inter-frame registration to enforce real-space consistency. Together, these properties are particularly relevant for dynamic or radiation-sensitive samples at high-rate sources, where overlap requirements, scan precision, and photon budget are simultaneous constraints.
@@ -672,18 +672,15 @@ These parameters control critical aspects of the reconstruction process and shou
 \hline
 \texttt{N} & 64 & Patch dimension (pixels) \\
 \texttt{C\_g} & 1 & Patterns per group (code default: 4) \\
-\texttt{K} & 7 & Nearest neighbors for grouping \\
-\texttt{nsamples} & 1 & Random samplings per scan point \\
-\texttt{pad\_object} & True & Enable adaptive boundary learning \\
-\texttt{probe.mask} & True & Apply circular probe support \\
-\texttt{gaussian\_smoothing\_sigma} & 0.0 & Probe boundary smoothing \\
-\texttt{intensity\_scale.trainable} & False & Learnable intensity scaling \\
-\texttt{n\_filters\_scale} & 1 & Network width multiplier \\
+\texttt{K} & 4 & Nearest neighbors for scan-position grouping \\
+\texttt{pad\_object} & True & Restrict object to $N/2 \times N/2$ (enforces reciprocal-space oversampling) \\
+\texttt{probe.mask} & False & Apply circular mask to probe \\
+\texttt{gaussian\_smoothing\_sigma} & 0.0 & Gaussian smoothing $\sigma$ applied to probe illumination \\
+\texttt{intensity\_scale.trainable} & True & Whether $\alpha_{\log}$ is optimized during training \\
+\texttt{n\_filters\_scale} & 2 & Network width multiplier \\
 \texttt{amp\_activation} & sigmoid & Amplitude decoder activation \\
 \texttt{offset} & 4 & Scan step size (pixels) \\
 $d$ & 3-5 & Encoder depth (resolution-dependent) \\
-$C$ & 132 & Total decoder channels (before split) \\
-$C_{\text{latent}}$ & 128 & Latent channels at bottleneck \\
 \hline
 \end{tabular}
 \end{table}
