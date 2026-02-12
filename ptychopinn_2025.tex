@@ -21,7 +21,6 @@
 \usepackage{tikz}
 \usetikzlibrary{calc,positioning,fit,backgrounds,matrix,arrows.meta}
 \usepackage{ifthen}
-\usepackage[margin=1in]{geometry}
 \usepackage{booktabs}
 \usepackage{siunitx}
 \usepackage{adjustbox}
@@ -30,10 +29,8 @@
     round-precision = 2,
     detect-all
 }
-\usepackage{xcolor}
 \usepackage{multirow}
-\definecolor{bestval}{RGB}{0,100,0}\usepackage{siunitx}
-\sisetup{detect-all}
+\definecolor{bestval}{RGB}{0,100,0}
 
 %% Theorem styles
 \theoremstyle{plain}
@@ -67,27 +64,9 @@
 
 \begin{document}
 
-% \title{An Improved Physics-Constrained Deep Neural Network For Rapid, Single-Shot Coherent Diffractive Imaging}
 \title{Towards single-shot coherent imaging via overlap-free ptychography}
-% or : “Towards single-shot coherent imaging via overlap-free ptychography”
 
-% TODO choose a title
-% baseline -> ptychonn / supervised ML; iterative solvers
-% graphical abstract; 
-% what's the broad impact?
-% quantitative metrics
-% donut-shaped vs gaussian probe vs disk
-
-
-
-
-% Abstract:
-% 1. the right physics; 2. ML; 3. probe design. 
-% single-shot imaging at XFELs; better throughput at other light source
-% -> high resolution operando imaging 
-
-%Lets keep the term "Deep Neural Network".
-
+% TODO: uncomment and finalize author block before submission
 %\author{Oliver Hoidn$^1$,  \\
 %$^1$SLAC National Accelerator Laboratory, Menlo Park, California, USA \\
 %\texttt{ohoidn@slac.stanford.edu}}
@@ -97,93 +76,27 @@
 \maketitle
 
 \begin{abstract}
-Single-shot coherent imaging is important for XFEL science because it lowers photon dose, removes the overhead of overlapping scans, and enables real-time feedback. We present a \emph{physics-constrained Deep Neural Network (DNN)} that delivers \emph{overlap-free, single-shot} reconstructions in a Fresnel (near-field) CDI geometry and also accelerates conventional multi-shot ptychography. The DNN is self-supervised: it learns directly from raw diffraction patterns by enforcing a differentiable forward model of coherent scattering together with a Poisson photon-counting likelihood and a calibrated intensity scale. The framework enforces optional real-space constraints through coordinate-based grouping, which allows and multi-shot reconstruction under arbitrary scan geometries. The network reconstructs approximately $6.1\times10^3$ diffraction patterns/s at $64\times64$ pixel resolution, remains accurate at low counts ($\sim\!10^4$ photons/frame) and zero real-space overlap, and achieves high fidelity with an order of magnitude less training data than a supervised model with a similar neural network architcture. It also shows qualitative cross-facility transfer without retraining. In the Fresnel regime we obtain \emph{single-shot} reconstructions. This unifies single-exposure Fresnel CDI and overlapped ptychography within one computational framework, enabling high-resolution, dose-efficient operando imaging at XFELs at substantially higher throughput than previously feasible.
+Single-shot coherent imaging is important for XFEL science because it lowers photon dose, removes the overhead of overlapping scans, and enables real-time feedback. We extend PtychoPINN~\cite{Hoidn2023PtychoPINN}, a physics-constrained neural network for self-supervised ptychographic reconstruction, to deliver \emph{overlap-free, single-shot} reconstructions in a Fresnel (near-field) CDI geometry and also accelerate conventional multi-shot ptychography. PtychoPINN is self-supervised: it learns directly from raw diffraction patterns by enforcing a differentiable forward model of coherent scattering together with a Poisson photon-counting likelihood and a calibrated intensity scale. The framework enforces optional real-space constraints through coordinate-based grouping, which enables multi-shot reconstruction under arbitrary scan geometries. The network reconstructs approximately $6.1\times10^3$ diffraction patterns/s at $64\times64$ pixel resolution, remains accurate at low counts ($\sim\!10^4$ photons/frame) and zero real-space overlap, and achieves high fidelity with an order of magnitude less training data than a supervised baseline with the same neural network architecture. It also shows qualitative cross-facility transfer without retraining. In the Fresnel regime we obtain \emph{single-shot} reconstructions. This unifies single-exposure Fresnel CDI and overlapped ptychography within one computational framework, enabling high-resolution, dose-efficient operando imaging at XFELs at substantially higher throughput than previously feasible.
 
 \end{abstract}
 
-% \begin{abstract}
-% Ptychographic Coherent Diffractive Imaging (CDI) underpins nanoscale imaging at synchrotron and X-ray free-electron laser facilities, but computational bottlenecks prevent real-time reconstruction. We present a physics-informed neural network (PINN) that reconstructs experimental diffraction data from the Linac Coherent Light Source (LCLS) and Advanced Photon Source (APS) 100-1000$\times$ faster than conventional iterative algorithms. The method handles challenging experimental realities---stage jitter, low photon flux ($10^4$ photons/frame), and sparse scanning (sub-$10\%$ overlap)---where conventional algorithms fail to converge or require careful position correction. Our self-supervised framework trains directly on experimental diffraction patterns without requiring ground-truth images and can generalize from as few as 250 training samples compared to several thousand for comparable quality with supervised approaches.  We also find that the framework produces capable single-shot, overlap-free reconstructions in Fresnel CDI configurations--a surprising capability that is absent in conventional ptychography solvers. These advances will make real-time coherent imaging feedback feasible at high-repetition-rate light sources such as the LCLS-II-HE.
-% \end{abstract}
-% TODO deleted from abstract: We demonstrate cross-facility generalization, reconstructing LCLS samples using models trained solely on APS data.
-
-% \section{Introduction}\label{sec1}
-% %Central theme: There is a widening gap between the rate of data genenration, and that of scientific analyses. This gap needs to be addressed. 
- 
-% Modern light sources, such as fourth-generation synchrotrons and X-ray Free-Electron Lasers (XFELs), now generate coherent diffraction data at unprecedented rates, often reaching terabytes per hour (Figure \ref{fig:Figure1}). This data deluge poses a significant challenge for Coherent Diffraction Imaging (CDI) techniques like ptychography, as traditional image reconstruction relies on computationally intensive iterative phase retrieval algorithms. An analytical bottleneck has emerged where offline processing time vastly exceeds data acquisition time. This disparity not only delays scientific insights but, more critically, precludes real-time feedback and on-the-fly experimental steering—capabilities essential for maximizing the efficiency and discovery potential of these facilities. Consequently, there is a pressing need for new reconstruction paradigms that deliver high-fidelity results at accelerated rates without sacrificing reliability or robustness.
-
-
-% \begin{figure}[t]
-%     \centering
-%     \includegraphics[width=0.8\textwidth]{figures/Figure1.pdf}
-%     \caption{Estimates of raw data generation rate for light sources over time \emph{maybe move this to SI section}}
-%     \label{fig:Figure1}
-% \end{figure}
-
- 
-% Ptychographic coherent diffractive imaging is a cornerstone technique for nanoscale imaging at synchrotron and XFEL facilities, achieving sub-10 nm resolution beyond the limitations of X-ray optics~\cite{GuizarSicairos2021PhysicsToday}. However, classical iterative algorithms like the Ptychographic Iterative Engine (PIE) require $\sim 60-70\%$ scan overlap for robust convergence and can only process $\sim 0.1-1$ diffraction patterns per second on standard hardware~\cite{Bunk2008Overlap,Maiden2009UltramicroscopyPIE}. At high-repetition-rate sources (e.g., LCLS-II, MHz-class), data acquisition outpaces reconstruction by orders of magnitude~\cite{LCLSIIHE_DesignPerf}. Consequently, even highly-optimized GPU/HPC solvers require substantial infrastructure and struggle to provide the low-latency feedback needed for interactive experiments~\cite{Marchesini2016SHARP,Babu2023EdgePtycho}.
-
-% To address this challenge, machine learning (ML) has been explored to accelerate reconstruction. Supervised ML methods, for instance, can achieve significant speedups\cite{Cherukara2020PtychoNN}. However, their practical application is limited. Fundamentally, they treat reconstruction as a black-box mapping from diffraction data to image space, often failing to generalize because they do not explicitly enforce the physical constraints of diffraction. This leads to poor performance when transferring between different samples or experimental conditions, and a high sensitivity to unmodeled artifacts like probe instability or position errors\cite{Maiden2012Annealing,Zhang2013Position,Seifert2023PoissonGaussian, [ptychonn nat com 'machine learning at the edge' natcom paper as example of the impracticality of these approaches]}. Moreover, these methods impose the onerous burden of generating large, curated datasets of ground-truth reconstructions for training. Our previous work, PtychoPINN~\cite{Hoidn2023PtychoPINN}, showed that a Physics-Informed Neural Network (PINN) could achieve rapid, self-supervised reconstruction. However, its effectiveness was demonstrated only on synthetic data with idealized probes and regular scan patterns. 
-% % In parallel, maximum-likelihood formulations grounded in photon counting provide a principled objective for low-dose data~\cite{Thibault2012NJPML}. 
-
-% Here, we overcome the limitations of the original PtychoPINN by introducing several key advances that enable robust reconstruction of experimental data. Specifically, we extend the framework by: 
-% \begin{enumerate}
-%     \item  modeling realistic, extended probe functions; 
-%     \item handling arbitrary and irregular scan patterns through nearest-neighbor clustering; 
-%     \item  incorporating a Poisson likelihood to accurately model photon-counting statistics~\cite{Thibault2012NJPML,Seifert2023PoissonGaussian};   \item  demonstrating cross-facility generalization, where a model trained on data from one beamline can reconstruct data from another. 
-% \end{enumerate}
-
-% Collectively, these advances transition PtychoPINN from a proof-of-concept into a practical tool, establishing a viable path toward low-latency feedback and analysis at high-repetition-rate light sources.
-% % TODO probably remove point iv bc it overstates things and is also not really part of this paper's focus
-
-% Beyond acceleration, our physics-informed approach enables imaging modalities previously inaccessible to iterative solvers. We demonstrate this with single-shot, overlap-free reconstruction in a Fresnel CDI configuration\cite{Williams2006FresnelCDI,Zhang2016CMI}, a method that maximizes throughput by eliminating the scanning overlap required by conventional ptychography\cite{Bunk2008Overlap}. Such a capability is critical for studying fast dynamics and minimizing radiation dose on sensitive biological specimens, addressing two major challenges in modern X-ray imaging.
-
 \section{Introduction}\label{sec1}
-% Coherent diffractive imaging (CDI) at modern synchrotrons and X‑ray free‑electron lasers (XFELs) enables nanoscale measurements but remains constrained by computation: data are generated far faster than images can be reconstructed, limiting real‑time feedback ~\cite{GuizarSicairos2021PhysicsToday,LCLSIIHE_DesignPerf}. Classical solvers such as ePIE and iterative least-squares maximum likelihood are typically too slow to keep pace with high‑repetition‑rate sources even with GPU/HPC acceleration~\cite{Marchesini2016SHARP,Babu2023EdgePtycho}. They also depend on substantial translational overlap ($\sim$60--70\%) for robust convergence~\cite{Bunk2008Overlap,Maiden2009UltramicroscopyPIE}, which inflates the time and computational resources required to image a given 
+Modern light sources, such as fourth-generation synchrotrons and X-ray Free-Electron Lasers (XFELs), generate coherent diffraction data far faster than images can be reconstructed~\cite{LCLSIIHE_DesignPerf}. This growing gap between acquisition and analysis precludes real-time feedback and on-the-fly experimental steering---capabilities essential for maximizing the scientific output of these facilities.
 
-% Another dimension of the problem is Single‑exposure imaging would remove scanning overhead, reduce dose, and make each XFEL pulse an analyzable event. Here we use ``single‑shot'' in the \emph{Fresnel} (near‑field) sense: a curved/defocused probe provides phase diversity sufficient, in principle, to reconstruct a complex image from a single diffraction measurement—without lateral scanning, beam multiplexing, or a downstream modulator~\cite{Williams2006FresnelCDI}. This distinguishes our goal from \emph{multiplexed single‑shot ptychography}, which acquires many overlapping positions in parallel using beam‑splitting gratings or arrays~\cite{Sidorenko2015Optica,Kharitonov2022SciRep}, and from \emph{coherent modulation imaging} (CMI), which inserts a modulator to encode wavefront diversity for single‑exposure phase retrieval~\cite{Zhang2016CMI,Dong2018CMI}. Related near‑field/ptychographic formulations leverage probe curvature but still scan multiple positions~\cite{Stockmar2013Nearfield,Vine2009PFCDI}.
+Ptychographic CDI is a cornerstone x-ray nanoscale imaging technique~\cite{GuizarSicairos2021PhysicsToday}, but it faces two compounding bottlenecks. First, classical iterative algorithms like the Ptychographic Iterative Engine (PIE) require $\sim$60--70\% scan overlap for robust convergence and process only $\sim$0.1--1 diffraction patterns per second on standard hardware~\cite{Bunk2008Overlap,Maiden2009UltramicroscopyPIE}; even GPU-accelerated solvers struggle to keep pace with high-repetition-rate sources~\cite{Marchesini2016SHARP,Babu2023EdgePtycho}. Second, supervised ML approaches~\cite{Cherukara2020PtychoNN} can accelerate inference but are limited by poor generalization, the need for large labeled training sets, and an implicit dependence on the overlap statistics of their training data~\cite{Maiden2012Annealing,Zhang2013Position,Seifert2023PoissonGaussian}. Neither approach addresses both speed and overlap simultaneously.
 
-% We introduce a physics‑constrained, self‑supervised \emph{Deep Neural Network} (DNN) that learns directly from raw diffraction by enforcing a differentiable forward model of coherent scattering together with a Poisson photon‑counting likelihood~\cite{Thibault2012NJPML,Seifert2023PoissonGaussian}. Two design choices make the method robust under experimental conditions: a dual‑resolution decoder that represents the object sharply in the central, well‑posed region while extending into the periphery to avoid exit‑wave truncation with realistic, extended probes (consistent with oversampling constraints~\cite{miao1999extending}); and spatial sample-grouping that accommodates irregular, sparse scan geometries without assuming a Cartesian raster. Notably, Fresnel geometry alters the conditioning of the inverse problem: the reciprocal‑space likelihood becomes the primary anchor, and real‑space overlap becomes optional rather than mandatory. Under this approach, single-shot imaging simply corresponds to removal of the optional overlap constraints. 
+A differentiable forward model of coherent scattering, used as a self-supervised training objective, resolves both limitations at once. Because the network learns directly from raw diffraction patterns via a Poisson photon-counting likelihood~\cite{Thibault2012NJPML,Seifert2023PoissonGaussian}, no labeled reconstructions are needed---removing the data-generation bottleneck that limits supervised methods. At the same time, the degree of real-space overlap enters the framework as an explicit, tunable parameter rather than a hard requirement: when the illuminating probe provides sufficient phase diversity, the diffraction-domain likelihood alone anchors the reconstruction, and overlap can be reduced to zero. Our previous work~\cite{Hoidn2023PtychoPINN} demonstrated this physics-constrained approach on synthetic data; here, we extend PtychoPINN to realistic, extended probes and arbitrary scan geometries, and validate it on experimental data from the Advanced Photon Source (APS) and the Linac Coherent Light Source (LCLS).
 
-% Compared to supervised inference (e.g., PtychoNN)~\cite{Cherukara2020PtychoNN,Babu2023EdgePtycho}, this self‑supervised, physics‑guided framework avoids label generation, improves data/dose efficiency, and exhibits superior in- and out-of-sample generalization. It builds on a previous prototype~\cite{Hoidn2023PtychoPINN} by extending it to realistic probes and arbitrary scan geometries.
+The key to overlap-free reconstruction lies in probe structure. With a flat, uniform probe, single-shot CDI is severely ill-posed: the lost phase information has no redundancy to anchor it. A curved or defocused probe, however, imprints spatially varying phase onto the exit wave, breaking the degeneracies that make flat-probe phase retrieval underdetermined. This is the principle underlying Fresnel CDI~\cite{Williams2006FresnelCDI,Stockmar2013Nearfield}. In our framework, this physics is made operational: when the probe carries sufficient curvature, single-shot reconstruction emerges naturally by setting the group size to one frame. We use ``single-shot'' throughout in this strict \emph{Fresnel} sense---a single diffraction measurement with a structured probe, without lateral scanning, beam multiplexing~\cite{Sidorenko2015Optica,Kharitonov2022SciRep}, or downstream modulators~\cite{Zhang2016CMI,Dong2018CMI}.
 
-% On experimental datasets from the Advanced Photon Source (APS) and the Linac Coherent Light Source (LCLS), the method yields accurate reconstructions at low photon counts and zero overlap while delivering large speedups over iterative solvers~\cite{Marchesini2016SHARP}. Most notably, in Fresnel configurations we obtain stable \emph{single‑shot} reconstructions—using only probe curvature—without beam multiplexers~\cite{Sidorenko2015Optica,Kharitonov2022SciRep} or downstream modulators~\cite{Zhang2016CMI,Dong2018CMI}. Unifying single‑exposure Fresnel CDI and overlapped ptychography within one computational framework enables dose‑efficient, high‑throughput imaging and moves real‑time feedback within reach at high‑rate XFELs~\cite{LCLSIIHE_DesignPerf}. Detailed evaluations, ablations, and comparisons are provided in the Results and Methods.
-
-%Central theme: There is a widening gap between the rate of data genenration, and that of scientific analyses. This gap needs to be addressed. 
-
-%----------------------------
-%-----TODOs--------------
-%STAGE 1: 29th December
-%[OH]Figure 2: Add OOD panel comparing in dist accu to ood accu for both models [Jan 7th]
-%[OH]Figure 3: Replace baseline with MLE.
-%[OH]Figure 4: Explicate labels for baseline.
-%[OH]Figure 5: Tweak: labels on colorbar, labeling.
-%[AAM-DONE]Change placements of Figures 6 and 7 [make SM].
-%[AAM-DONE]Figure 7: Add beaucoup de references.
-%[AAM and OH]: Work on the text.
-
-%Stage 2:
-%Re-work the text.
-%----------------------------
- 
-Modern light sources, such as fourth-generation synchrotrons and X-ray Free-Electron Lasers (XFELs), generate coherent diffraction data at very high rates (facility- and detector-dependent, often terabytes per hour to higher regimes)~\cite{LCLSIIHE_DesignPerf}. This data deluge poses a significant challenge for Coherent Diffraction Imaging (CDI) techniques like ptychography, as traditional image reconstruction relies on computationally intensive iterative phase retrieval algorithms. An analytical bottleneck has emerged where offline processing time vastly exceeds data acquisition time. This disparity not only delays scientific insights but, more critically, precludes real-time feedback and on-the-fly experimental steering---capabilities essential for maximizing the efficiency and discovery potential of these facilities. Consequently, there is a pressing need for new reconstruction paradigms that deliver high-fidelity results at accelerated rates without sacrificing reliability or robustness.
-
-Ptychographic coherent diffractive imaging is a cornerstone technique for x-ray nanoscale imaging at synchrotron and XFEL facilities ~\cite{GuizarSicairos2021PhysicsToday}. However, classical iterative algorithms like the Ptychographic Iterative Engine (PIE) require $\sim 60-70\%$ scan overlap for robust convergence and can only process $\sim 0.1-1$ diffraction patterns per second on standard hardware~\cite{Bunk2008Overlap,Maiden2009UltramicroscopyPIE}. At high-repetition-rate sources (e.g., LCLS-II, MHz-class), data acquisition outpaces reconstruction by orders of magnitude~\cite{LCLSIIHE_DesignPerf}. Consequently, even highly-optimized GPU/HPC solvers require substantial infrastructure and struggle to provide the low-latency feedback needed for interactive experiments~\cite{Marchesini2016SHARP,Babu2023EdgePtycho}.
-
-To address this challenge, machine learning (ML) has been explored to accelerate reconstruction. Supervised convolutional networks, for instance, can achieve significant speedups\cite{Cherukara2020PtychoNN}. However, their practical application is limited by poor generalization and resolution~\cite{Maiden2012Annealing,Zhang2013Position,Seifert2023PoissonGaussian}. Moreover, these methods impose the onerous burden of generating large, curated datasets of ground-truth reconstructions for training. Our previous work showed that a Physics-Informed Neural Network (PINN) can achieve rapid, self-supervised reconstruction. However, this was demonstrated only on synthetic data with idealized probes and regular scan patterns. 
-% In parallel, maximum-likelihood formulations grounded in photon counting provide a principled objective for low-dose data~\cite{Thibault2012NJPML}. 
-
-Here, we extend the original framework with several improvements that enable robust reconstruction of actual experimental data. Specifically, we add support for long-tailed probe functions and arbitrary scan patterns.
-
+Specifically, this work demonstrates:
+\begin{enumerate}
+  \item self-supervised reconstruction of experimental data (APS, LCLS) at ${\sim}6.1\times10^3$ diffraction patterns/s;
+  \item overlap-free, single-shot reconstruction in Fresnel CDI geometry;
+  \item dose-efficient imaging via Poisson likelihood at ${\sim}10^4$ photons/frame;
+  \item an order-of-magnitude improvement in data efficiency over a supervised baseline with the same network architecture.
+\end{enumerate}
 In this study, APS and LCLS reconstructions are performed in overlap-free single-shot mode, except in explicitly labeled overlap ablations.
-
-We additionally explore this framework's capability for \emph{single‑shot} reconstructions—using only probe curvature—without beam multiplexers~\cite{Sidorenko2015Optica,Kharitonov2022SciRep} or downstream modulators~\cite{Zhang2016CMI,Dong2018CMI}. Unifying single‑exposure Fresnel CDI and overlapped ptychography within one computational framework enables dose‑efficient, high‑throughput imaging and brings real‑time feedback within reach at high‑rate XFELs~\cite{LCLSIIHE_DesignPerf}. 
-
-% Beyond acceleration, our physics-informed approach enables imaging modalities previously inaccessible to iterative solvers. We demonstrate this with single-shot, overlap-free reconstruction in a Fresnel CDI configuration\cite{Williams2006FresnelCDI,Zhang2016CMI}, a method that maximizes throughput by eliminating the scanning overlap required by conventional ptychography\cite{Bunk2008Overlap}. Such a capability is critical for studying fast dynamics and minimizing radiation dose on sensitive biological specimens, addressing two major challenges in modern X-ray imaging.
-
-%Single‑exposure CDI under coded illumination has two main realizations. In Fresnel CDI, a curved probe supplies phase diversity, enabling single‑exposure reconstructions without lateral scanning; this was demonstrated early in the X‑ray regime and extended to tomography. 
- % In coherent modulation imaging (CMI), a known modulator near the sample encodes the wavefront; CMI and its broadband variants have emphasized single‑shot capability at pulsed sources, albeit with additional optics and calibration demands. 
- % By contrast, single‑shot ptychography often refers to hardware multiplexing—a grating or beam array creates many overlapping probes recorded in one exposure—which has been demonstrated at optical wavelengths and, more recently, at soft‑X‑ray FELs. 
- % Our work targets the strict one‑frame limit with no overlap and no modulator in Fresnel geometry, and achieves stable reconstructions via a self‑supervised, physics‑constrained learner that optimizes a Poisson photon‑counting likelihood, building on ML formulations of maximum‑likelihood CDI/ptychography.
 
 
 \begin{figure}[t]
@@ -202,29 +115,27 @@ We additionally explore this framework's capability for \emph{single‑shot} rec
 
   \vspace{0.6em}
 
-  % Row 2: Hybrid
+  % Row 2: Semi-synthetic
   \begin{subfigure}[t]{0.48\linewidth}
     \centering
     \includegraphics[width=\linewidth]{figures/hybrid_cdi_scaled_v5_small.png}
-    \caption{Hybrid — CDI}
+    \caption{Semi-synthetic — CDI}
   \end{subfigure}\hfill
   \begin{subfigure}[t]{0.48\linewidth}
     \centering
     \includegraphics[width=\linewidth]{figures/hybrid_ptycho_scaled_v5_small.png}
-    \caption{Hybrid — Ptycho}
+    \caption{Semi-synthetic — Ptycho}
   \end{subfigure}
-% TODO: add small images of the probe phases as insets
-  \caption{Reconstruction comparison. Rows: Idealized vs Hybrid probe. Columns: CDI vs Ptycho.}
+  \caption{Reconstruction comparison across probe types and acquisition modes. Rows: idealized probe (Gaussian-smoothed disk, uniform phase) vs semi-synthetic (experimental probe, synthetic object). Columns: single-shot CDI vs overlapped ptychography.}
   \label{fig:recon_2x2}
 \end{figure}
-
-\paragraph{Inverse problem and constraints.}
-Coherent diffractive imaging requires the recovery of a complex object from intensity-only diffraction measurements. Reconstruction methods enforce two complementary constraints: a reciprocal-space constraint requiring predicted intensities to match data (via a physics-based forward model), and a real-space constraint enforcing consistency between overlapping views. In our framework, the reciprocal-space constraint is enforced directly via a differentiable forward model and a Poisson likelihood. Real-space overlap is handled via a translation-aware merging operator. Crucially, this allows overlap to be treated as a flexible experimental parameter rather than a hard requirement; setting the group size to a single frame ($C_g = 1$) removes overlap constraints entirely, enabling ``single-shot'' reconstruction when the probe provides sufficient phase diversity. 
 
 \section{Methods and Architecture}
 \label{sec:methods}
 
-We train a physics-informed neural network (PINN) to perform self-supervised ptychographic reconstruction by composing a learned inverse map with a differentiable forward model of coherent scattering. This section consolidates the formulation, operators, normalization, network design (including extended-probe handling), and training objective.
+Coherent diffractive imaging requires the recovery of a complex object from intensity-only diffraction measurements. Reconstruction methods enforce two complementary constraints: a reciprocal-space constraint requiring predicted intensities to match data (via a physics-based forward model), and a real-space constraint enforcing consistency between overlapping views. In our framework, the reciprocal-space constraint is enforced directly via a differentiable forward model and a Poisson likelihood. Real-space overlap is handled via a translation-aware merging operator. Crucially, this allows overlap to be treated as a flexible experimental parameter rather than a hard requirement; setting the group size to a single frame ($C_g = 1$) removes overlap constraints entirely, enabling ``single-shot'' reconstruction when the probe provides sufficient phase diversity.
+
+We train PtychoPINN to perform self-supervised ptychographic reconstruction by composing a learned inverse map with a differentiable forward model of coherent scattering. This section consolidates the formulation, operators, normalization, network design (including extended-probe handling), and training objective.
 
 \subsection{Formulation and Forward Model}
 \label{sec:formulation}
@@ -356,7 +267,7 @@ In the results reported here we do not use any real-space loss; training is driv
 All operators in $F_c$ and $F_d$ are differentiable and implemented with padding-aware translations and FFT-based diffraction. Batching is performed over groups $\mathcal{G}_{i,j}$; nearest-neighbor sampling with $n_{\text{samples}}>1$ provides dataset augmentation while preserving local spatial consistency. Default architectural and training hyperparameters are summarized in Table~\ref{tab:config_params}.
 
 \subsection{Supervised Baseline}
-The supervised baseline uses the same encoder-decoder backbone and input representation as the physics-informed model. It is trained with direct image-space supervision on paired diffraction/reference-reconstruction data, without enforcing the differentiable forward model in the training loss. Data splits, normalization, and scan-coordinate conditioning are matched to the physics-informed runs so the comparison isolates training paradigm rather than architecture.
+The supervised baseline uses the same encoder-decoder backbone and input representation as PtychoPINN (cf.~PtychoNN~\cite{Cherukara2020PtychoNN}). It is trained with direct image-space supervision on paired diffraction/reference-reconstruction data, without enforcing the differentiable forward model in the training loss. Data splits, normalization, and scan-coordinate conditioning are matched to the PtychoPINN runs so the comparison isolates training paradigm rather than architecture.
 
 \subsection{Datasets and Evaluation Protocol}
 We evaluate on APS Velociprobe Siemens-star data, an LCLS (XPP) test pattern dataset (hereafter, LCLS XPP dataset), and a synthetic Siemens-star dataset simulated from APS Siemens-star reconstructions (ground truth for Table~\ref{tab:results_16384}). APS and LCLS experiments are run in single-shot mode (one diffraction frame per group), except where overlap ablations are explicitly labeled. For the Siemens-star experiments, we use a spatial holdout: the top half of the scan is used for training and the bottom half for testing. For out-of-distribution transfer, models trained on APS data are evaluated on LCLS data without retraining, with beamline-specific forward parameters (probe/geometry) substituted at inference.
@@ -368,7 +279,7 @@ We report results on APS Velociprobe Siemens-star data, the LCLS XPP dataset, an
 
 \subsection{Reconstruction Quality}
 
-Figure~\ref{fig:smalldat} compares reconstructions on APS Siemens-star data across two sampling budgets (512 and 8192 diffraction patterns). The physics-informed model preserves clear edge structure and contrast in both regimes, while the supervised matched-backbone model (PtychoNN-style) degrades visibly at lower data availability. On the synthetic Siemens-star dataset (simulated from APS Siemens-star reconstructions), the physics-informed model also attains higher phase fidelity than the supervised matched-backbone model; see Table~\ref{tab:results_16384}.
+Figure~\ref{fig:smalldat} compares reconstructions on APS Siemens-star data across two sampling budgets (512 and 8192 diffraction patterns). PtychoPINN preserves clear edge structure and contrast in both regimes, while the supervised baseline degrades visibly at lower data availability. On the synthetic Siemens-star dataset (simulated from APS Siemens-star reconstructions), PtychoPINN also attains higher phase fidelity than the supervised baseline; see Table~\ref{tab:results_16384}.
 
 
 \begin{table}[htbp]
@@ -382,12 +293,12 @@ Figure~\ref{fig:smalldat} compares reconstructions on APS Siemens-star data acro
 Dataset & Method & Amplitude & Phase & Amplitude & Phase \\
 \midrule
 \multirow{2}{*}{synthetic Siemens-star} 
-& Supervised matched-backbone & 
+& Supervised baseline &
   $84.83 \pm 0.23$ & 
   $68.62 \pm 0.02$ & 
   $0.930 \pm 0.002$ & 
   $0.912 \pm 0.003$ \\
-& PINN (self-supervised) & 
+& PtychoPINN &
   \textcolor{bestval}{$\mathbf{85.53 \pm 0.02}$} & 
   \textcolor{bestval}{$\mathbf{70.54 \pm 0.06}$} & 
   \textcolor{bestval}{$\mathbf{0.955 \pm 0.001}$} & 
@@ -416,22 +327,7 @@ Dataset & Method & Amplitude & Phase & Amplitude & Phase \\
     \label{fig:smalldat}
 \end{figure}
 
-% % Compact version for two-column format
-% \begin{table}[htbp]
-% \centering
-% \caption{Reconstruction metrics at 16,384 training images (mean $\pm$ std, n=5)}
-% \label{tab:results_compact}
-% \begin{tabular}{@{}llcccc@{}}
-% \toprule
-% Dataset & Method & \multicolumn{2}{c}{PSNR (dB)} & \multicolumn{2}{c}{MS-SSIM} \\
-% & & Amp. & Phase & Amp. & Phase \\
-% \midrule
-% \multirow{2}{*}{fly001-syn.} 
-% & Base. (sup.) & 84.83(23) & 68.62(2) & 0.930(2) & 0.912(3) \\
-% & PINN (self.) & \textbf{85.53(2)} & \textbf{70.54(6)} & \textbf{0.955(1)} & \textbf{0.962(1)} \\
-% \bottomrule
-% \end{tabular}
-% \end{table}
+
 
 
 \subsection{Overlap-Free Reconstruction}
@@ -441,15 +337,14 @@ In overlap-free operation, we set the group size to a single diffraction frame (
 \centering
 \caption{Synthetic line-pattern reconstruction metrics on the test split. Ground truth is the simulated object.}
 \label{tab:sim_lines_metrics}
-\begin{tabular}{@{}lcccccccc@{}}
+\begin{tabular}{@{}lcccc@{}}
 \toprule
-Case & MAE (Amp) & MAE (Phase) & PSNR (dB) (Amp) & PSNR (dB) (Phase) & SSIM (Amp) & SSIM (Phase) & MS-SSIM (Amp) & MS-SSIM (Phase) \\
+Case & PSNR (dB, Amp) & PSNR (dB, Phase) & SSIM (Amp) & SSIM (Phase) \\
 \midrule
-overlap-free ($C_g=1$) + idealized probe & 0.185359 & 0.295667 & 60.672510 & 55.247873 & 0.620232 & 0.410153 & 0.852410 & 0.256867 \\
-overlap-free ($C_g=1$) + custom probe & 0.072003 & 0.077751 & 68.886477 & 62.996489 & 0.904422 & 0.885615 & 0.980933 & 0.576148 \\
-overlap ($C_g=2$) + idealized probe & 0.051782 & 0.007872 & 71.341465 & 86.530175 & 0.951729 & 0.996137 & 0.992623 & 0.327948 \\
-overlap ($C_g=2$) + custom probe & 0.040176 & 0.045158 & 73.027381 & 64.539845 & 0.967679 & 0.965757 & 0.993833 & 0.748855 \\
-
+overlap-free ($C_g=1$) + idealized probe & 60.67 & 55.25 & 0.620 & 0.410 \\
+overlap-free ($C_g=1$) + experimental probe & 68.89 & 63.00 & 0.904 & 0.886 \\
+overlap ($C_g=2$) + idealized probe & 71.34 & 86.53 & 0.952 & 0.996 \\
+overlap ($C_g=2$) + experimental probe & 73.03 & 64.54 & 0.968 & 0.966 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -467,20 +362,19 @@ Figure~\ref{fig:dose} summarizes resolution (FRC50) as a function of photon dose
 
 \subsection{Data Efficiency}
 
-Figure~\ref{fig:ssim} illustrates the reconstruction quality (phase SSIM) as a function of dataset size. The physics-informed framework maintains high fidelity (SSIM $> 0.95$) even when trained on as few as 512 diffraction patterns. In contrast, the supervised matched-backbone model degrades rapidly below 1024 samples. The horizontal shift between the curves indicates that PtychoPINN achieves comparable quality using roughly an order of magnitude less training data than the supervised approach. This confirms that enforcing the diffraction forward model acts as a powerful regularizer, reducing the number of samples required to constrain the solution. In this figure, rPIE (Tike) is included as a conventional iterative reference, not as a learned baseline. 
+Figure~\ref{fig:ssim} illustrates the reconstruction quality (phase SSIM) as a function of dataset size. PtychoPINN maintains high fidelity (SSIM $> 0.95$) even when trained on as few as 512 diffraction patterns. In contrast, the supervised baseline degrades rapidly below 1024 samples. The horizontal shift between the curves indicates that PtychoPINN achieves comparable quality using roughly an order of magnitude less training data than the supervised baseline. This confirms that enforcing the diffraction forward model acts as a powerful regularizer, reducing the number of samples required to constrain the solution. In this figure, rPIE (Tike) is included as a conventional iterative reference, not as a learned baseline.
 
-% [CUT per revision plan A1: Sparse Sampling Robustness subsection removed - content folded into Data Efficiency discussion]
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/ssim.png}
-    \caption{Structural similarity of PtychoPINN, the supervised matched-backbone model, and a conventional iterative reference (rPIE in Tike) as a function of training set size.}
+    \includegraphics[width=0.8\textwidth]{figures/ssim (2).png}
+    \caption{Structural similarity of PtychoPINN, the supervised baseline, and a conventional iterative reference (rPIE in Tike) as a function of training set size.}
     \label{fig:ssim}
 \end{figure}
 
 \subsection{Out-of-distribution Generalization}
 
-Figure~\ref{fig:fivepanel} includes an in-distribution LCLS control (train LCLS XPP, test LCLS XPP) and an out-of-distribution transfer setting (train APS, test LCLS XPP). Under APS$\!\to\!$LCLS shift, the supervised baseline degrades markedly, whereas the physics-informed model preserves edge structure despite phase distortion and reduced quantitative fidelity. The transfer evidence is qualitative but still informative: under the same APS$\!\to\!$LCLS transfer setup, the supervised baseline largely collapses while the physics-informed model retains interpretable structure. The reference column in Fig.~\ref{fig:fivepanel} is an ePIE reconstruction of the LCLS data.
+Figure~\ref{fig:fivepanel} includes an in-distribution LCLS control (train LCLS XPP, test LCLS XPP) and an out-of-distribution transfer setting (train APS, test LCLS XPP). Under APS$\!\to\!$LCLS shift, the supervised baseline degrades markedly, whereas PtychoPINN preserves edge structure despite phase distortion and reduced quantitative fidelity. The transfer evidence is qualitative but still informative: under the same APS$\!\to\!$LCLS transfer setup, the supervised baseline largely collapses while PtychoPINN retains interpretable structure. The reference column in Fig.~\ref{fig:fivepanel} is an ePIE reconstruction of the LCLS data.
 
 \begin{figure}[t]
   \centering
@@ -628,7 +522,7 @@ Figure~\ref{fig:fivepanel} includes an in-distribution LCLS control (train LCLS 
 \FramePanel{p12a} \FramePanel{p12p}
 
 % =======================
-% Bottom row (supervised matched-backbone)
+% Bottom row (supervised baseline)
 % =======================
 \node[anchor=north west] (p21a) at ($(cell11.south west) + (0,-\panelsepY)$)
   {\IncludeOrPlaceholderWH{\baseIDamp}{\subw}{\subh}};
@@ -686,7 +580,7 @@ Figure~\ref{fig:fivepanel} includes an in-distribution LCLS control (train LCLS 
 % Row labels (included in bbox)
 % =======================
 \node[anchor=east, font=\bfseries\figfs, text=pinncol] (rowPINN)
-  at ($ (cell11.west) + (-5mm,0) $) {PINN};
+  at ($ (cell11.west) + (-5mm,0) $) {PtychoPINN};
 \node[anchor=east, font=\bfseries\figfs, text=basecol] (rowBASE)
   at ($ (cell21.west) + (-5mm,0) $) {Supervised};
 
@@ -744,10 +638,6 @@ Figure~\ref{fig:fivepanel} includes an in-distribution LCLS control (train LCLS 
   \caption{Comparison of methods for an in-distribution LCLS control (train LCLS XPP, test LCLS XPP) and out-of-distribution transfer (train APS, test LCLS XPP). The reference column shows an ePIE reconstruction of the LCLS data.}
   \label{fig:fivepanel}
 \end{figure}
-% The baseline U-Net model exhibited catastrophic failure on out-of-distribution data, producing near-constant outputs (σ_amplitude < 0.01) compared to in-distribution performance (σ_amplitude ≈ 0.03).
-%  This mode collapse occurs despite input rescaling, indicating the model has overfit to the specific speckle statistics of the training distribution rather than learning transferable features. The
-%  baseline model's purely supervised training lacks the inductive bias provided by physics constraints, making it vulnerable to distribution shift even when imaging the same sample type under different
-%  experimental conditions.
 
 \subsection{Computational Performance}
 
@@ -762,26 +652,20 @@ In classical ptychography, translational overlap provides real-space redundancy 
 The Poisson NLL objective matches photon-counting statistics, providing correct likelihood scoring at low intensities where MAE is biased. Because high-$q$ diffraction signal is weak and noise-dominated, an objective that properly weights low-count pixels improves dose efficiency (Fig.~\ref{fig:dose}). This is consistent with qualitative comparisons of low-dose reconstructions (Fig.~\ref{fig:lowcounts}).
 
 \subsection*{Generalization and data efficiency}
-On the Siemens-star spatial holdout, the supervised matched-backbone model shows a clear train--test gap, while the physics-informed model maintains comparable resolution across held-out positions (Figs.~\ref{fig:smalldat}, \ref{fig:ssim}). Under a distribution shift (APS$\!\to\!$LCLS), the supervised matched-backbone model degrades markedly, whereas the physics-informed model preserves edge structure despite phase distortions (Fig.~\ref{fig:fivepanel}). The SSIM curves further indicate that the physics-constrained model reaches a given fidelity with far fewer training samples (Fig.~\ref{fig:ssim}). Together, these results point to a strong inductive bias from the diffraction forward model that improves both data efficiency and transfer robustness.
+On the Siemens-star spatial holdout, the supervised baseline shows a clear train--test gap, while PtychoPINN maintains comparable resolution across held-out positions (Figs.~\ref{fig:smalldat}, \ref{fig:ssim}). Under a distribution shift (APS$\!\to\!$LCLS), the supervised baseline degrades markedly, whereas PtychoPINN preserves edge structure despite phase distortions (Fig.~\ref{fig:fivepanel}). Real-space supervision is inherently confounded by nuisance parameters such as global phase shifts that are intrinsic to the inverse problem, making the supervised objective ill-defined for this task. The SSIM curves further indicate that PtychoPINN reaches a given fidelity with far fewer training samples (Fig.~\ref{fig:ssim}). Together, these results point to a strong inductive bias from the diffraction forward model that improves both data efficiency and transfer robustness.
 
 \subsection*{Implications for modern light sources}
 These capabilities relax overlap requirements and reduce the burden of labeled training data, enabling more flexible experimental design and faster feedback in high-rate CDI workflows. Single-shot Fresnel CDI and improved dose efficiency are particularly relevant for dynamic or radiation-sensitive samples.
 
-\subsection*{Limitations and extensions}
-Our formulation assumes a fixed, pre-estimated probe during both training and inference; joint probe retrieval within the self-supervised loop is a natural extension. Probe drift and position errors are not modeled explicitly and could be addressed by stochastic position models or differentiable refinement. 
+\subsection*{Limitations and outlook}
+Our formulation assumes a fixed, pre-estimated probe during both training and inference; joint probe retrieval within the self-supervised loop is a natural extension. Probe drift and position errors are not modeled explicitly and could be addressed by stochastic position models or differentiable refinement.
 
-We expect optimizations such as mixed-precision execution and kernel fusion to yield a factor of $2$ in computational performance without any algorithmic / architectural adjustments. 
+We expect optimizations such as mixed-precision execution and kernel fusion to yield a factor of $2$ in computational performance without any algorithmic / architectural adjustments.
 
-Finally, the architecture that we have presented is modular in that the inverse-mapping neural network backbone, physics constraints, and loss can be modified independently. For example, extending the approach to Bragg CDI and reflection geometries would primarily require forward-model adaptations, with no changes to the neural network or training procedure. Of more immediate interest, we intend to replace the CNN backbone with a fourier neural operator-inspired network. This improvement, which we believe will close the gap in resolution between existing ML procedures and conventional reconstruction, will be the focus of our upcoming work. 
+The architecture is modular: the inverse-mapping neural network backbone, physics constraints, and loss can be modified independently. Extending the approach to Bragg CDI and reflection geometries would primarily require forward-model adaptations, with no changes to the neural network or training procedure. Of more immediate interest, we intend to replace the CNN backbone with a Fourier neural operator-inspired network to close the resolution gap between ML approaches and conventional reconstruction.
 
+In summary, coupling a Poisson photon-counting likelihood with a differentiable forward model yields dose efficiency, robustness to sparse or irregular acquisition, and support for single-shot Fresnel CDI---unifying overlapped ptychography and single-exposure imaging within one framework and broadening the practical operating regime of coherent imaging at modern light sources.
 
-
-\section{Conclusion}
-Coupling a Poisson photon-counting likelihood with a differentiable forward model yields dose efficiency, robustness to sparse or irregular acquisition, and support for single-shot Fresnel CDI. These properties broaden the practical operating regime of coherent imaging at modern light sources.
-
-
-
-% [Internal notes removed per revision plan A2]
 
 \newpage
 \section*{Appendix A: Key Configuration Parameters}
@@ -842,13 +726,6 @@ $\lambda_{ijk}$ & Scalar & Poisson rate parameter for a single pixel \\
 \end{tabular}
 \end{table}
 
-
-% \begin{figure}[t]
-%     \centering
-%     \includegraphics[width=0.8\textwidth]{figures/Figure1.pdf}
-%     \caption{Estimates of raw data generation rate for light sources over time }
-%     \label{fig:Figure1}
-% \end{figure}
 
 \bibliographystyle{plain}
 \bibliography{references}
