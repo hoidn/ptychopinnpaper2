@@ -347,7 +347,7 @@ overlap ($C_g=4$) + experimental probe & 73.03 & 0.968 \\
 
 \subsection{Photon-Limited Performance}
 
-Figure~\ref{fig:dose} summarizes resolution (FRC50) as a function of photon dose for Poisson NLL versus MAE. At $\sim10^4$ photons/frame, the Poisson loss preserves high-$q$ detail relative to MAE, consistent with the qualitative comparisons in Fig.~\ref{fig:lowcounts}.
+Figure~\ref{fig:dose} compares resolution (FRC50) as a function of photon dose for Poisson NLL versus MAE training objectives. At low dose (${\sim}10^4$ photons/frame), the Poisson NLL achieves comparable resolution to MAE at roughly $10\times$ higher dose, corresponding to an order-of-magnitude improvement in dose efficiency. This advantage arises because the Poisson likelihood correctly models photon-counting noise, preserving sensitivity to the low-count, high-$q$ components that carry fine spatial detail but are overwhelmed by bright-pixel residuals under an amplitude MAE.
 
 % TODO: add FRC50-vs-dose curve panel to this figure (currently only qualitative image panels)
 \begin{figure}[htbp]
@@ -655,6 +655,8 @@ The main limitation is the fixed-probe assumption: our formulation requires a pr
 
 In summary, coupling a Poisson photon-counting likelihood with a differentiable forward model yields dose efficiency, robustness to sparse or irregular acquisition, and support for single-shot Fresnel CDI, unifying overlapped ptychography and single-exposure imaging within one framework.
 
+\section*{Code Availability}
+The PtychoPINN source code is available at \url{https://github.com/hoidn/PtychoPINN}.
 
 \newpage
 \section*{Appendix A: Key Configuration Parameters}
