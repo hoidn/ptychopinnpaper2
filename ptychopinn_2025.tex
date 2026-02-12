@@ -76,7 +76,7 @@
 \maketitle
 
 \begin{abstract}
-Single-shot coherent imaging is important for XFEL science because it lowers photon dose, removes the overhead of overlapping scans, and enables real-time feedback. We extend PtychoPINN~\cite{Hoidn2023PtychoPINN}, a physics-constrained neural network for self-supervised ptychographic reconstruction, to deliver \emph{overlap-free, single-shot} reconstructions in a Fresnel (near-field) CDI geometry and also accelerate conventional multi-shot ptychography. PtychoPINN is self-supervised: it learns directly from raw diffraction patterns by enforcing a differentiable forward model of coherent scattering together with a Poisson photon-counting likelihood and a calibrated intensity scale. The framework enforces optional real-space constraints through coordinate-based grouping, which enables multi-shot reconstruction under arbitrary scan geometries. The network reconstructs approximately $6.1\times10^3$ diffraction patterns/s at $64\times64$ pixel resolution, remains accurate at low counts ($\sim\!10^4$ photons/frame) and zero real-space overlap, and achieves high fidelity with an order of magnitude less training data than a supervised baseline with the same neural network architecture. It also shows qualitative cross-facility transfer without retraining. In the Fresnel regime we obtain \emph{single-shot} reconstructions. This unifies single-exposure Fresnel CDI and overlapped ptychography within one computational framework, enabling high-resolution, dose-efficient operando imaging at XFELs at substantially higher throughput than previously feasible.
+Single-shot coherent imaging is important for XFEL science because it lowers photon dose, removes the overhead of overlapping scans, and enables real-time feedback. We extend PtychoPINN~\cite{Hoidn2023PtychoPINN}, a physics-constrained neural network for self-supervised ptychographic reconstruction, to deliver \emph{overlap-free, single-shot} reconstructions in a Fresnel (near-field) CDI geometry and also accelerate conventional multi-shot ptychography. PtychoPINN is self-supervised: it learns directly from raw diffraction patterns by enforcing a differentiable forward model of coherent scattering together with a Poisson photon-counting likelihood and a calibrated intensity scale. The framework enforces optional real-space constraints through coordinate-based grouping, which enables multi-shot reconstruction under arbitrary scan geometries. The network reconstructs approximately $6.1\times10^3$ diffraction patterns/s at $64\times64$ pixel resolution, remains accurate at low counts ($\sim\!10^4$ photons/frame) and zero real-space overlap, and achieves high fidelity with an order of magnitude less training data than a supervised baseline with the same neural network architecture. It also shows qualitative cross-facility transfer without retraining. In the Fresnel regime we obtain \emph{single-shot} reconstructions. This unifies single-exposure Fresnel CDI and overlapped ptychography within one computational framework, enabling high-resolution, dose-efficient real-time imaging at XFELs at substantially higher throughput than previously feasible.
 
 \end{abstract}
 
@@ -130,10 +130,6 @@ In this study, APS and LCLS reconstructions are performed in overlap-free single
 
 \section{Methods and Architecture}
 \label{sec:methods}
-
-Coherent diffractive imaging requires the recovery of a complex object from intensity-only diffraction measurements. Reconstruction methods enforce two complementary constraints: a reciprocal-space constraint requiring predicted intensities to match data (via a physics-based forward model), and a real-space constraint enforcing consistency between overlapping views. In our framework, the reciprocal-space constraint is enforced directly via a differentiable forward model and a Poisson likelihood. Real-space overlap is handled via a translation-aware merging operator. Crucially, this allows overlap to be treated as a flexible experimental parameter rather than a hard requirement; setting the group size to a single frame ($C_g = 1$) removes overlap constraints entirely, enabling ``single-shot'' reconstruction when the probe provides sufficient phase diversity.
-
-We train PtychoPINN to perform self-supervised ptychographic reconstruction by composing a learned inverse map with a differentiable forward model of coherent scattering. This section consolidates the formulation, operators, normalization, network design (including extended-probe handling), and training objective.
 
 \subsection{Formulation and Forward Model}
 \label{sec:formulation}
@@ -286,7 +282,8 @@ Figure~\ref{fig:smalldat} compares reconstructions on APS Siemens-star data acro
 \label{tab:results_16384}
 \begin{tabular}{@{}llcccc@{}}
 \toprule
-& & \multicolumn{2}{c}{PSNR (dB)} & \multicolumn{2}{c}{MS-SSIM} \\
+% TODO: verify these are SSIM values, not MS-SSIM
+& & \multicolumn{2}{c}{PSNR (dB)} & \multicolumn{2}{c}{SSIM} \\
 \cmidrule(lr){3-4} \cmidrule(lr){5-6}
 Dataset & Method & Amplitude & Phase & Amplitude & Phase \\
 \midrule
@@ -352,28 +349,29 @@ overlap ($C_g=4$) + experimental probe & 73.03 & 64.54 & 0.968 & 0.966 \\
 
 Figure~\ref{fig:dose} summarizes resolution (FRC50) as a function of photon dose for Poisson NLL versus MAE. At $\sim10^4$ photons/frame, the Poisson loss preserves high-$q$ detail relative to MAE, consistent with the qualitative comparisons in Fig.~\ref{fig:lowcounts}.
 
+% TODO: add FRC50-vs-dose curve panel to this figure (currently only qualitative image panels)
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/poisson.png}
-    \caption{Resolution (FRC50) as a function of on-sample photon dose for two variants of the PtychoPINN framework trained with mean absolute error (MAE) and Poisson negative log likelihood (NLL) reconstruction penalties in the self-supervised loss function}
+    \caption{Resolution (FRC50) as a function of on-sample photon dose for two variants of the PtychoPINN framework trained with mean absolute error (MAE) and Poisson negative log likelihood (NLL) reconstruction penalties in the self-supervised loss function.}
     \label{fig:dose}
 \end{figure}
 
 \subsection{Data Efficiency}
 
-Figure~\ref{fig:ssim} illustrates the reconstruction quality (phase SSIM) as a function of dataset size. PtychoPINN maintains high fidelity (SSIM $> 0.85$) from as few as 1024 diffraction patterns. In contrast, the supervised baseline degrades rapidly below 2048 samples. The horizontal shift between the curves indicates that PtychoPINN achieves comparable quality using roughly an order of magnitude less training data than the supervised baseline. This confirms that enforcing the diffraction forward model acts as a powerful regularizer, reducing the number of samples required to constrain the solution. In this figure, rPIE (Tike) is included as a conventional iterative reference, not as a learned baseline.
+Figure~\ref{fig:ssim} illustrates the reconstruction quality (phase SSIM) as a function of dataset size. PtychoPINN maintains high fidelity (SSIM $> 0.85$) from as few as 1024 diffraction patterns. In contrast, the supervised baseline degrades rapidly below 2048 samples. The horizontal shift between the curves indicates that PtychoPINN achieves comparable quality using roughly an order of magnitude less training data than the supervised baseline. This confirms that enforcing the diffraction forward model acts as a powerful physical prior, reducing the number of samples required for satisfactory reconstruction.
 
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/ssim (2).png}
-    \caption{Structural similarity of PtychoPINN, the supervised baseline, and a conventional iterative reference (rPIE in Tike) as a function of training set size.}
+    \caption{Structural similarity of PtychoPINN and the supervised baseline as a function of training set size.}
     \label{fig:ssim}
 \end{figure}
 
 \subsection{Out-of-distribution Generalization}
 
-Figure~\ref{fig:fivepanel} includes an in-distribution LCLS control (train LCLS XPP, test LCLS XPP) and an out-of-distribution transfer setting (train APS, test LCLS XPP). Under APS$\!\to\!$LCLS shift, the supervised baseline degrades markedly, whereas PtychoPINN preserves edge structure despite phase distortion and reduced quantitative fidelity. The transfer evidence is qualitative but still informative: under the same APS$\!\to\!$LCLS transfer setup, the supervised baseline largely collapses while PtychoPINN retains interpretable structure. The reference column in Fig.~\ref{fig:fivepanel} is an ePIE reconstruction of the LCLS data.
+Figure~\ref{fig:fivepanel} compares an in-distribution LCLS control (train LCLS XPP, test LCLS XPP) with an out-of-distribution transfer setting (train APS, test LCLS XPP). Under APS$\!\to\!$LCLS shift, the supervised baseline largely collapses, whereas PtychoPINN preserves edge structure despite phase distortion and reduced quantitative fidelity. The reference column is an ePIE reconstruction of the LCLS data.
 
 \begin{figure}[t]
   \centering
@@ -644,17 +642,11 @@ PtychoPINN processes approximately 6.1k diffraction patterns per second at $64\t
 
 \section{Discussion}
 
-\subsection*{Physics-constrained flexibility and single-shot}
-In classical ptychography, translational overlap provides real-space redundancy for phase retrieval. In our framework, the group size ($C_g$) explicitly controls overlap, so redundancy can come either from inter-measurement overlap or from structured probe phase within a single exposure. This flexibility is particularly valuable in the Fresnel (curved-probe) regime, where we observe stable single-shot reconstructions (Fig.~\ref{fig:recon_2x2}). Conventional solvers typically require overlap by construction, whereas our formulation supports reconstruction with or without overlap when the probe provides sufficient phase diversity.
+\subsection*{Single-shot regime and probe requirements}
+Table~\ref{tab:sim_lines_metrics} reveals a clear interaction between probe structure and overlap. With the idealized (flat-phase) probe, removing overlap ($C_g=1$) drops phase SSIM from 0.996 to 0.410; with the experimental (curved) probe, the same change yields 0.966 to 0.886. Probe curvature largely compensates for the loss of overlap-based redundancy, confirming that structured phase diversity is the operative mechanism for single-shot reconstruction. Under overlap ($C_g=4$), the idealized probe slightly outperforms the experimental probe on phase (0.996 vs 0.966), suggesting that the experimental probe's spatial complexity introduces reconstruction ambiguities that overlap alone does not fully resolve. These trends indicate that overlap and probe diversity are partially substitutable sources of constraint, but their interaction is non-trivial and warrants further study across a broader range of probe geometries.
 
-\subsection*{Dose efficiency}
-The Poisson NLL objective matches photon-counting statistics, providing correct likelihood scoring at low intensities where MAE is biased. Because high-$q$ diffraction signal is weak and noise-dominated, an objective that properly weights low-count pixels improves dose efficiency (Fig.~\ref{fig:dose}). This is consistent with qualitative comparisons of low-dose reconstructions (Fig.~\ref{fig:lowcounts}).
-
-\subsection*{Generalization and data efficiency}
-On the Siemens-star spatial holdout, the supervised baseline shows a clear train--test gap, while PtychoPINN maintains comparable resolution across held-out positions (Figs.~\ref{fig:smalldat}, \ref{fig:ssim}). Under a distribution shift (APS$\!\to\!$LCLS), the supervised baseline degrades markedly, whereas PtychoPINN preserves edge structure despite phase distortions (Fig.~\ref{fig:fivepanel}). Real-space supervision is susceptible to overfitting nuisance parameters---such as global phase shifts---that are intrinsic to the inverse problem, limiting transferability. The SSIM curves further indicate that PtychoPINN reaches a given fidelity with far fewer training samples (Fig.~\ref{fig:ssim}). Together, these results point to a strong inductive bias from the diffraction forward model that improves both data efficiency and transfer robustness.
-
-\subsection*{Implications for modern light sources}
-These capabilities relax overlap requirements and reduce the burden of labeled training data, enabling more flexible experimental design and faster feedback in high-rate CDI workflows. Single-shot Fresnel CDI and improved dose efficiency are particularly relevant for dynamic or radiation-sensitive samples.
+\subsection*{Benefits of self-supervised training}
+The self-supervised framework provides three practical advantages. First, the forward-model constraint improves data efficiency: PtychoPINN reaches a given phase SSIM with roughly an order of magnitude fewer training samples than the supervised baseline (Fig.~\ref{fig:ssim}). Second, the Poisson NLL loss correctly weights low-count detector pixels where high-$q$ signal is weak and noise-dominated, improving dose efficiency relative to MAE (Fig.~\ref{fig:dose}). Third, self-supervision in diffraction space avoids overfitting nuisance parameters, such as global phase offsets, that are intrinsic to the coherent imaging inverse problem. Real-space supervision is susceptible to these degeneracies, which likely explains the supervised baseline's poor transferability under the APS$\!\to\!$LCLS distribution shift (Fig.~\ref{fig:fivepanel}). These capabilities are particularly relevant for dynamic or radiation-sensitive samples at high-rate sources, where overlap requirements, labeled training data, and photon budget are simultaneous constraints.
 
 \subsection*{Limitations and outlook}
 Our formulation assumes a fixed, pre-estimated probe during both training and inference; joint probe retrieval within the self-supervised loop is a natural extension. Probe drift and position errors are not modeled explicitly and could be addressed by stochastic position models or differentiable refinement.
@@ -663,7 +655,7 @@ We expect optimizations such as mixed-precision execution and kernel fusion to y
 
 The architecture is modular: the inverse-mapping neural network backbone, physics constraints, and loss can be modified independently. Extending the approach to Bragg CDI and reflection geometries would primarily require forward-model adaptations, with no changes to the neural network or training procedure. Of more immediate interest, we intend to replace the CNN backbone with a Fourier neural operator-inspired network to close the resolution gap between ML approaches and conventional reconstruction.
 
-In summary, coupling a Poisson photon-counting likelihood with a differentiable forward model yields dose efficiency, robustness to sparse or irregular acquisition, and support for single-shot Fresnel CDI---unifying overlapped ptychography and single-exposure imaging within one framework and broadening the practical operating regime of coherent imaging at modern light sources.
+In summary, coupling a Poisson photon-counting likelihood with a differentiable forward model yields dose efficiency, robustness to sparse or irregular acquisition, and support for single-shot Fresnel CDI, unifying overlapped ptychography and single-exposure imaging within one framework.
 
 
 \newpage
