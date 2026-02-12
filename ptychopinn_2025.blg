@@ -3,44 +3,46 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: ptychopinn_2025.aux
 The style file: plain.bst
 Database file #1: references.bib
-You've used 19 entries,
+Warning--empty journal in Vong2025GeneralizablePtycho
+You've used 20 entries,
             2118 wiz_defined-function locations,
-            638 strings with 8767 characters,
-and the built_in function-call counts, 8338 in all, are:
-= -- 760
-> -- 616
+            643 strings with 9083 characters,
+and the built_in function-call counts, 8856 in all, are:
+= -- 800
+> -- 674
 < -- 0
-+ -- 245
-- -- 224
-* -- 754
-:= -- 1470
-add.period$ -- 58
-call.type$ -- 19
-change.case$ -- 169
++ -- 268
+- -- 246
+* -- 803
+:= -- 1568
+add.period$ -- 61
+call.type$ -- 20
+change.case$ -- 183
 chr.to.int$ -- 0
-cite$ -- 19
-duplicate$ -- 205
-empty$ -- 493
-format.name$ -- 224
-if$ -- 1606
+cite$ -- 21
+duplicate$ -- 215
+empty$ -- 510
+format.name$ -- 246
+if$ -- 1698
 int.to.chr$ -- 0
-int.to.str$ -- 19
-missing$ -- 18
-newline$ -- 99
-num.names$ -- 38
-pop$ -- 137
+int.to.str$ -- 20
+missing$ -- 19
+newline$ -- 104
+num.names$ -- 40
+pop$ -- 153
 preamble$ -- 1
-purify$ -- 150
+purify$ -- 163
 quote$ -- 0
-skip$ -- 135
+skip$ -- 142
 stack$ -- 0
-substring$ -- 485
+substring$ -- 490
 swap$ -- 19
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 76
-warning$ -- 0
-while$ -- 66
-width$ -- 21
-write$ -- 212
+type$ -- 80
+warning$ -- 1
+while$ -- 68
+width$ -- 22
+write$ -- 221
+(There was 1 warning)

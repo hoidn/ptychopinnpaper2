@@ -10,38 +10,36 @@
 \citation{Marchesini2016SHARP}
 \citation{Babu2023EdgePtycho}
 \citation{Cherukara2020PtychoNN}
-\citation{Maiden2012Annealing}
-\citation{Zhang2013Position}
-\citation{Seifert2023PoissonGaussian}
 \citation{Thibault2012NJPML}
 \citation{Seifert2023PoissonGaussian}
-\citation{Hoidn2023PtychoPINN}
-\providecommand \oddpage@label [2]{}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
-\newlabel{sec1}{{1}{1}{Introduction}{section.1}{}}
 \citation{Williams2006FresnelCDI}
 \citation{Stockmar2013Nearfield}
 \citation{Sidorenko2015Optica}
 \citation{Kharitonov2022SciRep}
 \citation{Zhang2016CMI}
 \citation{Dong2018CMI}
+\providecommand \oddpage@label [2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec1}{{1}{1}{Introduction}{section.1}{}}
+\citation{Hoidn2023PtychoPINN}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Methods and Architecture}{2}{section.2}\protected@file@percent }
 \newlabel{sec:methods}{{2}{2}{Methods and Architecture}{section.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Formulation and Forward Model}{2}{subsection.2.1}\protected@file@percent }
 \newlabel{sec:formulation}{{2.1}{2}{Formulation and Forward Model}{subsection.2.1}{}}
-\@writefile{toc}{\contentsline {paragraph}{Data model and notation.}{3}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Data model and notation.}{2}{section*.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Constraint map ($F_c$): translation-aware merging.}{3}{section*.3}\protected@file@percent }
 \newlabel{eq:constraintmap}{{1}{3}{Constraint map ($F_c$): translation-aware merging}{equation.2.1}{}}
 \@writefile{toc}{\contentsline {paragraph}{Coordinate-aware grouping.}{3}{section*.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Diffraction map ($F_d$): coherent scattering.}{3}{section*.5}\protected@file@percent }
 \citation{Hoidn2023PtychoPINN}
+\citation{Vong2025GeneralizablePtycho}
 \citation{miao1999extending}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Data Preprocessing}{4}{subsection.2.2}\protected@file@percent }
 \newlabel{sec:preprocess}{{2.2}{4}{Data Preprocessing}{subsection.2.2}{}}
 \newlabel{eq:norm}{{5}{4}{Data Preprocessing}{equation.2.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Neural Network Architecture}{4}{subsection.2.3}\protected@file@percent }
 \newlabel{sec:nn}{{2.3}{4}{Neural Network Architecture}{subsection.2.3}{}}
-\@writefile{toc}{\contentsline {paragraph}{Extended probe illumination (dual-resolution decoding).}{4}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Handling extended probes.}{4}{section*.6}\protected@file@percent }
 \citation{Cherukara2020PtychoNN}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Training Objective and Optimization}{5}{subsection.2.4}\protected@file@percent }
 \newlabel{sec:loss}{{2.4}{5}{Training Objective and Optimization}{subsection.2.4}{}}
@@ -56,10 +54,10 @@
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Reconstruction quality metrics at maximum training set size (16,384 images). Values shown are mean $\pm $ standard deviation across 5 trials. Best values per dataset are highlighted in \textcolor {bestval}{green}.}}{6}{table.caption.10}\protected@file@percent }
 \newlabel{tab:results_16384}{{1}{6}{Reconstruction quality metrics at maximum training set size (16,384 images). Values shown are mean $\pm $ standard deviation across 5 trials. Best values per dataset are highlighted in \textcolor {bestval}{green}}{table.caption.10}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Overlap-Free Reconstruction}{6}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Photon-Limited Performance}{6}{subsection.3.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Synthetic line-pattern reconstruction metrics on the test split. Ground truth is the simulated object.}}{6}{table.caption.12}\protected@file@percent }
+\newlabel{tab:sim_lines_metrics}{{2}{6}{Synthetic line-pattern reconstruction metrics on the test split. Ground truth is the simulated object}{table.caption.12}{}}
 \citation{Marchesini2016SHARP}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Synthetic line-pattern reconstruction metrics on the test split. Ground truth is the simulated object.}}{7}{table.caption.12}\protected@file@percent }
-\newlabel{tab:sim_lines_metrics}{{2}{7}{Synthetic line-pattern reconstruction metrics on the test split. Ground truth is the simulated object}{table.caption.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Photon-Limited Performance}{7}{subsection.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Data Efficiency}{7}{subsection.3.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Out-of-distribution Generalization}{7}{subsection.3.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Computational Performance}{7}{subsection.3.6}\protected@file@percent }
@@ -86,9 +84,10 @@
 \bibcite{LCLSIIHE_DesignPerf}{14}
 \bibcite{Stockmar2013Nearfield}{15}
 \bibcite{Thibault2012NJPML}{16}
-\bibcite{Williams2006FresnelCDI}{17}
-\bibcite{Zhang2016CMI}{18}
-\bibcite{Zhang2013Position}{19}
+\bibcite{Vong2025GeneralizablePtycho}{17}
+\bibcite{Williams2006FresnelCDI}{18}
+\bibcite{Zhang2016CMI}{19}
+\bibcite{Zhang2013Position}{20}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Reconstruction comparison across probe types and acquisition modes. Rows: idealized probe (Gaussian-smoothed disk, uniform phase) vs semi-synthetic (experimental probe, synthetic object). Columns: single-shot CDI vs overlapped ptychography.}}{12}{figure.caption.1}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:recon_2x2}{{1}{12}{Reconstruction comparison across probe types and acquisition modes. Rows: idealized probe (Gaussian-smoothed disk, uniform phase) vs semi-synthetic (experimental probe, synthetic object). Columns: single-shot CDI vs overlapped ptychography}{figure.caption.1}{}}
