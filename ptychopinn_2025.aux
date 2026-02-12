@@ -27,39 +27,39 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Formulation and Forward Model}{2}{subsection.2.1}\protected@file@percent }
 \newlabel{sec:formulation}{{2.1}{2}{Formulation and Forward Model}{subsection.2.1}{}}
 \@writefile{toc}{\contentsline {paragraph}{Data model and notation.}{2}{section*.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Constraint map ($F_c$): translation-aware merging.}{3}{section*.3}\protected@file@percent }
-\newlabel{eq:constraintmap}{{1}{3}{Constraint map ($F_c$): translation-aware merging}{equation.2.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Constraint map ($F_c$): translation-aware merging.}{2}{section*.3}\protected@file@percent }
+\newlabel{eq:constraintmap}{{1}{2}{Constraint map ($F_c$): translation-aware merging}{equation.2.1}{}}
+\citation{Hoidn2023PtychoPINN}
+\citation{Vong2025GeneralizablePtycho}
 \@writefile{toc}{\contentsline {paragraph}{Coordinate-aware grouping.}{3}{section*.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Diffraction map ($F_d$): coherent scattering.}{3}{section*.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Data Preprocessing}{3}{subsection.2.2}\protected@file@percent }
 \newlabel{sec:preprocess}{{2.2}{3}{Data Preprocessing}{subsection.2.2}{}}
 \newlabel{eq:norm}{{5}{3}{Data Preprocessing}{equation.2.5}{}}
-\citation{Hoidn2023PtychoPINN}
-\citation{Vong2025GeneralizablePtycho}
 \citation{miao1999extending}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Neural Network Architecture}{4}{subsection.2.3}\protected@file@percent }
 \newlabel{sec:nn}{{2.3}{4}{Neural Network Architecture}{subsection.2.3}{}}
 \@writefile{toc}{\contentsline {paragraph}{Handling extended probes.}{4}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Training Objective and Optimization}{4}{subsection.2.4}\protected@file@percent }
+\newlabel{sec:loss}{{2.4}{4}{Training Objective and Optimization}{subsection.2.4}{}}
+\@writefile{toc}{\contentsline {paragraph}{Poisson negative log-likelihood.}{4}{section*.7}\protected@file@percent }
+\newlabel{eq:alphaloginit}{{10}{4}{Poisson negative log-likelihood}{equation.2.10}{}}
 \citation{Cherukara2020PtychoNN}
 \citation{Hoidn2023PtychoPINN}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Training Objective and Optimization}{5}{subsection.2.4}\protected@file@percent }
-\newlabel{sec:loss}{{2.4}{5}{Training Objective and Optimization}{subsection.2.4}{}}
-\@writefile{toc}{\contentsline {paragraph}{Poisson negative log-likelihood.}{5}{section*.7}\protected@file@percent }
-\newlabel{eq:alphaloginit}{{10}{5}{Poisson negative log-likelihood}{equation.2.10}{}}
 \@writefile{toc}{\contentsline {paragraph}{Amplitude loss for unknown counts.}{5}{section*.8}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Implementation notes.}{5}{section*.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Supervised Baseline}{5}{subsection.2.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Datasets and Evaluation Protocol}{5}{subsection.2.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{6}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Reconstruction Quality}{6}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{5}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Reconstruction Quality}{5}{subsection.3.1}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Reconstruction quality metrics at maximum training set size (16,384 images). Values shown are mean $\pm $ standard deviation across 5 trials. Best values per dataset are highlighted in \textcolor {bestval}{green}.}}{6}{table.caption.10}\protected@file@percent }
 \newlabel{tab:results_16384}{{1}{6}{Reconstruction quality metrics at maximum training set size (16,384 images). Values shown are mean $\pm $ standard deviation across 5 trials. Best values per dataset are highlighted in \textcolor {bestval}{green}}{table.caption.10}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Overlap-Free Reconstruction}{6}{subsection.3.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Synthetic line-pattern reconstruction metrics on the test split. Ground truth is the simulated object.}}{6}{table.caption.12}\protected@file@percent }
-\newlabel{tab:sim_lines_metrics}{{2}{6}{Synthetic line-pattern reconstruction metrics on the test split. Ground truth is the simulated object}{table.caption.12}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Synthetic line-pattern amplitude reconstruction metrics on the test split. Ground truth is the simulated object (amplitude only; the object has constant zero phase).}}{6}{table.caption.12}\protected@file@percent }
+\newlabel{tab:sim_lines_metrics}{{2}{6}{Synthetic line-pattern amplitude reconstruction metrics on the test split. Ground truth is the simulated object (amplitude only; the object has constant zero phase)}{table.caption.12}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Photon-Limited Performance}{6}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Data Efficiency}{6}{subsection.3.4}\protected@file@percent }
 \citation{Marchesini2016SHARP}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Data Efficiency}{7}{subsection.3.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Out-of-distribution Generalization}{7}{subsection.3.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Computational Performance}{7}{subsection.3.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{7}{section.4}\protected@file@percent }
