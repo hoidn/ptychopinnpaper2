@@ -28,6 +28,13 @@ Xue Dong, Xingchen Pan, Cheng Liu, and Jianqiang Zhu.
   imaging.
 \newblock {\em Optics Letters}, 43(8):1762--1765, 2018.
 
+\bibitem{Gan2024PtychoDV}
+Weijie Gan, Qiuchen Zhai, Michael~T. McCann, Cristina Garcia~Cardona,
+  Ulugbek~S. Kamilov, and Brendt Wohlberg.
+\newblock Ptychodv: Vision transformer-based deep unrolling network for
+  ptychographic image reconstruction.
+\newblock {\em IEEE Open Journal of Signal Processing}, 5:539--547, 2024.
+
 \bibitem{GuizarSicairos2021PhysicsToday}
 Manuel Guizar-Sicairos and Pierre Thibault.
 \newblock Ptychography: A solution to the phase problem.
@@ -46,12 +53,6 @@ Konstantin Kharitonov, Masoud Mehrjoo, Mabel Ruiz-Lopez, Barbara Keitel, Svea
 \newblock Single-shot ptychography at a soft x-ray free-electron laser.
 \newblock {\em Scientific Reports}, 12(1):14430, 2022.
 
-\bibitem{Maiden2012Annealing}
-Andrew~M. Maiden, Matthew~J. Humphry, Matthew~C. Sarahan, Bernd Kraus, and
-  John~M. Rodenburg.
-\newblock An annealing algorithm to correct positioning errors in ptychography.
-\newblock {\em Ultramicroscopy}, 120:64--72, 2012.
-
 \bibitem{Maiden2009UltramicroscopyPIE}
 Andrew~M. Maiden and John~M. Rodenburg.
 \newblock An improved ptychographical phase retrieval algorithm for diffractive
@@ -63,6 +64,14 @@ Stefano Marchesini, Hari Krishnan, Benedikt~J. Daurer, David~A. Shapiro, Talita
   Perciano, James~A. Sethian, and Filipe R. N.~C. Maia.
 \newblock Sharp: a distributed gpu-based ptychographic solver.
 \newblock {\em Journal of Applied Crystallography}, 49(4):1245--1252, 2016.
+
+\bibitem{Metzler2018prDeep}
+Christopher~A. Metzler, Philip Schniter, Ashok Veeraraghavan, and Richard~G.
+  Baraniuk.
+\newblock prdeep: Robust phase retrieval with a flexible deep network.
+\newblock In {\em Proceedings of the 35th International Conference on Machine
+  Learning}, volume~80 of {\em Proceedings of Machine Learning Research}, pages
+  3501--3510, 2018.
 
 \bibitem{miao1999extending}
 Jianwei Miao, Pambos Charalambous, Janos Kirz, and David Sayre.
@@ -81,6 +90,13 @@ Joachim~P. Seifert, Zhaoning Chen, Myung-Jae Yoon, Andrew Ulvestad, Mathew~J.
 Pavel Sidorenko and Oren Cohen.
 \newblock Single-shot ptychography.
 \newblock {\em Optica}, 3(1):9--14, 2016.
+
+\bibitem{Sitzmann2020SIREN}
+Vincent Sitzmann, Julien N.~P. Martel, Alexander~W. Bergman, David~B. Lindell,
+  and Gordon Wetzstein.
+\newblock Implicit neural representations with periodic activation functions.
+\newblock In {\em Advances in Neural Information Processing Systems},
+  volume~33, pages 7462--7473, 2020.
 
 \bibitem{LCLSIIHE_DesignPerf}
 {SLAC National Accelerator Laboratory}.
@@ -101,6 +117,12 @@ Pierre Thibault and Manuel Guizar-Sicairos.
 \newblock Maximum-likelihood refinement for coherent diffractive imaging.
 \newblock {\em New Journal of Physics}, 14:063004, 2012.
 
+\bibitem{Ulyanov2018DIP}
+Dmitry Ulyanov, Andrea Vedaldi, and Victor Lempitsky.
+\newblock Deep image prior.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition (CVPR)}, pages 9446--9454, 2018.
+
 \bibitem{Vong2025GeneralizablePtycho}
 Albert Vong, Steven Henke, Oliver Hoidn, Hanna Ruth, Junjing Deng, Alexander
   Hexemer, David Shapiro, Apurva Mehta, Arianna Gleason, Levi Hancock, and
@@ -120,13 +142,5 @@ Fan Zhang, Ir{\`e}ne Peterson, Joan Vila-Comamala, Ana Diaz, Fran{\c{c}}ois
   John~M. Rodenburg.
 \newblock Phase retrieval by coherent modulation imaging.
 \newblock {\em Nature Communications}, 7:13367, 2016.
-
-\bibitem{Zhang2013Position}
-Fei Zhang, Ir{\`e}ne Peterson, Joan Vila-Comamala, Ana Diaz, Fran{\c{c}}ois
-  Berenguer, Richard Bean, Bo~Chen, Andreas Menzel, Ian~K. Robinson, and
-  John~M. Rodenburg.
-\newblock Translation position determination in ptychographic coherent
-  diffraction imaging.
-\newblock {\em Optics Express}, 21(11):13592--13606, 2013.
 
 \end{thebibliography}
