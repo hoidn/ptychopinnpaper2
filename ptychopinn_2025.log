@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.8.20)  23 FEB 2026 15:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.8.20)  23 FEB 2026 15:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1411,10 +1411,10 @@ Package pdftex.def Info: figures/FRC50_as_a_Function_of_Exposure_Dose.png  used
  on input line 360.
 (pdftex.def)             Requested size: 303.53517pt x 196.9501pt.
 [7]
-<figures/ssim (2).png, id=164, 443.256pt x 280.4076pt>
-File: figures/ssim (2).png Graphic file (type png)
-<use figures/ssim (2).png>
-Package pdftex.def Info: figures/ssim (2).png  used on input line 374.
+<figures/ssim_2.png, id=164, 443.256pt x 280.4076pt>
+File: figures/ssim_2.png Graphic file (type png)
+<use figures/ssim_2.png>
+Package pdftex.def Info: figures/ssim_2.png  used on input line 374.
 (pdftex.def)             Requested size: 303.53517pt x 192.01814pt.
 \subw=\skip71
 \subh=\skip72
@@ -1525,17 +1525,17 @@ Package pdftex.def Info: figures/out-dist-fig/run1084_probe_amplitude.png  used
  [8 <./figures/lowcounts.png> <./figures/8192.png (PNG copy)>] [9 <./figuredose
 /nll9diff_crop.png> <./figuredose/mae9img.png> <./figuredose/nll9img.png> <./fi
 guredose/nll4diff_crop.png> <./figuredose/mae4img.png> <./figuredose/nll4img.pn
-g> <./figures/FRC50_as_a_Function_of_Exposure_Dose.png>] [10 <./figures/ssim (2
-).png> <./figures/out-dist-fig/pinn_run1084_amplitude.png> <./figures/out-dist-
-fig/pinn_run1084_phase.png> <./figures/out-dist-fig/pinn_fly64trained_run1084te
-st_amplitude.png> <./figures/out-dist-fig/pinn_fly64trained_run1084test_phase.p
-ng> <./figures/out-dist-fig/baseline_run1084_amplitude.png> <./figures/out-dist
--fig/baseline_run1084_phase.png> <./figures/out-dist-fig/baseline_fly64trained_
-run1084test_amplitude.png> <./figures/out-dist-fig/baseline_fly64trained_run108
-4test_phase.png> <./figures/out-dist-fig/ground_truth_run1084_amplitude.png> <.
-/figures/out-dist-fig/ground_truth_run1084_phase.png> <./figures/out-dist-fig/f
-ly64_probe_amplitude.png> <./figures/out-dist-fig/run1084_probe_amplitude.png>]
- [11] [12]
+g> <./figures/FRC50_as_a_Function_of_Exposure_Dose.png>] [10 <./figures/ssim_2.
+png> <./figures/out-dist-fig/pinn_run1084_amplitude.png> <./figures/out-dist-fi
+g/pinn_run1084_phase.png> <./figures/out-dist-fig/pinn_fly64trained_run1084test
+_amplitude.png> <./figures/out-dist-fig/pinn_fly64trained_run1084test_phase.png
+> <./figures/out-dist-fig/baseline_run1084_amplitude.png> <./figures/out-dist-f
+ig/baseline_run1084_phase.png> <./figures/out-dist-fig/baseline_fly64trained_ru
+n1084test_amplitude.png> <./figures/out-dist-fig/baseline_fly64trained_run1084t
+est_phase.png> <./figures/out-dist-fig/ground_truth_run1084_amplitude.png> <./f
+igures/out-dist-fig/ground_truth_run1084_phase.png> <./figures/out-dist-fig/fly
+64_probe_amplitude.png> <./figures/out-dist-fig/run1084_probe_amplitude.png>] [
+11] [12]
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 68
 2.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
@@ -1571,7 +1571,7 @@ L3 programming layer <2020/03/25>
  ) 
 Here is how much of TeX's memory you used:
  46260 strings out of 476106
- 999522 string characters out of 5793933
+ 999508 string characters out of 5793933
  1954975 words of memory out of 5000000
  67213 multiletter control sequences out of 15000+600000
  728772 words of font info for 358 fonts, out of 8000000 for 9000
