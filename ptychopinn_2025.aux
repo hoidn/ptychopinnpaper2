@@ -42,8 +42,8 @@
 \@writefile{toc}{\contentsline {paragraph}{Handling extended probes.}{5}{section*.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Training Objective and Optimization}{5}{subsection.2.4}\protected@file@percent }
 \newlabel{sec:loss}{{2.4}{5}{Training Objective and Optimization}{subsection.2.4}{}}
-\@writefile{toc}{\contentsline {paragraph}{Poisson negative log-likelihood.}{5}{section*.7}\protected@file@percent }
-\newlabel{eq:alphaloginit}{{10}{5}{Poisson negative log-likelihood}{equation.2.10}{}}
+\@writefile{toc}{\contentsline {paragraph}{Poisson negative log-likelihood (NLL).}{5}{section*.7}\protected@file@percent }
+\newlabel{eq:alphaloginit}{{10}{5}{Poisson negative log-likelihood (NLL)}{equation.2.10}{}}
 \citation{Cherukara2020PtychoNN}
 \citation{Hoidn2023PtychoPINN}
 \@writefile{toc}{\contentsline {paragraph}{Amplitude loss for unknown counts.}{6}{section*.8}\protected@file@percent }
@@ -52,17 +52,17 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Datasets and Evaluation Protocol}{6}{subsection.2.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}Results}{6}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Reconstruction Quality}{6}{subsection.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Reconstruction quality metrics at maximum training set size (16,384 images). Values shown are mean $\pm $ standard deviation across 5 trials. Best values per dataset are highlighted in \textcolor {bestval}{green}.}}{7}{table.caption.10}\protected@file@percent }
-\newlabel{tab:results_16384}{{1}{7}{Reconstruction quality metrics at maximum training set size (16,384 images). Values shown are mean $\pm $ standard deviation across 5 trials. Best values per dataset are highlighted in \textcolor {bestval}{green}}{table.caption.10}{}}
-\newlabel{fig:lowcounts}{{2a}{7}{512 diffraction patterns of the Siemens star test pattern}{figure.caption.11}{}}
-\newlabel{sub@fig:lowcounts}{{a}{7}{512 diffraction patterns of the Siemens star test pattern}{figure.caption.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Comparison of reconstruction quality with different numbers of diffraction patterns.}}{7}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:smalldat}{{2}{7}{Comparison of reconstruction quality with different numbers of diffraction patterns}{figure.caption.11}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Reconstruction quality metrics at maximum training set size (16,384 images): peak signal-to-noise ratio (PSNR) and structural similarity index measure (SSIM). Values shown are mean $\pm $ standard deviation across 5 trials. Best values per dataset are highlighted in \textcolor {bestval}{green}.}}{7}{table.caption.10}\protected@file@percent }
+\newlabel{tab:results_16384}{{1}{7}{Reconstruction quality metrics at maximum training set size (16,384 images): peak signal-to-noise ratio (PSNR) and structural similarity index measure (SSIM). Values shown are mean $\pm $ standard deviation across 5 trials. Best values per dataset are highlighted in \textcolor {bestval}{green}}{table.caption.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Overlap-Free Reconstruction}{7}{subsection.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Synthetic line-pattern amplitude reconstruction metrics on the test split. Ground truth is the simulated object (amplitude only; the object has constant zero phase).}}{7}{table.caption.12}\protected@file@percent }
+\newlabel{tab:sim_lines_metrics}{{2}{7}{Synthetic line-pattern amplitude reconstruction metrics on the test split. Ground truth is the simulated object (amplitude only; the object has constant zero phase)}{table.caption.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Photon-Limited Performance}{7}{subsection.3.3}\protected@file@percent }
 \citation{Marchesini2016SHARP}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Overlap-Free Reconstruction}{8}{subsection.3.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Synthetic line-pattern amplitude reconstruction metrics on the test split. Ground truth is the simulated object (amplitude only; the object has constant zero phase).}}{8}{table.caption.12}\protected@file@percent }
-\newlabel{tab:sim_lines_metrics}{{2}{8}{Synthetic line-pattern amplitude reconstruction metrics on the test split. Ground truth is the simulated object (amplitude only; the object has constant zero phase)}{table.caption.12}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Photon-Limited Performance}{8}{subsection.3.3}\protected@file@percent }
+\newlabel{fig:lowcounts}{{2a}{8}{512 diffraction patterns of the Siemens star test pattern}{figure.caption.11}{}}
+\newlabel{sub@fig:lowcounts}{{a}{8}{512 diffraction patterns of the Siemens star test pattern}{figure.caption.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Comparison of reconstruction quality with different numbers of diffraction patterns.}}{8}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:smalldat}{{2}{8}{Comparison of reconstruction quality with different numbers of diffraction patterns}{figure.caption.11}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Data Efficiency}{8}{subsection.3.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Out-of-distribution Generalization}{8}{subsection.3.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Computational Performance}{8}{subsection.3.6}\protected@file@percent }
@@ -73,10 +73,11 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Comparison of methods for an in-distribution LCLS control (train LCLS XPP, test LCLS XPP) and out-of-distribution transfer (train APS, test LCLS XPP). The reference column shows an ePIE reconstruction of the LCLS data.}}{10}{figure.caption.15}\protected@file@percent }
 \newlabel{fig:fivepanel}{{5}{10}{Comparison of methods for an in-distribution LCLS control (train LCLS XPP, test LCLS XPP) and out-of-distribution transfer (train APS, test LCLS XPP). The reference column shows an ePIE reconstruction of the LCLS data}{figure.caption.15}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{11}{section.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Model parameters, default code values, and settings used for the APS/LCLS experiments in this paper}}{12}{table.caption.20}\protected@file@percent }
-\newlabel{tab:config_params}{{3}{12}{Model parameters, default code values, and settings used for the APS/LCLS experiments in this paper}{table.caption.20}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Symbol definitions}}{12}{table.caption.21}\protected@file@percent }
-\newlabel{tab:symbols}{{4}{12}{Symbol definitions}{table.caption.21}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusions}{11}{section.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Model parameters, default code values, and settings used for the APS/LCLS experiments in this paper}}{13}{table.caption.20}\protected@file@percent }
+\newlabel{tab:config_params}{{3}{13}{Model parameters, default code values, and settings used for the APS/LCLS experiments in this paper}{table.caption.20}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Symbol definitions}}{13}{table.caption.21}\protected@file@percent }
+\newlabel{tab:symbols}{{4}{13}{Symbol definitions}{table.caption.21}{}}
 \bibdata{references}
 \bibcite{Hoidn2023PtychoPINN}{1}
 \bibcite{LCLSIIHE_DesignPerf}{2}
@@ -99,7 +100,7 @@
 \bibcite{Dong2018CMI}{19}
 \bibcite{Vong2025GeneralizablePtycho}{20}
 \bibcite{miao1999extending}{21}
-\newlabel{LastPage}{{4}{13}{Appendix A: Key Configuration Parameters}{page.13}{}}
-\gdef\lastpage@lastpage{13}
-\gdef\lastpage@lastpageHy{13}
-\gdef \@abspage@last{13}
+\newlabel{LastPage}{{5}{14}{Appendix A: Key Configuration Parameters}{page.14}{}}
+\gdef\lastpage@lastpage{14}
+\gdef\lastpage@lastpageHy{14}
+\gdef \@abspage@last{14}
