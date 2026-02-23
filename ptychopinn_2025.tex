@@ -50,12 +50,13 @@
 
 \title{Towards single-shot coherent imaging via overlap-free ptychography}
 
-\author{O. Hoidn,\authormark{1,*} A. Mishra,\authormark{1} S. Henke,\authormark{1} A. Vong,\authormark{1} and M. Seaberg\authormark{1}}
-\address{\authormark{1}SLAC National Accelerator Laboratory, Menlo Park, California 94025, USA}
+\author{O. Hoidn,\authormark{1,*} A. Mishra,\authormark{1} S. Henke,\authormark{2} A. Vong,\authormark{2} and M. Seaberg\authormark{1}}
+\address{\authormark{1}SLAC National Accelerator Laboratory, Menlo Park, California 94025, USA\\
+\authormark{2}Argonne National Laboratory, Lemont, Illinois 60439, USA}
 \email{\authormark{*}ohoidn@slac.stanford.edu}
 
 \begin{abstract*}
-Single-shot coherent imaging carries benefits in synchrotron and XFEL-based X-ray microscopy because it lowers photon dose, removes the overhead of densely overlapping scans, and increases imaging throughput. We extend PtychoPINN~\cite{Hoidn2023PtychoPINN}, a physics-constrained neural network for self-supervised ptychographic reconstruction, to deliver \emph{overlap-free, single-shot} reconstructions in a Fresnel (near-field) CDI geometry and also accelerate conventional multi-shot ptychography. The framework learns directly from diffraction intensities using a differentiable forward model of coherent scattering and a Poisson photon-counting likelihood. It optionally enforces real-space constraints through coordinate-based grouping, which enables multi-shot reconstruction under arbitrary scan geometries. Per-GPU throughput is approximately $10\times$ that of high-performance conventional solvers at matched resolution. Reconstructions remain accurate at low counts ($\sim\!10^4$ photons/frame) and zero real-space overlap. Compared to a supervised baseline with the same network architecture, our framework achieves comparable reconstruction quality with as few as 1024 training samples and generalizes across beamlines without retraining. In synthetic overlap ablations with an experimental probe, overlap-free \emph{single-shot} reconstruction reaches amplitude SSIM 0.904 versus 0.968 for overlap-constrained reconstruction ($\Delta=0.064$). This unification of single-exposure Fresnel CDI and overlapped ptychography within a single framework supports dose-efficient imaging at XFELs at substantially higher throughput than previously feasible.
+Single-shot coherent imaging carries benefits in synchrotron and XFEL-based X-ray microscopy because it lowers photon dose, removes the overhead of densely overlapping scans, and increases imaging throughput. We extend PtychoPINN (O. Hoidn \emph{et al.}, \emph{Scientific Reports} \textbf{13}, 22789, 2023), a physics-constrained neural network for self-supervised ptychographic reconstruction, to deliver \emph{overlap-free, single-shot} reconstructions in a Fresnel (near-field) CDI geometry and also accelerate conventional multi-shot ptychography. The framework learns directly from diffraction intensities using a differentiable forward model of coherent scattering and a Poisson photon-counting likelihood. It optionally enforces real-space constraints through coordinate-based grouping, which enables multi-shot reconstruction under arbitrary scan geometries. Per-GPU throughput is approximately $10\times$ that of high-performance conventional solvers at matched resolution. Reconstructions remain accurate at low counts ($\sim\!10^4$ photons/frame) and zero real-space overlap. Compared to a supervised baseline with the same network architecture, our framework achieves comparable reconstruction quality with as few as 1024 training samples and generalizes across beamlines without retraining. In synthetic overlap ablations with an experimental probe, overlap-free \emph{single-shot} reconstruction reaches amplitude SSIM 0.904 versus 0.968 for overlap-constrained reconstruction ($\Delta=0.064$). This unification of single-exposure Fresnel CDI and overlapped ptychography within a single framework supports dose-efficient imaging at XFELs at substantially higher throughput than previously feasible.
 
 \end{abstract*}
 
@@ -336,13 +337,15 @@ Figure~\ref{fig:dose} compares resolution (FRC50) as a function of photon dose f
 
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}[t]{0.49\textwidth}
+    \begin{subfigure}[t]{0.80\textwidth}
         \centering
         \includegraphics[width=\textwidth]{figures/poisson.png}
         \caption{Representative reconstructions across dose.}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.49\textwidth}
+
+    \vspace{0.6em}
+
+    \begin{subfigure}[t]{0.80\textwidth}
         \centering
         \includegraphics[width=\textwidth]{figures/FRC50_as_a_Function_of_Exposure_Dose.png}
         \caption{Resolution (FRC50) as a function of on-sample photon dose.}
@@ -645,9 +648,11 @@ Making overlap a tunable parameter rather than a hard requirement has concrete i
 The forward model provides dense physical constraint per measurement: each diffraction pattern encodes the full exit-wave amplitude, and the Poisson NLL correctly weights every detector pixel---including the low-count, high-$q$ pixels where fine spatial detail resides (Fig.~\ref{fig:dose}). By contrast, real-space supervision constrains the network against a single reference reconstruction that already carries the ambiguities intrinsic to the inverse problem, such as global phase offsets. Because these nuisance parameters are not uniquely determined by the data, a supervised network can overfit to them, which likely explains both the supervised baseline's train--test gap on held-out scan positions (Fig.~\ref{fig:smalldat}) and its collapse under cross-facility transfer (Fig.~\ref{fig:fivepanel}). Data efficiency follows from the same mechanism: the forward-model constraint is far more informative per sample than a pixel-wise real-space loss, so the network converges with roughly an order of magnitude fewer training patterns (Fig.~\ref{fig:ssim}).
 
 \subsection*{Open problems}
-The main limitation is the fixed-probe assumption: our formulation requires a pre-estimated probe and does not model probe drift or position errors during training. Joint probe retrieval within the self-supervised loop and differentiable position refinement are natural extensions that would broaden the range of experimental conditions the framework can handle. On the computational side, mixed-precision execution and kernel fusion should yield roughly a $2\times$ throughput improvement with no algorithmic changes. The more consequential bottleneck is the CNN backbone: convolutional layers lack global receptive fields, which limits both high-spatial-frequency accuracy at a given $N$ and scaling to larger patch dimensions. Architectures with spectral features (e.g., Fourier neural operators) provide global mixing in every layer, addressing both limitations. Because the framework is modular---backbone, forward model, and loss are independent---these extensions and adaptations to other geometries (e.g., Bragg CDI) require changes to individual components rather than to the overall formulation.
+The main methodological limitation is the fixed-probe assumption: the current formulation uses a pre-estimated probe and fixed scan coordinates during training, so it does not correct probe drift or position errors. A direct extension is to jointly refine probe and position parameters within the same self-supervised loop.
 
-In summary, coupling a Poisson photon-counting likelihood with a differentiable forward model yields dose efficiency, robustness to sparse or irregular acquisition, and support for single-shot Fresnel CDI, unifying overlapped ptychography and single-exposure imaging within one framework.
+The framework is modular: inverse backbone, differentiable forward model, and loss are separable components. This design should allow further speedups from mixed precision and architecture-level optimization without changing the architecture or training procedure.
+
+At higher resolution, the dominant scaling bottleneck is the CNN inverse backbone. Replacing it with a Fourier neural operator (FNO) backbone is a likely next step, because global spectral mixing is expected to scale better with image size $N$ and improve high-resolution reconstruction quality. The same modular structure should also simplify adaptation to other coherent imaging geometries, including Bragg CDI.
 
 \newpage
 \section*{Appendix A: Key Configuration Parameters}

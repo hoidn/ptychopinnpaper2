@@ -1,48 +1,46 @@
 This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: ptychopinn_2025.aux
-The style file: plain.bst
+The style file: opticajnl.bst
 Database file #1: references.bib
-Warning--empty journal in Vong2025GeneralizablePtycho
-You've used 22 entries,
-            2118 wiz_defined-function locations,
-            657 strings with 9599 characters,
-and the built_in function-call counts, 9968 in all, are:
-= -- 919
-> -- 695
-< -- 5
-+ -- 275
-- -- 252
-* -- 861
-:= -- 1699
-add.period$ -- 67
-call.type$ -- 22
-change.case$ -- 192
+You've used 21 entries,
+            2638 wiz_defined-function locations,
+            743 strings with 9540 characters,
+and the built_in function-call counts, 8494 in all, are:
+= -- 653
+> -- 308
+< -- 4
++ -- 144
+- -- 72
+* -- 609
+:= -- 966
+add.period$ -- 45
+call.type$ -- 21
+change.case$ -- 22
 chr.to.int$ -- 0
-cite$ -- 23
-duplicate$ -- 280
-empty$ -- 614
-format.name$ -- 252
-if$ -- 1974
+cite$ -- 21
+duplicate$ -- 793
+empty$ -- 796
+format.name$ -- 92
+if$ -- 1892
 int.to.chr$ -- 0
-int.to.str$ -- 22
-missing$ -- 21
-newline$ -- 114
-num.names$ -- 44
-pop$ -- 171
+int.to.str$ -- 21
+missing$ -- 202
+newline$ -- 67
+num.names$ -- 21
+pop$ -- 268
 preamble$ -- 1
-purify$ -- 170
+purify$ -- 0
 quote$ -- 0
-skip$ -- 205
+skip$ -- 199
 stack$ -- 0
-substring$ -- 588
-swap$ -- 60
-text.length$ -- 5
+substring$ -- 475
+swap$ -- 528
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 88
-warning$ -- 1
-while$ -- 79
-width$ -- 24
-write$ -- 245
-(There was 1 warning)
+type$ -- 0
+warning$ -- 0
+while$ -- 55
+width$ -- 23
+write$ -- 192
