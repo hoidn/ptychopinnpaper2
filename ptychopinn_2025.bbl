@@ -1,12 +1,6 @@
 \begin{thebibliography}{10}
 \newcommand{\enquote}[1]{``#1''}
 
-\bibitem{Hoidn2023PtychoPINN}
-O.~Hoidn, A.~A. Mishra, and A.~Mehta, \enquote{Physics constrained unsupervised
-  deep learning for rapid, high resolution scanning coherent diffraction
-  reconstruction,} {\protect\JournalTitle{Scientific Reports}} \textbf{13},
-  22789 (2023).
-
 \bibitem{LCLSIIHE_DesignPerf}
 {SLAC National Accelerator Laboratory}, \enquote{{LCLS-II-HE: Design and
   Performance},}
@@ -50,16 +44,33 @@ C.~A. Metzler, P.~Schniter, A.~Veeraraghavan, and R.~G. Baraniuk,
   vol.~80 of \emph{Proceedings of Machine Learning Research} (2018), pp.
   3501--3510.
 
+\bibitem{McCray2025IntegratedNN}
+A.~R.~C. McCray, S.~M. Ribet, G.~Varnavides, and C.~Ophus,
+  \enquote{Accelerating iterative ptychography with an integrated neural
+  network,} {\protect\JournalTitle{Journal of Microscopy}} \textbf{300},
+  180--190 (2025).
+
 \bibitem{Sitzmann2020SIREN}
 V.~Sitzmann, J.~N.~P. Martel, A.~W. Bergman, \emph{et~al.}, \enquote{Implicit
   neural representations with periodic activation functions,} in \emph{Advances
   in Neural Information Processing Systems,}  vol.~33 (2020), pp. 7462--7473.
+
+\bibitem{Du2024ProbePosition}
+M.~Du, T.~Zhou, J.~Deng, \emph{et~al.}, \enquote{Predicting ptychography probe
+  positions using single-shot phase retrieval neural network,}
+  {\protect\JournalTitle{Optics Express}} \textbf{32}, 36757--36780 (2024).
 
 \bibitem{Gan2024PtychoDV}
 W.~Gan, Q.~Zhai, M.~T. McCann, \emph{et~al.}, \enquote{Ptychodv: Vision
   transformer-based deep unrolling network for ptychographic image
   reconstruction,} {\protect\JournalTitle{IEEE Open Journal of Signal
   Processing}} \textbf{5}, 539--547 (2024).
+
+\bibitem{Yao2022AutoPhaseNN}
+Y.~Yao, H.~Chan, S.~K. R.~S. Sankaranarayanan, \emph{et~al.},
+  \enquote{Autophasenn: unsupervised physics-aware deep learning of 3d
+  nanoscale bragg coherent diffraction imaging,} {\protect\JournalTitle{npj
+  Computational Materials}} \textbf{8}, 124 (2022).
 
 \bibitem{Thibault2012NJPML}
 P.~Thibault and M.~Guizar-Sicairos, \enquote{Maximum-likelihood refinement for
@@ -100,6 +111,12 @@ F.~Zhang, I.~Peterson, J.~Vila-Comamala, \emph{et~al.}, \enquote{Phase
 X.~Dong, X.~Pan, C.~Liu, and J.~Zhu, \enquote{Single shot multi-wavelength
   phase retrieval with coherent modulation imaging,}
   {\protect\JournalTitle{Optics Letters}} \textbf{43}, 1762--1765 (2018).
+
+\bibitem{Hoidn2023PtychoPINN}
+O.~Hoidn, A.~A. Mishra, and A.~Mehta, \enquote{Physics constrained unsupervised
+  deep learning for rapid, high resolution scanning coherent diffraction
+  reconstruction,} {\protect\JournalTitle{Scientific Reports}} \textbf{13},
+  22789 (2023).
 
 \bibitem{Vong2025GeneralizablePtycho}
 A.~Vong, S.~Henke, O.~Hoidn, \emph{et~al.}, \enquote{Towards generalizable deep
