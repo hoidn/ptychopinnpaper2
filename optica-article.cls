@@ -248,8 +248,12 @@
 \let\endOEReflinks\endthebibliography
 \let\endReferences\endthebibliography
 
-%% 2017/12/06 Automatically abbreviate journal titles
-\RequirePackage{jabbrv}
+%% 2017/12/06 Automatically abbreviate journal titles.
+%% Some submission pipelines may omit jabbrv; fall back gracefully.
+\IfFileExists{jabbrv.sty}{\RequirePackage{jabbrv}}{%
+  \ClassWarningNoLine{optica-article}{jabbrv.sty not found; journal titles will not be auto-abbreviated}%
+  \providecommand{\JournalTitle}[1]{#1}%
+}
 
 %% New section parameters 4/28/2003 sdinee
 %% Authors may now use \cite \ref for section numbers
