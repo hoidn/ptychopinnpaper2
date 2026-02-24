@@ -1,6 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.8.20)  23 FEB 2026 21:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.8.20)  23 FEB 2026 22:39
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **ptychopinn_2025.tex
 (./ptychopinn_2025.tex
@@ -660,31 +661,50 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 Package: styles/opticajournal 2022/06/16 v1.0 v1.0 Generic Journal color scheme
 
 )
+(/usr/share/texlive/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2023/05/20 line numbers on paragraphs v5.3
+\linenopenalty=\count320
+\output=\toks44
+\linenoprevgraf=\count321
+\linenumbersep=\dimen195
+\linenumberwidth=\dimen196
+\c@linenumber=\count322
+\c@pagewiselinenumber=\count323
+\c@LN@truepage=\count324
+\c@internallinenumber=\count325
+\c@internallinenumbers=\count326
+\quotelinenumbersep=\dimen197
+\bframerule=\dimen198
+\bframesep=\dimen199
+\bframebox=\box57
+\linenoamsmath@ams@eqpen=\count327
+LaTeX Info: Redefining \\ on input line 3180.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/rotating.sty
 Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
-\c@r@tfl@t=\count320
+\c@r@tfl@t=\count328
 \rotFPtop=\skip69
 \rotFPbot=\skip70
-\rot@float@box=\box57
-\rot@mess@toks=\toks44
+\rot@float@box=\box58
+\rot@mess@toks=\toks45
 )
 (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count321
+\c@subfigure=\count329
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count322
+\c@subtable=\count330
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks45
-\pgfutil@tempdima=\dimen195
-\pgfutil@tempdimb=\dimen196
+\pgfutil@everybye=\toks46
+\pgfutil@tempdima=\dimen256
+\pgfutil@tempdimb=\dimen257
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box58
+\pgfutil@abb=\box59
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)
@@ -698,33 +718,33 @@ Package: pgf 2023-01-15 v3.1.10 (3.1.10)
 Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks46
-\pgfkeys@temptoks=\toks47
+\pgfkeys@pathtoks=\toks47
+\pgfkeys@temptoks=\toks48
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered
 .code.tex
-\pgfkeys@tmptoks=\toks48
+\pgfkeys@tmptoks=\toks49
 ))
-\pgf@x=\dimen197
-\pgf@y=\dimen198
-\pgf@xa=\dimen199
-\pgf@ya=\dimen256
-\pgf@xb=\dimen257
-\pgf@yb=\dimen258
-\pgf@xc=\dimen259
-\pgf@yc=\dimen260
-\pgf@xd=\dimen261
-\pgf@yd=\dimen262
+\pgf@x=\dimen258
+\pgf@y=\dimen259
+\pgf@xa=\dimen260
+\pgf@ya=\dimen261
+\pgf@xb=\dimen262
+\pgf@yb=\dimen263
+\pgf@xc=\dimen264
+\pgf@yc=\dimen265
+\pgf@xd=\dimen266
+\pgf@yd=\dimen267
 \w@pgf@writea=\write3
 \r@pgf@reada=\read3
-\c@pgf@counta=\count323
-\c@pgf@countb=\count324
-\c@pgf@countc=\count325
-\c@pgf@countd=\count326
-\t@pgf@toka=\toks49
-\t@pgf@tokb=\toks50
-\t@pgf@tokc=\toks51
-\pgf@sys@id@count=\count327
+\c@pgf@counta=\count331
+\c@pgf@countb=\count332
+\c@pgf@countc=\count333
+\c@pgf@countd=\count334
+\t@pgf@toka=\toks50
+\t@pgf@tokb=\toks51
+\t@pgf@tokc=\toks52
+\pgf@sys@id@count=\count335
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -739,8 +759,8 @@ File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
 tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count328
-\pgfsyssoftpath@bigbuffer@items=\count329
+\pgfsyssoftpath@smallbuffer@items=\count336
+\pgfsyssoftpath@bigbuffer@items=\count337
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
 tex
@@ -752,12 +772,12 @@ Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen263
-\pgfmath@count=\count330
-\pgfmath@box=\box59
-\pgfmath@toks=\toks52
-\pgfmath@stack@operand=\toks53
-\pgfmath@stack@operation=\toks54
+\pgfmath@dimen=\dimen268
+\pgfmath@count=\count338
+\pgfmath@box=\box60
+\pgfmath@toks=\toks53
+\pgfmath@stack@operand=\toks54
+\pgfmath@stack@operation=\toks55
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
@@ -778,58 +798,58 @@ tex)
 thmetics.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count331
+\c@pgfmathroundto@lastzeros=\count339
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
 x
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@picminx=\dimen264
-\pgf@picmaxx=\dimen265
-\pgf@picminy=\dimen266
-\pgf@picmaxy=\dimen267
-\pgf@pathminx=\dimen268
-\pgf@pathmaxx=\dimen269
-\pgf@pathminy=\dimen270
-\pgf@pathmaxy=\dimen271
-\pgf@xx=\dimen272
-\pgf@xy=\dimen273
-\pgf@yx=\dimen274
-\pgf@yy=\dimen275
-\pgf@zx=\dimen276
-\pgf@zy=\dimen277
+\pgf@picminx=\dimen269
+\pgf@picmaxx=\dimen270
+\pgf@picminy=\dimen271
+\pgf@picmaxy=\dimen272
+\pgf@pathminx=\dimen273
+\pgf@pathmaxx=\dimen274
+\pgf@pathminy=\dimen275
+\pgf@pathmaxy=\dimen276
+\pgf@xx=\dimen277
+\pgf@xy=\dimen278
+\pgf@yx=\dimen279
+\pgf@yy=\dimen280
+\pgf@zx=\dimen281
+\pgf@zy=\dimen282
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
 code.tex
 File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@path@lastx=\dimen278
-\pgf@path@lasty=\dimen279
+\pgf@path@lastx=\dimen283
+\pgf@path@lasty=\dimen284
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
 .tex
 File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@shorten@end@additional=\dimen280
-\pgf@shorten@start@additional=\dimen281
+\pgf@shorten@end@additional=\dimen285
+\pgf@shorten@start@additional=\dimen286
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
 x
 File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfpic=\box60
-\pgf@hbox=\box61
-\pgf@layerbox@main=\box62
-\pgf@picture@serial@count=\count332
+\pgfpic=\box61
+\pgf@hbox=\box62
+\pgf@layerbox@main=\box63
+\pgf@picture@serial@count=\count340
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
 ode.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgflinewidth=\dimen282
+\pgflinewidth=\dimen287
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
 s.code.tex
 File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@pt@x=\dimen283
-\pgf@pt@y=\dimen284
-\pgf@pt@temp=\dimen285
+\pgf@pt@x=\dimen288
+\pgf@pt@y=\dimen289
+\pgf@pt@temp=\dimen290
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -845,13 +865,13 @@ File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
 x
 File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowsep=\dimen286
+\pgfarrowsep=\dimen291
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@max=\dimen287
-\pgf@sys@shading@range@num=\count333
-\pgf@shadingcount=\count334
+\pgf@max=\dimen292
+\pgf@sys@shading@range@num=\count341
+\pgf@shadingcount=\count342
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -859,7 +879,7 @@ File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
 tex
 File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfexternal@startupbox=\box63
+\pgfexternal@startupbox=\box64
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
 x
@@ -878,15 +898,15 @@ File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box64
+\pgfnodeparttextbox=\box65
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
 .sty
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen288
-\pgf@nodesepend=\dimen289
+\pgf@nodesepstart=\dimen293
+\pgf@nodesepend=\dimen294
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
 .sty
@@ -898,10 +918,10 @@ Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen290
-\pgffor@skip=\dimen291
-\pgffor@stack=\toks55
-\pgffor@toks=\toks56
+\pgffor@iter=\dimen295
+\pgffor@skip=\dimen296
+\pgffor@stack=\toks56
+\pgffor@toks=\toks57
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
@@ -909,33 +929,33 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
 .code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count335
-\pgfplotmarksize=\dimen292
+\pgf@plot@mark@count=\count343
+\pgfplotmarksize=\dimen297
 )
-\tikz@lastx=\dimen293
-\tikz@lasty=\dimen294
-\tikz@lastxsaved=\dimen295
-\tikz@lastysaved=\dimen296
-\tikz@lastmovetox=\dimen297
-\tikz@lastmovetoy=\dimen298
-\tikzleveldistance=\dimen299
-\tikzsiblingdistance=\dimen300
-\tikz@figbox=\box65
-\tikz@figbox@bg=\box66
-\tikz@tempbox=\box67
-\tikz@tempbox@bg=\box68
-\tikztreelevel=\count336
-\tikznumberofchildren=\count337
-\tikznumberofcurrentchild=\count338
-\tikz@fig@count=\count339
+\tikz@lastx=\dimen298
+\tikz@lasty=\dimen299
+\tikz@lastxsaved=\dimen300
+\tikz@lastysaved=\dimen301
+\tikz@lastmovetox=\dimen302
+\tikz@lastmovetoy=\dimen303
+\tikzleveldistance=\dimen304
+\tikzsiblingdistance=\dimen305
+\tikz@figbox=\box66
+\tikz@figbox@bg=\box67
+\tikz@tempbox=\box68
+\tikz@tempbox@bg=\box69
+\tikztreelevel=\count344
+\tikznumberofchildren=\count345
+\tikznumberofcurrentchild=\count346
+\tikz@fig@count=\count347
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count340
-\pgfmatrixcurrentcolumn=\count341
-\pgf@matrix@numberofcolumns=\count342
+\pgfmatrixcurrentrow=\count348
+\pgfmatrixcurrentcolumn=\count349
+\pgf@matrix@numberofcolumns=\count350
 )
-\tikz@expandcount=\count343
+\tikz@expandcount=\count351
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
@@ -956,8 +976,8 @@ File: tikzlibraryfit.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@layerbox@background=\box69
-\pgf@layerboxsaved@background=\box70
+\pgf@layerbox@background=\box70
+\pgf@layerboxsaved@background=\box71
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarymatrix.code.tex
@@ -966,64 +986,64 @@ File: tikzlibrarymatrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.
 code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen301
-\pgfarrowlength=\dimen302
-\pgfarrowwidth=\dimen303
-\pgfarrowlinewidth=\dimen304
+\pgfarrowinset=\dimen306
+\pgfarrowlength=\dimen307
+\pgfarrowwidth=\dimen308
+\pgfarrowlinewidth=\dimen309
 ) (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen305
-\lightrulewidth=\dimen306
-\cmidrulewidth=\dimen307
-\belowrulesep=\dimen308
-\belowbottomsep=\dimen309
-\aboverulesep=\dimen310
-\abovetopsep=\dimen311
-\cmidrulesep=\dimen312
-\cmidrulekern=\dimen313
-\defaultaddspace=\dimen314
-\@cmidla=\count344
-\@cmidlb=\count345
-\@aboverulesep=\dimen315
-\@belowrulesep=\dimen316
-\@thisruleclass=\count346
-\@lastruleclass=\count347
-\@thisrulewidth=\dimen317
+\heavyrulewidth=\dimen310
+\lightrulewidth=\dimen311
+\cmidrulewidth=\dimen312
+\belowrulesep=\dimen313
+\belowbottomsep=\dimen314
+\aboverulesep=\dimen315
+\abovetopsep=\dimen316
+\cmidrulesep=\dimen317
+\cmidrulekern=\dimen318
+\defaultaddspace=\dimen319
+\@cmidla=\count352
+\@cmidlb=\count353
+\@aboverulesep=\dimen320
+\@belowrulesep=\dimen321
+\@thisruleclass=\count354
+\@lastruleclass=\count355
+\@thisrulewidth=\dimen322
 )
 (/usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2024-01-25 v3.3.10 A comprehensive (SI) units package
-\l__siunitx_number_uncert_offset_int=\count348
-\l__siunitx_number_exponent_fixed_int=\count349
-\l__siunitx_number_min_decimal_int=\count350
-\l__siunitx_number_min_integer_int=\count351
-\l__siunitx_number_round_precision_int=\count352
-\l__siunitx_number_lower_threshold_int=\count353
-\l__siunitx_number_upper_threshold_int=\count354
-\l__siunitx_number_group_first_int=\count355
-\l__siunitx_number_group_size_int=\count356
-\l__siunitx_number_group_minimum_int=\count357
-\l__siunitx_angle_tmp_dim=\dimen318
-\l__siunitx_angle_marker_box=\box71
-\l__siunitx_angle_unit_box=\box72
-\l__siunitx_compound_count_int=\count358
+\l__siunitx_number_uncert_offset_int=\count356
+\l__siunitx_number_exponent_fixed_int=\count357
+\l__siunitx_number_min_decimal_int=\count358
+\l__siunitx_number_min_integer_int=\count359
+\l__siunitx_number_round_precision_int=\count360
+\l__siunitx_number_lower_threshold_int=\count361
+\l__siunitx_number_upper_threshold_int=\count362
+\l__siunitx_number_group_first_int=\count363
+\l__siunitx_number_group_size_int=\count364
+\l__siunitx_number_group_minimum_int=\count365
+\l__siunitx_angle_tmp_dim=\dimen323
+\l__siunitx_angle_marker_box=\box72
+\l__siunitx_angle_unit_box=\box73
+\l__siunitx_compound_count_int=\count366
 
 (/usr/share/texlive/texmf-dist/tex/latex/translations/translations.sty
 Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
  (CN)
 )
-\l__siunitx_table_tmp_box=\box73
-\l__siunitx_table_tmp_dim=\dimen319
-\l__siunitx_table_column_width_dim=\dimen320
-\l__siunitx_table_integer_box=\box74
-\l__siunitx_table_decimal_box=\box75
-\l__siunitx_table_uncert_box=\box76
-\l__siunitx_table_before_box=\box77
-\l__siunitx_table_after_box=\box78
-\l__siunitx_table_before_dim=\dimen321
-\l__siunitx_table_carry_dim=\dimen322
-\l__siunitx_unit_tmp_int=\count359
-\l__siunitx_unit_position_int=\count360
-\l__siunitx_unit_total_int=\count361
+\l__siunitx_table_tmp_box=\box74
+\l__siunitx_table_tmp_dim=\dimen324
+\l__siunitx_table_column_width_dim=\dimen325
+\l__siunitx_table_integer_box=\box75
+\l__siunitx_table_decimal_box=\box76
+\l__siunitx_table_uncert_box=\box77
+\l__siunitx_table_before_box=\box78
+\l__siunitx_table_after_box=\box79
+\l__siunitx_table_before_dim=\dimen326
+\l__siunitx_table_carry_dim=\dimen327
+\l__siunitx_unit_tmp_int=\count367
+\l__siunitx_unit_position_int=\count368
+\l__siunitx_unit_total_int=\count369
 )
 (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjustbox.sty
 Package: adjustbox 2022/10/17 v1.3a Adjusting TeX boxes (trim, clip, ...)
@@ -1037,36 +1057,36 @@ Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
 
 (/usr/share/texlive/texmf-dist/tex/latex/collectbox/collectbox.sty
 Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
-\collectedbox=\box79
+\collectedbox=\box80
 )
-\tc@llx=\dimen323
-\tc@lly=\dimen324
-\tc@urx=\dimen325
-\tc@ury=\dimen326
+\tc@llx=\dimen328
+\tc@lly=\dimen329
+\tc@urx=\dimen330
+\tc@ury=\dimen331
 Package trimclip Info: Using driver 'tc-pdftex.def'.
 
 (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
 File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
 ))
-\adjbox@Width=\dimen327
-\adjbox@Height=\dimen328
-\adjbox@Depth=\dimen329
-\adjbox@Totalheight=\dimen330
-\adjbox@pwidth=\dimen331
-\adjbox@pheight=\dimen332
-\adjbox@pdepth=\dimen333
-\adjbox@ptotalheight=\dimen334
+\adjbox@Width=\dimen332
+\adjbox@Height=\dimen333
+\adjbox@Depth=\dimen334
+\adjbox@Totalheight=\dimen335
+\adjbox@pwidth=\dimen336
+\adjbox@pheight=\dimen337
+\adjbox@pdepth=\dimen338
+\adjbox@ptotalheight=\dimen339
 
 (/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
-\c@checkoddpage=\count362
+\c@checkoddpage=\count370
 )
 (/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box80
-\sift@deathcycles=\count363
-\@vwid@loff=\dimen335
-\@vwid@roff=\dimen336
+\@vwid@box=\box81
+\sift@deathcycles=\count371
+\@vwid@loff=\dimen340
+\@vwid@roff=\dimen341
 ))
 
 Package siunitx Info: Option "detect-all" has been deprecated in this release.
@@ -1173,17 +1193,17 @@ LaTeX Font Info:    ... okay on input line 49.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count364
-\scratchdimen=\dimen337
-\scratchbox=\box81
-\nofMPsegments=\count365
-\nofMParguments=\count366
-\everyMPshowfont=\toks57
-\MPscratchCnt=\count367
-\MPscratchDim=\dimen338
-\MPnumerator=\count368
-\makeMPintoPDFobject=\count369
-\everyMPtoPDFconversion=\toks58
+\scratchcounter=\count372
+\scratchdimen=\dimen342
+\scratchbox=\box82
+\nofMPsegments=\count373
+\nofMParguments=\count374
+\everyMPshowfont=\toks58
+\MPscratchCnt=\count375
+\MPscratchDim=\dimen343
+\MPnumerator=\count376
+\makeMPintoPDFobject=\count377
+\everyMPtoPDFconversion=\toks59
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1193,8 +1213,8 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@mv@tabular=\count370
-\c@mv@boldtabular=\count371
+\c@mv@tabular=\count378
+\c@mv@boldtabular=\count379
 LaTeX Info: Command `\dddot' is already robust on input line 49.
 LaTeX Info: Command `\ddddot' is already robust on input line 49.
 LaTeX Info: Redefining \microtypecontext on input line 49.
@@ -1270,6 +1290,12 @@ LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 16.0pt on input line 51.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.0pt on input line 51.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 12.0pt on input line 53.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 9.0pt on input line 55.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 9.0pt on input line 55.
@@ -1291,25 +1317,25 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 are/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/home/ollie/texmf/fonts/enc
 /dvips/newtx/ntx-ec-tlf.enc}{/home/ollie/texmf/fonts/enc/dvips/newtx/ntx-ot1-tl
 f.enc}]
-<figures/idealized_cdi_scaled_v5_small.png, id=51, 803.0pt x 800.9925pt>
+<figures/idealized_cdi_scaled_v5_small.png, id=53, 803.0pt x 800.9925pt>
 File: figures/idealized_cdi_scaled_v5_small.png Graphic file (type png)
 <use figures/idealized_cdi_scaled_v5_small.png>
 Package pdftex.def Info: figures/idealized_cdi_scaled_v5_small.png  used on inp
 ut line 91.
 (pdftex.def)             Requested size: 182.11879pt x 181.65775pt.
-<figures/idealized_ptycho_scaled_v5_small.png, id=52, 803.0pt x 803.0pt>
+<figures/idealized_ptycho_scaled_v5_small.png, id=54, 803.0pt x 803.0pt>
 File: figures/idealized_ptycho_scaled_v5_small.png Graphic file (type png)
 <use figures/idealized_ptycho_scaled_v5_small.png>
 Package pdftex.def Info: figures/idealized_ptycho_scaled_v5_small.png  used on 
 input line 96.
 (pdftex.def)             Requested size: 182.11879pt x 182.11302pt.
-<figures/hybrid_cdi_scaled_v5_small.png, id=53, 803.0pt x 799.98875pt>
+<figures/hybrid_cdi_scaled_v5_small.png, id=55, 803.0pt x 799.98875pt>
 File: figures/hybrid_cdi_scaled_v5_small.png Graphic file (type png)
 <use figures/hybrid_cdi_scaled_v5_small.png>
 Package pdftex.def Info: figures/hybrid_cdi_scaled_v5_small.png  used on input 
 line 105.
 (pdftex.def)             Requested size: 182.11879pt x 181.4301pt.
-<figures/hybrid_ptycho_scaled_v5_small.png, id=54, 803.0pt x 800.9925pt>
+<figures/hybrid_ptycho_scaled_v5_small.png, id=56, 803.0pt x 800.9925pt>
 File: figures/hybrid_ptycho_scaled_v5_small.png Graphic file (type png)
 <use figures/hybrid_ptycho_scaled_v5_small.png>
 Package pdftex.def Info: figures/hybrid_ptycho_scaled_v5_small.png  used on inp
@@ -1338,63 +1364,59 @@ Overfull \hbox (66.46965pt too wide) in paragraph at lines 271--290
  [][] 
  []
 
-<figures/lowcounts.png, id=146, 1437.6912pt x 694.2738pt>
+<figures/lowcounts.png, id=149, 1437.6912pt x 694.2738pt>
 File: figures/lowcounts.png Graphic file (type png)
 <use figures/lowcounts.png>
 Package pdftex.def Info: figures/lowcounts.png  used on input line 296.
 (pdftex.def)             Requested size: 303.53517pt x 146.57513pt.
-<figures/8192.png, id=148, 2055.68pt x 1002.74625pt>
+<figures/8192.png, id=151, 2055.68pt x 1002.74625pt>
 File: figures/8192.png Graphic file (type png)
 <use figures/8192.png>
 Package pdftex.def Info: figures/8192.png  used on input line 305.
 (pdftex.def)             Requested size: 303.53517pt x 148.04915pt.
-[7]
-<figuredose/nll9diff_crop.png, id=160, 587.19376pt x 593.21625pt>
+<figuredose/nll9diff_crop.png, id=155, 587.19376pt x 593.21625pt>
 File: figuredose/nll9diff_crop.png Graphic file (type png)
 <use figuredose/nll9diff_crop.png>
 Package pdftex.def Info: figuredose/nll9diff_crop.png  used on input line 345.
 (pdftex.def)             Requested size: 57.67241pt x 58.25699pt.
-<figuredose/mae9img.png, id=161, 297.11pt x 295.1025pt>
+<figuredose/mae9img.png, id=156, 297.11pt x 295.1025pt>
 File: figuredose/mae9img.png Graphic file (type png)
 <use figuredose/mae9img.png>
 Package pdftex.def Info: figuredose/mae9img.png  used on input line 346.
 (pdftex.def)             Requested size: 66.7781pt x 66.32764pt.
-<figuredose/nll9img.png, id=162, 296.10625pt x 295.1025pt>
+<figuredose/nll9img.png, id=157, 296.10625pt x 295.1025pt>
 File: figuredose/nll9img.png Graphic file (type png)
 <use figuredose/nll9img.png>
 Package pdftex.def Info: figuredose/nll9img.png  used on input line 347.
 (pdftex.def)             Requested size: 66.7781pt x 66.54828pt.
-<figuredose/nll4diff_crop.png, id=163, 403.5075pt x 386.44376pt>
+<figuredose/nll4diff_crop.png, id=158, 403.5075pt x 386.44376pt>
 File: figuredose/nll4diff_crop.png Graphic file (type png)
 <use figuredose/nll4diff_crop.png>
 Package pdftex.def Info: figuredose/nll4diff_crop.png  used on input line 349.
 (pdftex.def)             Requested size: 57.67241pt x 55.22801pt.
-<figuredose/mae4img.png, id=164, 296.10625pt x 295.1025pt>
+<figuredose/mae4img.png, id=159, 296.10625pt x 295.1025pt>
 File: figuredose/mae4img.png Graphic file (type png)
 <use figuredose/mae4img.png>
 Package pdftex.def Info: figuredose/mae4img.png  used on input line 350.
 (pdftex.def)             Requested size: 66.7781pt x 66.54828pt.
-<figuredose/nll4img.png, id=165, 297.11pt x 295.1025pt>
+<figuredose/nll4img.png, id=160, 297.11pt x 295.1025pt>
 File: figuredose/nll4img.png Graphic file (type png)
 <use figuredose/nll4img.png>
 Package pdftex.def Info: figuredose/nll4img.png  used on input line 351.
 (pdftex.def)             Requested size: 66.7781pt x 66.32764pt.
-<figures/FRC50_as_a_Function_of_Exposure_Dose.png, id=166, 621.522pt x 403.2666
+<figures/FRC50_as_a_Function_of_Exposure_Dose.png, id=161, 621.522pt x 403.2666
 pt>
 File: figures/FRC50_as_a_Function_of_Exposure_Dose.png Graphic file (type png)
 <use figures/FRC50_as_a_Function_of_Exposure_Dose.png>
 Package pdftex.def Info: figures/FRC50_as_a_Function_of_Exposure_Dose.png  used
  on input line 360.
 (pdftex.def)             Requested size: 303.53517pt x 196.9501pt.
-<figures/ssim_2.png, id=168, 443.256pt x 280.4076pt>
+[7]
+<figures/ssim_2.png, id=171, 443.256pt x 280.4076pt>
 File: figures/ssim_2.png Graphic file (type png)
 <use figures/ssim_2.png>
 Package pdftex.def Info: figures/ssim_2.png  used on input line 374.
 (pdftex.def)             Requested size: 303.53517pt x 192.01814pt.
- [8 <./figures/lowcounts.png> <./figures/8192.png (PNG copy)>] [9 <./figuredose
-/nll9diff_crop.png> <./figuredose/mae9img.png> <./figuredose/nll9img.png> <./fi
-guredose/nll4diff_crop.png> <./figuredose/mae4img.png> <./figuredose/nll4img.pn
-g> <./figures/FRC50_as_a_Function_of_Exposure_Dose.png>]
 \subw=\skip71
 \subh=\skip72
 \subsepX=\skip73
@@ -1409,21 +1431,21 @@ g> <./figures/FRC50_as_a_Function_of_Exposure_Dose.png>]
 \hdrsepRowOne=\skip82
 \hdrsepGT=\skip83
 \gtlift=\skip84
-\pgf@layerbox@foreground=\box82
-\pgf@layerboxsaved@foreground=\box83
-<figures/out-dist-fig/pinn_run1084_amplitude.png, id=189, 289.08pt x 289.08pt>
+\pgf@layerbox@foreground=\box83
+\pgf@layerboxsaved@foreground=\box84
+<figures/out-dist-fig/pinn_run1084_amplitude.png, id=173, 289.08pt x 289.08pt>
 File: figures/out-dist-fig/pinn_run1084_amplitude.png Graphic file (type png)
 <use figures/out-dist-fig/pinn_run1084_amplitude.png>
 Package pdftex.def Info: figures/out-dist-fig/pinn_run1084_amplitude.png  used 
 on input line 641.
 (pdftex.def)             Requested size: 142.26357pt x 142.26357pt.
-<figures/out-dist-fig/pinn_run1084_phase.png, id=190, 289.08pt x 289.08pt>
+<figures/out-dist-fig/pinn_run1084_phase.png, id=174, 289.08pt x 289.08pt>
 File: figures/out-dist-fig/pinn_run1084_phase.png Graphic file (type png)
 <use figures/out-dist-fig/pinn_run1084_phase.png>
 Package pdftex.def Info: figures/out-dist-fig/pinn_run1084_phase.png  used on i
 nput line 641.
 (pdftex.def)             Requested size: 142.26357pt x 142.26357pt.
-<figures/out-dist-fig/pinn_fly64trained_run1084test_amplitude.png, id=191, 289.
+<figures/out-dist-fig/pinn_fly64trained_run1084test_amplitude.png, id=175, 289.
 08pt x 289.08pt>
 File: figures/out-dist-fig/pinn_fly64trained_run1084test_amplitude.png Graphic 
 file (type png)
@@ -1431,7 +1453,7 @@ file (type png)
 Package pdftex.def Info: figures/out-dist-fig/pinn_fly64trained_run1084test_amp
 litude.png  used on input line 641.
 (pdftex.def)             Requested size: 142.26357pt x 142.26357pt.
-<figures/out-dist-fig/pinn_fly64trained_run1084test_phase.png, id=192, 289.08pt
+<figures/out-dist-fig/pinn_fly64trained_run1084test_phase.png, id=176, 289.08pt
  x 289.08pt>
 File: figures/out-dist-fig/pinn_fly64trained_run1084test_phase.png Graphic file
  (type png)
@@ -1439,7 +1461,7 @@ File: figures/out-dist-fig/pinn_fly64trained_run1084test_phase.png Graphic file
 Package pdftex.def Info: figures/out-dist-fig/pinn_fly64trained_run1084test_pha
 se.png  used on input line 641.
 (pdftex.def)             Requested size: 142.26357pt x 142.26357pt.
-<figures/out-dist-fig/baseline_run1084_amplitude.png, id=193, 289.08pt x 289.08
+<figures/out-dist-fig/baseline_run1084_amplitude.png, id=177, 289.08pt x 289.08
 pt>
 File: figures/out-dist-fig/baseline_run1084_amplitude.png Graphic file (type pn
 g)
@@ -1447,13 +1469,13 @@ g)
 Package pdftex.def Info: figures/out-dist-fig/baseline_run1084_amplitude.png  u
 sed on input line 641.
 (pdftex.def)             Requested size: 142.26357pt x 142.26357pt.
-<figures/out-dist-fig/baseline_run1084_phase.png, id=194, 289.08pt x 289.08pt>
+<figures/out-dist-fig/baseline_run1084_phase.png, id=178, 289.08pt x 289.08pt>
 File: figures/out-dist-fig/baseline_run1084_phase.png Graphic file (type png)
 <use figures/out-dist-fig/baseline_run1084_phase.png>
 Package pdftex.def Info: figures/out-dist-fig/baseline_run1084_phase.png  used 
 on input line 641.
 (pdftex.def)             Requested size: 142.26357pt x 142.26357pt.
-<figures/out-dist-fig/baseline_fly64trained_run1084test_amplitude.png, id=195, 
+<figures/out-dist-fig/baseline_fly64trained_run1084test_amplitude.png, id=179, 
 289.08pt x 289.08pt>
 File: figures/out-dist-fig/baseline_fly64trained_run1084test_amplitude.png Grap
 hic file (type png)
@@ -1461,7 +1483,7 @@ hic file (type png)
 Package pdftex.def Info: figures/out-dist-fig/baseline_fly64trained_run1084test
 _amplitude.png  used on input line 641.
 (pdftex.def)             Requested size: 142.26357pt x 142.26357pt.
-<figures/out-dist-fig/baseline_fly64trained_run1084test_phase.png, id=196, 289.
+<figures/out-dist-fig/baseline_fly64trained_run1084test_phase.png, id=180, 289.
 08pt x 289.08pt>
 File: figures/out-dist-fig/baseline_fly64trained_run1084test_phase.png Graphic 
 file (type png)
@@ -1469,7 +1491,7 @@ file (type png)
 Package pdftex.def Info: figures/out-dist-fig/baseline_fly64trained_run1084test
 _phase.png  used on input line 641.
 (pdftex.def)             Requested size: 142.26357pt x 142.26357pt.
-<figures/out-dist-fig/ground_truth_run1084_amplitude.png, id=197, 289.08pt x 28
+<figures/out-dist-fig/ground_truth_run1084_amplitude.png, id=181, 289.08pt x 28
 4.5029pt>
 File: figures/out-dist-fig/ground_truth_run1084_amplitude.png Graphic file (typ
 e png)
@@ -1477,7 +1499,7 @@ e png)
 Package pdftex.def Info: figures/out-dist-fig/ground_truth_run1084_amplitude.pn
 g  used on input line 641.
 (pdftex.def)             Requested size: 142.26357pt x 140.01105pt.
-<figures/out-dist-fig/ground_truth_run1084_phase.png, id=198, 289.08pt x 284.50
+<figures/out-dist-fig/ground_truth_run1084_phase.png, id=182, 289.08pt x 284.50
 29pt>
 File: figures/out-dist-fig/ground_truth_run1084_phase.png Graphic file (type pn
 g)
@@ -1487,14 +1509,14 @@ sed on input line 641.
 (pdftex.def)             Requested size: 142.26357pt x 140.01105pt.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 9.0pt on input line 641.
-<figures/out-dist-fig/fly64_probe_amplitude.png, id=199, 46.2528pt x 46.2528pt>
+<figures/out-dist-fig/fly64_probe_amplitude.png, id=183, 46.2528pt x 46.2528pt>
 
 File: figures/out-dist-fig/fly64_probe_amplitude.png Graphic file (type png)
 <use figures/out-dist-fig/fly64_probe_amplitude.png>
 Package pdftex.def Info: figures/out-dist-fig/fly64_probe_amplitude.png  used o
 n input line 641.
 (pdftex.def)             Requested size: 25.60709pt x 25.60709pt.
-<figures/out-dist-fig/run1084_probe_amplitude.png, id=200, 46.2528pt x 46.2528p
+<figures/out-dist-fig/run1084_probe_amplitude.png, id=184, 46.2528pt x 46.2528p
 t>
 File: figures/out-dist-fig/run1084_probe_amplitude.png Graphic file (type png)
 <use figures/out-dist-fig/run1084_probe_amplitude.png>
@@ -1503,24 +1525,27 @@ Package pdftex.def Info: figures/out-dist-fig/run1084_probe_amplitude.png  used
 (pdftex.def)             Requested size: 25.60709pt x 25.60709pt.
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 64
 8.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `pcr' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [10 <./figures/ssim_2.png>] [11 <./figures/out-dist-fig/pinn_run1084_amplitude
-.png> <./figures/out-dist-fig/pinn_run1084_phase.png> <./figures/out-dist-fig/p
-inn_fly64trained_run1084test_amplitude.png> <./figures/out-dist-fig/pinn_fly64t
-rained_run1084test_phase.png> <./figures/out-dist-fig/baseline_run1084_amplitud
-e.png> <./figures/out-dist-fig/baseline_run1084_phase.png> <./figures/out-dist-
-fig/baseline_fly64trained_run1084test_amplitude.png> <./figures/out-dist-fig/ba
-seline_fly64trained_run1084test_phase.png> <./figures/out-dist-fig/ground_truth
-_run1084_amplitude.png> <./figures/out-dist-fig/ground_truth_run1084_phase.png>
- <./figures/out-dist-fig/fly64_probe_amplitude.png> <./figures/out-dist-fig/run
-1084_probe_amplitude.png>] [12]
+ [8 <./figures/lowcounts.png> <./figures/8192.png (PNG copy)>] [9 <./figuredose
+/nll9diff_crop.png> <./figuredose/mae9img.png> <./figuredose/nll9img.png> <./fi
+guredose/nll4diff_crop.png> <./figuredose/mae4img.png> <./figuredose/nll4img.pn
+g> <./figures/FRC50_as_a_Function_of_Exposure_Dose.png>] [10 <./figures/ssim_2.
+png>] [11 <./figures/out-dist-fig/pinn_run1084_amplitude.png> <./figures/out-di
+st-fig/pinn_run1084_phase.png> <./figures/out-dist-fig/pinn_fly64trained_run108
+4test_amplitude.png> <./figures/out-dist-fig/pinn_fly64trained_run1084test_phas
+e.png> <./figures/out-dist-fig/baseline_run1084_amplitude.png> <./figures/out-d
+ist-fig/baseline_run1084_phase.png> <./figures/out-dist-fig/baseline_fly64train
+ed_run1084test_amplitude.png> <./figures/out-dist-fig/baseline_fly64trained_run
+1084test_phase.png> <./figures/out-dist-fig/ground_truth_run1084_amplitude.png>
+ <./figures/out-dist-fig/ground_truth_run1084_phase.png> <./figures/out-dist-fi
+g/fly64_probe_amplitude.png> <./figures/out-dist-fig/run1084_probe_amplitude.pn
+g>] [12]
 Overfull \hbox (48.88246pt too wide) in paragraph at lines 678--695
  [][] 
  []
@@ -1530,8 +1555,9 @@ Overfull \hbox (22.15245pt too wide) in paragraph at lines 702--723
  [][] 
  []
 
+[13]
 
-(./ptychopinn_2025.bbl [13]
+(./ptychopinn_2025.bbl
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 8.0pt on input line 12.
 ) [14]
@@ -1544,13 +1570,13 @@ L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 46002 strings out of 476106
- 995365 string characters out of 5793933
- 1951975 words of memory out of 5000000
- 66964 multiletter control sequences out of 15000+600000
- 717151 words of font info for 349 fonts, out of 8000000 for 9000
+ 46293 strings out of 476106
+ 1000311 string characters out of 5793933
+ 1954975 words of memory out of 5000000
+ 67232 multiletter control sequences out of 15000+600000
+ 729279 words of font info for 363 fonts, out of 8000000 for 9000
  119 hyphenation exceptions out of 8191
- 95i,20n,131p,1993b,1238s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 95i,20n,131p,1753b,1236s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/ollie/texmf/fonts/type1/public/newtx/NewTXMI.pfb></home/ollie/texmf/fo
 nts/type1/public/newtx/NewTXMI5.pfb></home/ollie/texmf/fonts/type1/public/newtx
 /NewTXMI7.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmr.pfb></home/oll
@@ -1558,13 +1584,14 @@ ie/texmf/fonts/type1/public/newtx/txexs.pfb></home/ollie/texmf/fonts/type1/publ
 ic/newtx/txmiaX.pfb></home/ollie/texmf/fonts/type1/public/newtx/txsys.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/urw/helvetic/uhvro8a.pfb></home/ollie/texmf/fonts/type1/public/new
-tx/ztmb.pfb></home/ollie/texmf/fonts/type1/public/newtx/ztmr.pfb></home/ollie/t
-exmf/fonts/type1/public/newtx/ztmri.pfb>
-Output written on ptychopinn_2025.pdf (14 pages, 8392776 bytes).
+/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/urw/helvetic/uhvro8a.pfb></home/ollie/texmf/fonts/type1/public/newtx/ztmb.pfb>
+</home/ollie/texmf/fonts/type1/public/newtx/ztmr.pfb></home/ollie/texmf/fonts/t
+ype1/public/newtx/ztmri.pfb>
+Output written on ptychopinn_2025.pdf (14 pages, 8399751 bytes).
 PDF statistics:
- 342 PDF objects out of 1000 (max. 8388607)
- 250 compressed objects within 3 object streams
+ 348 PDF objects out of 1000 (max. 8388607)
+ 254 compressed objects within 3 object streams
  93 named destinations out of 1000 (max. 500000)
- 77455 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 87695 words of extra memory for PDF output out of 89155 (max. 10000000)
 

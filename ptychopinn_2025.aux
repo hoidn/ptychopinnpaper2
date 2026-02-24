@@ -29,15 +29,15 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Reconstruction comparison across probe types and acquisition modes. Rows: idealized probe (Gaussian-smoothed disk, uniform phase) vs semi-synthetic (experimental probe, synthetic object). Columns: single-shot CDI vs overlapped ptychography.}}{3}{figure.caption.1}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:recon_2x2}{{1}{3}{Reconstruction comparison across probe types and acquisition modes. Rows: idealized probe (Gaussian-smoothed disk, uniform phase) vs semi-synthetic (experimental probe, synthetic object). Columns: single-shot CDI vs overlapped ptychography}{figure.caption.1}{}}
-\@writefile{toc}{\contentsline {paragraph}{Constraint map ($F_c$): translation-aware merging.}{4}{section*.3}\protected@file@percent }
-\newlabel{eq:constraintmap}{{1}{4}{Constraint map ($F_c$): translation-aware merging}{equation.2.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Constraint map ($F_c$): translation-aware merging.}{3}{section*.3}\protected@file@percent }
+\newlabel{eq:constraintmap}{{1}{3}{Constraint map ($F_c$): translation-aware merging}{equation.2.1}{}}
+\citation{Hoidn2023PtychoPINN}
+\citation{Vong2025GeneralizablePtycho}
 \@writefile{toc}{\contentsline {paragraph}{Coordinate-aware grouping.}{4}{section*.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Diffraction map ($F_d$): coherent scattering.}{4}{section*.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Data Preprocessing}{4}{subsection.2.2}\protected@file@percent }
 \newlabel{sec:preprocess}{{2.2}{4}{Data Preprocessing}{subsection.2.2}{}}
 \newlabel{eq:norm}{{5}{4}{Data Preprocessing}{equation.2.5}{}}
-\citation{Hoidn2023PtychoPINN}
-\citation{Vong2025GeneralizablePtycho}
 \citation{miao1999extending}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Neural Network Architecture}{5}{subsection.2.3}\protected@file@percent }
 \newlabel{sec:nn}{{2.3}{5}{Neural Network Architecture}{subsection.2.3}{}}
@@ -45,42 +45,42 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Training Objective and Optimization}{5}{subsection.2.4}\protected@file@percent }
 \newlabel{sec:loss}{{2.4}{5}{Training Objective and Optimization}{subsection.2.4}{}}
 \@writefile{toc}{\contentsline {paragraph}{Poisson negative log-likelihood (NLL).}{5}{section*.7}\protected@file@percent }
+\newlabel{eq:alphaloginit}{{10}{5}{Poisson negative log-likelihood (NLL)}{equation.2.10}{}}
 \citation{Cherukara2020PtychoNN}
 \citation{Hoidn2023PtychoPINN}
-\newlabel{eq:alphaloginit}{{10}{6}{Poisson negative log-likelihood (NLL)}{equation.2.10}{}}
 \@writefile{toc}{\contentsline {paragraph}{Amplitude loss for unknown counts.}{6}{section*.8}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Implementation notes.}{6}{section*.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Supervised Baseline}{6}{subsection.2.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Datasets and Evaluation Protocol}{6}{subsection.2.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}Results}{6}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Reconstruction Quality}{7}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Reconstruction Quality}{6}{subsection.3.1}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Reconstruction quality metrics at maximum training set size (16,384 images): peak signal-to-noise ratio (PSNR) and structural similarity index measure (SSIM). Values shown are mean $\pm $ standard deviation across 5 trials. Best values per dataset are highlighted in \textcolor {bestval}{green}.}}{7}{table.caption.10}\protected@file@percent }
 \newlabel{tab:results_16384}{{1}{7}{Reconstruction quality metrics at maximum training set size (16,384 images): peak signal-to-noise ratio (PSNR) and structural similarity index measure (SSIM). Values shown are mean $\pm $ standard deviation across 5 trials. Best values per dataset are highlighted in \textcolor {bestval}{green}}{table.caption.10}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Overlap-Free Reconstruction}{7}{subsection.3.2}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Synthetic line-pattern amplitude reconstruction metrics on the test split. Ground truth is the simulated object (amplitude only; the object has constant zero phase).}}{7}{table.caption.12}\protected@file@percent }
 \newlabel{tab:sim_lines_metrics}{{2}{7}{Synthetic line-pattern amplitude reconstruction metrics on the test split. Ground truth is the simulated object (amplitude only; the object has constant zero phase)}{table.caption.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Photon-Limited Performance}{7}{subsection.3.3}\protected@file@percent }
+\citation{Du2025PtyChi}
 \newlabel{fig:lowcounts}{{2a}{8}{512 diffraction patterns of the Siemens star test pattern}{figure.caption.11}{}}
 \newlabel{sub@fig:lowcounts}{{a}{8}{512 diffraction patterns of the Siemens star test pattern}{figure.caption.11}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Comparison of reconstruction quality with different numbers of diffraction patterns.}}{8}{figure.caption.11}\protected@file@percent }
 \newlabel{fig:smalldat}{{2}{8}{Comparison of reconstruction quality with different numbers of diffraction patterns}{figure.caption.11}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Photon-Limited Performance}{8}{subsection.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Data Efficiency}{8}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Out-of-distribution Generalization}{8}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Computational Performance}{8}{subsection.3.6}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Photon-limited performance for two self-supervised PtychoPINN variants trained with mean absolute error (MAE) and Poisson negative log likelihood (NLL) reconstruction penalties.}}{9}{figure.caption.13}\protected@file@percent }
 \newlabel{fig:dose}{{3}{9}{Photon-limited performance for two self-supervised PtychoPINN variants trained with mean absolute error (MAE) and Poisson negative log likelihood (NLL) reconstruction penalties}{figure.caption.13}{}}
-\citation{Du2025PtyChi}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Structural similarity of PtychoPINN and the supervised baseline as a function of training set size.}}{10}{figure.caption.14}\protected@file@percent }
 \newlabel{fig:ssim}{{4}{10}{Structural similarity of PtychoPINN and the supervised baseline as a function of training set size}{figure.caption.14}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Out-of-distribution Generalization}{10}{subsection.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Computational Performance}{10}{subsection.3.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{10}{section.4}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Comparison of methods for an in-distribution LCLS control (train LCLS XPP, test LCLS XPP) and out-of-distribution transfer (train APS, test LCLS XPP). The reference column shows an ePIE reconstruction of the LCLS data.}}{11}{figure.caption.15}\protected@file@percent }
 \newlabel{fig:fivepanel}{{5}{11}{Comparison of methods for an in-distribution LCLS control (train LCLS XPP, test LCLS XPP) and out-of-distribution transfer (train APS, test LCLS XPP). The reference column shows an ePIE reconstruction of the LCLS data}{figure.caption.15}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusions}{12}{section.5}\protected@file@percent }
-\bibdata{references}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusions}{11}{section.5}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Model parameters, default code values, and settings used for the APS/LCLS experiments in this paper}}{13}{table.caption.20}\protected@file@percent }
 \newlabel{tab:config_params}{{3}{13}{Model parameters, default code values, and settings used for the APS/LCLS experiments in this paper}{table.caption.20}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Symbol definitions}}{13}{table.caption.21}\protected@file@percent }
 \newlabel{tab:symbols}{{4}{13}{Symbol definitions}{table.caption.21}{}}
+\bibdata{references}
 \bibcite{LCLSIIHE_DesignPerf}{1}
 \bibcite{GuizarSicairos2021PhysicsToday}{2}
 \bibcite{Bunk2008Overlap}{3}
