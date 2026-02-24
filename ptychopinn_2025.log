@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.8.20)  23 FEB 2026 19:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.8.20)  23 FEB 2026 21:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1291,25 +1291,25 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 are/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/home/ollie/texmf/fonts/enc
 /dvips/newtx/ntx-ec-tlf.enc}{/home/ollie/texmf/fonts/enc/dvips/newtx/ntx-ot1-tl
 f.enc}]
-<figures/idealized_cdi_scaled_v5_small.png, id=48, 803.0pt x 800.9925pt>
+<figures/idealized_cdi_scaled_v5_small.png, id=51, 803.0pt x 800.9925pt>
 File: figures/idealized_cdi_scaled_v5_small.png Graphic file (type png)
 <use figures/idealized_cdi_scaled_v5_small.png>
 Package pdftex.def Info: figures/idealized_cdi_scaled_v5_small.png  used on inp
 ut line 91.
 (pdftex.def)             Requested size: 182.11879pt x 181.65775pt.
-<figures/idealized_ptycho_scaled_v5_small.png, id=49, 803.0pt x 803.0pt>
+<figures/idealized_ptycho_scaled_v5_small.png, id=52, 803.0pt x 803.0pt>
 File: figures/idealized_ptycho_scaled_v5_small.png Graphic file (type png)
 <use figures/idealized_ptycho_scaled_v5_small.png>
 Package pdftex.def Info: figures/idealized_ptycho_scaled_v5_small.png  used on 
 input line 96.
 (pdftex.def)             Requested size: 182.11879pt x 182.11302pt.
-<figures/hybrid_cdi_scaled_v5_small.png, id=50, 803.0pt x 799.98875pt>
+<figures/hybrid_cdi_scaled_v5_small.png, id=53, 803.0pt x 799.98875pt>
 File: figures/hybrid_cdi_scaled_v5_small.png Graphic file (type png)
 <use figures/hybrid_cdi_scaled_v5_small.png>
 Package pdftex.def Info: figures/hybrid_cdi_scaled_v5_small.png  used on input 
 line 105.
 (pdftex.def)             Requested size: 182.11879pt x 181.4301pt.
-<figures/hybrid_ptycho_scaled_v5_small.png, id=51, 803.0pt x 800.9925pt>
+<figures/hybrid_ptycho_scaled_v5_small.png, id=54, 803.0pt x 800.9925pt>
 File: figures/hybrid_ptycho_scaled_v5_small.png Graphic file (type png)
 <use figures/hybrid_ptycho_scaled_v5_small.png>
 Package pdftex.def Info: figures/hybrid_ptycho_scaled_v5_small.png  used on inp
@@ -1333,65 +1333,68 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
  [3 <./figures/idealized_cdi_scaled_v5_small.png (PNG copy)> <./figures/idealiz
 ed_ptycho_scaled_v5_small.png (PNG copy)> <./figures/hybrid_cdi_scaled_v5_small
 .png (PNG copy)> <./figures/hybrid_ptycho_scaled_v5_small.png (PNG copy)>] [4] 
-[5]
+[5] [6]
 Overfull \hbox (66.46965pt too wide) in paragraph at lines 271--290
  [][] 
  []
 
-[6]
-<figures/lowcounts.png, id=142, 1437.6912pt x 694.2738pt>
+<figures/lowcounts.png, id=146, 1437.6912pt x 694.2738pt>
 File: figures/lowcounts.png Graphic file (type png)
 <use figures/lowcounts.png>
 Package pdftex.def Info: figures/lowcounts.png  used on input line 296.
 (pdftex.def)             Requested size: 303.53517pt x 146.57513pt.
-<figures/8192.png, id=144, 2055.68pt x 1002.74625pt>
+<figures/8192.png, id=148, 2055.68pt x 1002.74625pt>
 File: figures/8192.png Graphic file (type png)
 <use figures/8192.png>
 Package pdftex.def Info: figures/8192.png  used on input line 305.
 (pdftex.def)             Requested size: 303.53517pt x 148.04915pt.
-<figuredose/nll9diff_crop.png, id=148, 587.19376pt x 593.21625pt>
+[7]
+<figuredose/nll9diff_crop.png, id=160, 587.19376pt x 593.21625pt>
 File: figuredose/nll9diff_crop.png Graphic file (type png)
 <use figuredose/nll9diff_crop.png>
 Package pdftex.def Info: figuredose/nll9diff_crop.png  used on input line 345.
 (pdftex.def)             Requested size: 57.67241pt x 58.25699pt.
-<figuredose/mae9img.png, id=149, 297.11pt x 295.1025pt>
+<figuredose/mae9img.png, id=161, 297.11pt x 295.1025pt>
 File: figuredose/mae9img.png Graphic file (type png)
 <use figuredose/mae9img.png>
 Package pdftex.def Info: figuredose/mae9img.png  used on input line 346.
 (pdftex.def)             Requested size: 66.7781pt x 66.32764pt.
-<figuredose/nll9img.png, id=150, 296.10625pt x 295.1025pt>
+<figuredose/nll9img.png, id=162, 296.10625pt x 295.1025pt>
 File: figuredose/nll9img.png Graphic file (type png)
 <use figuredose/nll9img.png>
 Package pdftex.def Info: figuredose/nll9img.png  used on input line 347.
 (pdftex.def)             Requested size: 66.7781pt x 66.54828pt.
-<figuredose/nll4diff_crop.png, id=151, 403.5075pt x 386.44376pt>
+<figuredose/nll4diff_crop.png, id=163, 403.5075pt x 386.44376pt>
 File: figuredose/nll4diff_crop.png Graphic file (type png)
 <use figuredose/nll4diff_crop.png>
 Package pdftex.def Info: figuredose/nll4diff_crop.png  used on input line 349.
 (pdftex.def)             Requested size: 57.67241pt x 55.22801pt.
-<figuredose/mae4img.png, id=152, 296.10625pt x 295.1025pt>
+<figuredose/mae4img.png, id=164, 296.10625pt x 295.1025pt>
 File: figuredose/mae4img.png Graphic file (type png)
 <use figuredose/mae4img.png>
 Package pdftex.def Info: figuredose/mae4img.png  used on input line 350.
 (pdftex.def)             Requested size: 66.7781pt x 66.54828pt.
-<figuredose/nll4img.png, id=153, 297.11pt x 295.1025pt>
+<figuredose/nll4img.png, id=165, 297.11pt x 295.1025pt>
 File: figuredose/nll4img.png Graphic file (type png)
 <use figuredose/nll4img.png>
 Package pdftex.def Info: figuredose/nll4img.png  used on input line 351.
 (pdftex.def)             Requested size: 66.7781pt x 66.32764pt.
-<figures/FRC50_as_a_Function_of_Exposure_Dose.png, id=154, 621.522pt x 403.2666
+<figures/FRC50_as_a_Function_of_Exposure_Dose.png, id=166, 621.522pt x 403.2666
 pt>
 File: figures/FRC50_as_a_Function_of_Exposure_Dose.png Graphic file (type png)
 <use figures/FRC50_as_a_Function_of_Exposure_Dose.png>
 Package pdftex.def Info: figures/FRC50_as_a_Function_of_Exposure_Dose.png  used
  on input line 360.
 (pdftex.def)             Requested size: 303.53517pt x 196.9501pt.
- [7]
-<figures/ssim_2.png, id=164, 443.256pt x 280.4076pt>
+<figures/ssim_2.png, id=168, 443.256pt x 280.4076pt>
 File: figures/ssim_2.png Graphic file (type png)
 <use figures/ssim_2.png>
 Package pdftex.def Info: figures/ssim_2.png  used on input line 374.
 (pdftex.def)             Requested size: 303.53517pt x 192.01814pt.
+ [8 <./figures/lowcounts.png> <./figures/8192.png (PNG copy)>] [9 <./figuredose
+/nll9diff_crop.png> <./figuredose/mae9img.png> <./figuredose/nll9img.png> <./fi
+guredose/nll4diff_crop.png> <./figuredose/mae4img.png> <./figuredose/nll4img.pn
+g> <./figures/FRC50_as_a_Function_of_Exposure_Dose.png>]
 \subw=\skip71
 \subh=\skip72
 \subsepX=\skip73
@@ -1408,19 +1411,19 @@ Package pdftex.def Info: figures/ssim_2.png  used on input line 374.
 \gtlift=\skip84
 \pgf@layerbox@foreground=\box82
 \pgf@layerboxsaved@foreground=\box83
-<figures/out-dist-fig/pinn_run1084_amplitude.png, id=166, 289.08pt x 289.08pt>
+<figures/out-dist-fig/pinn_run1084_amplitude.png, id=189, 289.08pt x 289.08pt>
 File: figures/out-dist-fig/pinn_run1084_amplitude.png Graphic file (type png)
 <use figures/out-dist-fig/pinn_run1084_amplitude.png>
 Package pdftex.def Info: figures/out-dist-fig/pinn_run1084_amplitude.png  used 
 on input line 641.
 (pdftex.def)             Requested size: 142.26357pt x 142.26357pt.
-<figures/out-dist-fig/pinn_run1084_phase.png, id=167, 289.08pt x 289.08pt>
+<figures/out-dist-fig/pinn_run1084_phase.png, id=190, 289.08pt x 289.08pt>
 File: figures/out-dist-fig/pinn_run1084_phase.png Graphic file (type png)
 <use figures/out-dist-fig/pinn_run1084_phase.png>
 Package pdftex.def Info: figures/out-dist-fig/pinn_run1084_phase.png  used on i
 nput line 641.
 (pdftex.def)             Requested size: 142.26357pt x 142.26357pt.
-<figures/out-dist-fig/pinn_fly64trained_run1084test_amplitude.png, id=168, 289.
+<figures/out-dist-fig/pinn_fly64trained_run1084test_amplitude.png, id=191, 289.
 08pt x 289.08pt>
 File: figures/out-dist-fig/pinn_fly64trained_run1084test_amplitude.png Graphic 
 file (type png)
@@ -1428,7 +1431,7 @@ file (type png)
 Package pdftex.def Info: figures/out-dist-fig/pinn_fly64trained_run1084test_amp
 litude.png  used on input line 641.
 (pdftex.def)             Requested size: 142.26357pt x 142.26357pt.
-<figures/out-dist-fig/pinn_fly64trained_run1084test_phase.png, id=169, 289.08pt
+<figures/out-dist-fig/pinn_fly64trained_run1084test_phase.png, id=192, 289.08pt
  x 289.08pt>
 File: figures/out-dist-fig/pinn_fly64trained_run1084test_phase.png Graphic file
  (type png)
@@ -1436,7 +1439,7 @@ File: figures/out-dist-fig/pinn_fly64trained_run1084test_phase.png Graphic file
 Package pdftex.def Info: figures/out-dist-fig/pinn_fly64trained_run1084test_pha
 se.png  used on input line 641.
 (pdftex.def)             Requested size: 142.26357pt x 142.26357pt.
-<figures/out-dist-fig/baseline_run1084_amplitude.png, id=170, 289.08pt x 289.08
+<figures/out-dist-fig/baseline_run1084_amplitude.png, id=193, 289.08pt x 289.08
 pt>
 File: figures/out-dist-fig/baseline_run1084_amplitude.png Graphic file (type pn
 g)
@@ -1444,13 +1447,13 @@ g)
 Package pdftex.def Info: figures/out-dist-fig/baseline_run1084_amplitude.png  u
 sed on input line 641.
 (pdftex.def)             Requested size: 142.26357pt x 142.26357pt.
-<figures/out-dist-fig/baseline_run1084_phase.png, id=171, 289.08pt x 289.08pt>
+<figures/out-dist-fig/baseline_run1084_phase.png, id=194, 289.08pt x 289.08pt>
 File: figures/out-dist-fig/baseline_run1084_phase.png Graphic file (type png)
 <use figures/out-dist-fig/baseline_run1084_phase.png>
 Package pdftex.def Info: figures/out-dist-fig/baseline_run1084_phase.png  used 
 on input line 641.
 (pdftex.def)             Requested size: 142.26357pt x 142.26357pt.
-<figures/out-dist-fig/baseline_fly64trained_run1084test_amplitude.png, id=172, 
+<figures/out-dist-fig/baseline_fly64trained_run1084test_amplitude.png, id=195, 
 289.08pt x 289.08pt>
 File: figures/out-dist-fig/baseline_fly64trained_run1084test_amplitude.png Grap
 hic file (type png)
@@ -1458,7 +1461,7 @@ hic file (type png)
 Package pdftex.def Info: figures/out-dist-fig/baseline_fly64trained_run1084test
 _amplitude.png  used on input line 641.
 (pdftex.def)             Requested size: 142.26357pt x 142.26357pt.
-<figures/out-dist-fig/baseline_fly64trained_run1084test_phase.png, id=173, 289.
+<figures/out-dist-fig/baseline_fly64trained_run1084test_phase.png, id=196, 289.
 08pt x 289.08pt>
 File: figures/out-dist-fig/baseline_fly64trained_run1084test_phase.png Graphic 
 file (type png)
@@ -1466,7 +1469,7 @@ file (type png)
 Package pdftex.def Info: figures/out-dist-fig/baseline_fly64trained_run1084test
 _phase.png  used on input line 641.
 (pdftex.def)             Requested size: 142.26357pt x 142.26357pt.
-<figures/out-dist-fig/ground_truth_run1084_amplitude.png, id=174, 289.08pt x 28
+<figures/out-dist-fig/ground_truth_run1084_amplitude.png, id=197, 289.08pt x 28
 4.5029pt>
 File: figures/out-dist-fig/ground_truth_run1084_amplitude.png Graphic file (typ
 e png)
@@ -1474,7 +1477,7 @@ e png)
 Package pdftex.def Info: figures/out-dist-fig/ground_truth_run1084_amplitude.pn
 g  used on input line 641.
 (pdftex.def)             Requested size: 142.26357pt x 140.01105pt.
-<figures/out-dist-fig/ground_truth_run1084_phase.png, id=175, 289.08pt x 284.50
+<figures/out-dist-fig/ground_truth_run1084_phase.png, id=198, 289.08pt x 284.50
 29pt>
 File: figures/out-dist-fig/ground_truth_run1084_phase.png Graphic file (type pn
 g)
@@ -1484,44 +1487,40 @@ sed on input line 641.
 (pdftex.def)             Requested size: 142.26357pt x 140.01105pt.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 9.0pt on input line 641.
-<figures/out-dist-fig/fly64_probe_amplitude.png, id=176, 46.2528pt x 46.2528pt>
+<figures/out-dist-fig/fly64_probe_amplitude.png, id=199, 46.2528pt x 46.2528pt>
 
 File: figures/out-dist-fig/fly64_probe_amplitude.png Graphic file (type png)
 <use figures/out-dist-fig/fly64_probe_amplitude.png>
 Package pdftex.def Info: figures/out-dist-fig/fly64_probe_amplitude.png  used o
 n input line 641.
 (pdftex.def)             Requested size: 25.60709pt x 25.60709pt.
-<figures/out-dist-fig/run1084_probe_amplitude.png, id=177, 46.2528pt x 46.2528p
+<figures/out-dist-fig/run1084_probe_amplitude.png, id=200, 46.2528pt x 46.2528p
 t>
 File: figures/out-dist-fig/run1084_probe_amplitude.png Graphic file (type png)
 <use figures/out-dist-fig/run1084_probe_amplitude.png>
 Package pdftex.def Info: figures/out-dist-fig/run1084_probe_amplitude.png  used
  on input line 641.
 (pdftex.def)             Requested size: 25.60709pt x 25.60709pt.
- [8 <./figures/lowcounts.png> <./figures/8192.png (PNG copy)>] [9 <./figuredose
-/nll9diff_crop.png> <./figuredose/mae9img.png> <./figuredose/nll9img.png> <./fi
-guredose/nll4diff_crop.png> <./figuredose/mae4img.png> <./figuredose/nll4img.pn
-g> <./figures/FRC50_as_a_Function_of_Exposure_Dose.png>] [10 <./figures/ssim_2.
-png>] [11 <./figures/out-dist-fig/pinn_run1084_amplitude.png> <./figures/out-di
-st-fig/pinn_run1084_phase.png> <./figures/out-dist-fig/pinn_fly64trained_run108
-4test_amplitude.png> <./figures/out-dist-fig/pinn_fly64trained_run1084test_phas
-e.png> <./figures/out-dist-fig/baseline_run1084_amplitude.png> <./figures/out-d
-ist-fig/baseline_run1084_phase.png> <./figures/out-dist-fig/baseline_fly64train
-ed_run1084test_amplitude.png> <./figures/out-dist-fig/baseline_fly64trained_run
-1084test_phase.png> <./figures/out-dist-fig/ground_truth_run1084_amplitude.png>
- <./figures/out-dist-fig/ground_truth_run1084_phase.png> <./figures/out-dist-fi
-g/fly64_probe_amplitude.png> <./figures/out-dist-fig/run1084_probe_amplitude.pn
-g>] [12]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 68
-2.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 64
+8.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `pcr' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-
+ [10 <./figures/ssim_2.png>] [11 <./figures/out-dist-fig/pinn_run1084_amplitude
+.png> <./figures/out-dist-fig/pinn_run1084_phase.png> <./figures/out-dist-fig/p
+inn_fly64trained_run1084test_amplitude.png> <./figures/out-dist-fig/pinn_fly64t
+rained_run1084test_phase.png> <./figures/out-dist-fig/baseline_run1084_amplitud
+e.png> <./figures/out-dist-fig/baseline_run1084_phase.png> <./figures/out-dist-
+fig/baseline_fly64trained_run1084test_amplitude.png> <./figures/out-dist-fig/ba
+seline_fly64trained_run1084test_phase.png> <./figures/out-dist-fig/ground_truth
+_run1084_amplitude.png> <./figures/out-dist-fig/ground_truth_run1084_phase.png>
+ <./figures/out-dist-fig/fly64_probe_amplitude.png> <./figures/out-dist-fig/run
+1084_probe_amplitude.png>] [12]
 Overfull \hbox (48.88246pt too wide) in paragraph at lines 678--695
  [][] 
  []
@@ -1534,7 +1533,7 @@ Overfull \hbox (22.15245pt too wide) in paragraph at lines 702--723
 
 (./ptychopinn_2025.bbl [13]
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 7.
+(Font)              scaled to size 8.0pt on input line 12.
 ) [14]
 
 enddocument/afterlastpage: lastpage setting LastPage.
@@ -1545,13 +1544,13 @@ L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 45967 strings out of 476106
- 994534 string characters out of 5793933
- 1953975 words of memory out of 5000000
- 66945 multiletter control sequences out of 15000+600000
- 716467 words of font info for 343 fonts, out of 8000000 for 9000
+ 46002 strings out of 476106
+ 995365 string characters out of 5793933
+ 1951975 words of memory out of 5000000
+ 66964 multiletter control sequences out of 15000+600000
+ 717151 words of font info for 349 fonts, out of 8000000 for 9000
  119 hyphenation exceptions out of 8191
- 95i,20n,131p,1904b,1238s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 95i,20n,131p,1993b,1238s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/ollie/texmf/fonts/type1/public/newtx/NewTXMI.pfb></home/ollie/texmf/fo
 nts/type1/public/newtx/NewTXMI5.pfb></home/ollie/texmf/fonts/type1/public/newtx
 /NewTXMI7.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmr.pfb></home/oll
@@ -1562,10 +1561,10 @@ e/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/helvetic/uhvro8a.pfb></home/ollie/texmf/fonts/type1/public/new
 tx/ztmb.pfb></home/ollie/texmf/fonts/type1/public/newtx/ztmr.pfb></home/ollie/t
 exmf/fonts/type1/public/newtx/ztmri.pfb>
-Output written on ptychopinn_2025.pdf (14 pages, 8391598 bytes).
+Output written on ptychopinn_2025.pdf (14 pages, 8392776 bytes).
 PDF statistics:
- 334 PDF objects out of 1000 (max. 8388607)
- 242 compressed objects within 3 object streams
- 89 named destinations out of 1000 (max. 500000)
+ 342 PDF objects out of 1000 (max. 8388607)
+ 250 compressed objects within 3 object streams
+ 93 named destinations out of 1000 (max. 500000)
  77455 words of extra memory for PDF output out of 89155 (max. 10000000)
 

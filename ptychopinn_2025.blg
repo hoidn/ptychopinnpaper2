@@ -3,44 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: ptychopinn_2025.aux
 The style file: opticajnl.bst
 Database file #1: references.bib
-You've used 21 entries,
+You've used 25 entries,
             2638 wiz_defined-function locations,
-            743 strings with 9540 characters,
-and the built_in function-call counts, 8494 in all, are:
-= -- 653
-> -- 308
+            769 strings with 10687 characters,
+and the built_in function-call counts, 10120 in all, are:
+= -- 777
+> -- 376
 < -- 4
-+ -- 144
-- -- 72
-* -- 609
-:= -- 966
-add.period$ -- 45
-call.type$ -- 21
-change.case$ -- 22
++ -- 176
+- -- 88
+* -- 728
+:= -- 1155
+add.period$ -- 53
+call.type$ -- 25
+change.case$ -- 26
 chr.to.int$ -- 0
-cite$ -- 21
-duplicate$ -- 793
-empty$ -- 796
-format.name$ -- 92
-if$ -- 1892
+cite$ -- 25
+duplicate$ -- 944
+empty$ -- 943
+format.name$ -- 112
+if$ -- 2249
 int.to.chr$ -- 0
-int.to.str$ -- 21
-missing$ -- 202
-newline$ -- 67
-num.names$ -- 21
-pop$ -- 268
+int.to.str$ -- 25
+missing$ -- 242
+newline$ -- 79
+num.names$ -- 25
+pop$ -- 318
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 199
+skip$ -- 233
 stack$ -- 0
-substring$ -- 475
-swap$ -- 528
+substring$ -- 563
+swap$ -- 628
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 55
-width$ -- 23
-write$ -- 192
+while$ -- 66
+width$ -- 27
+write$ -- 228
