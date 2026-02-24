@@ -129,4 +129,9 @@ J.~Miao, P.~Charalambous, J.~Kirz, and D.~Sayre, \enquote{Extending the
   non-crystalline specimens,} {\protect\JournalTitle{Nature}} \textbf{400},
   342--344 (1999).
 
+\bibitem{Du2025PtyChi}
+M.~Du, H.~Ruth, S.~Henke, \emph{et~al.}, \enquote{Pty-chi: A pytorch-based
+  modern ptychographic data analysis package,} {\protect\JournalTitle{arXiv}}
+  \textbf{abs/2510.20929}, 1--1 (2025).
+
 \end{thebibliography}
