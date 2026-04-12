@@ -1,0 +1,40 @@
+Manuscript Review (596366)
+The authors present an extension of the PtychoPINN framework aimed at bridging the gap
+between overlapped ptychography and overlap-free single-shot Fresnel coherent diffrac@on
+imaging (CDI). By combining a differen@able forward model of coherent scaGering with a Poisson
+nega@ve log-likelihood loss func@on, the network is trained in a self-supervised manner. The
+proposed method treats spa@al overlap as a tunable parameter rather than a strict algorithmic
+requirement, successfully demonstra@ng single-shot phase retrieval with an experimental probe.
+Overall, the manuscript introduces a highly prac@cal and computa@onally meaningful approach
+to addressing the throughput and dose boGlenecks at modern light sources. However, before the
+manuscript can be recommended for publica@on, the comments below must be addressed.
+Comments
+1. The authors emphasize the framework’s capability to perform overlap-free (C_g = 1)
+single-shot reconstruc@on. However, in Table 2, the overlap-free PtychoPINN is only
+compared against its overlapped self. To truly validate this as a compe@@ve single-shot
+Fresnel CDI method, it must be benchmarked against standard, non-ML itera@ve singleshot phase retrieval algorithms (e.g., error reduc@on / HIO with strict support constraints,
+or ADMM-based phase retrieval).
+2. The authors correctly iden@fy the fixed-probe assump@on as an open problem in Sec@on
+4. In overlap-free ptychography, the algorithm relies en@rely on the structured phase
+diversity of the incident probe to constrain the solu@on. Because standard single-shot CDI
+is very sensi@ve to mischaracteriza@ons of the illumina@ng wavefront, the reliance on a
+pre-es@mated probe can make their proposed method vulnerable. The authors should
+introduce a numerical stress test; for instance, inject varying degrees of error into the
+assumed probe during inference.
+3. Figure 5 demonstrates the network’s ability to generalize out-of-distribu@on (trained on
+APS, tested on LCLS). The authors briefly note that PtychoPINN preserves edge structure
+but with “visible phase ar@facts.” However, visually, the background low-frequency phase
+appears severely corrupted or shi`ed compared to the ePIE reference. Provide
+quan@ta@ve metrics for the out-of-distribu@on results in Figure 5. Furthermore, provide a
+physical discussion regarding why the physics-informed model fails to constrain this lowfrequency phase during transfer.
+4. In Eq. 1, a small constant \epsilon = 10^-3 is added to the denominator to prevent division
+by zero. Is the real-space reconstruc@on in regions of very low overlapping probe intensity
+sensi@ve to the magnitude of \epsilon?
+5. The text states that Figure 3 compares FRC50 resolu@on as a func@on of photon dose. It
+is not explicitly clear from the text or cap@on whether this specific dose-abla@on was
+performed on fully experimental data or the synthe@c Siemens-star dataset. Please clarify
+this in the cap@on.
+6. In Table 3, the number of nearest neighbors for scan-posi@on grouping (K) is set to 4. Was
+this value chosen empirically based on the scan step size and probe diameter, or is it a
+hardcoded heuris@c? A brief sentence explaining the physical intui@on behind K=4 would
+be helpful.

@@ -1,0 +1,24 @@
+Comments to Authors of “Towards single-shot coherent imaging via overlap-free ptychography”
+Dear authors,
+I believe that there is a large amount of technical content in your manuscript “Towards singleshot coherent imaging via overlap-free ptychography” but the current state of the manuscript
+does not provide the readers with a self-contained presentation.
+A few things stand out when one reads the manuscript. First of all, the presentation quality
+degrades considerably past the “Introduction” section as the authors resolve to a bullet point-like
+format for their presentation. After reading the manuscript a few times, I am not clear on whether
+single-shot reconstructions with PtychoPINN are presented in a visual format. Does Figure 1
+present the single-shot reconstructions using PtychoPINN? There are many places where
+technical discussions are presented without prior introduction or explanation. For example, it is
+unclear to me why the authors offer a discussion on the “extended probe” under the “Neural
+Network Architecture” subsection. In the meantime, I would like to point out that although the
+paper serves as an extension to the Scientific Reports paper by Hoidn et al. (2023), it is currently
+formulated like an addendum to the previous work rather than a self-contained article. For the
+general audience of Optica, it will be important to re-introduce the architecture of the ML
+algorithm with the re-parametrization of overlap constraint instead of simply referring to your
+previous work. In addition, Figure 2 suffers from small fonts as well as insufficient explanation –
+what is the Tike reconstruction?
+I hope that my review does not come across as overly critical of the manuscript. Again, I think
+that the technical content of the manuscript is high yet the communication of such technical
+content is lacking.
+Best regards,
+Reviewer
+One additional question: in the PtychoPINN reconstructions, are probes solved for as unknown variables or are ground truth supplied?

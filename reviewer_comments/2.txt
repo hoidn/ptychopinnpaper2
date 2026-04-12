@@ -1,0 +1,8 @@
+
+
+The manuscript is clear and well written. The problem is relevant and well framed. The method and the results seem to be an incremental improvement of the work described in reference 22 though. The work would be more impactful if the method addressed the limitation of the fixed probe approach. Since  the authors describe a path to solve this issue, my recommendation would be to extend the scope of the present work.
+
+Other comments:
+1. Figure 1 is discussed in the text after Figure 2. I would suggest to swap the two figures.
+2. It would be interesting to have a visual representation of the ground truth of the image in Figure 1.
+3. As this paper discusses a technique that is commonly used in scientific applications, I find the use of SSIM less appropriate than other more direct metrics like the MSE. SSIM is, in my opinion, better suited for problems where the perception of the image quality is more important than the quantitative assessment of the reconstruction error.

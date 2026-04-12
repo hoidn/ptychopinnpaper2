@@ -15,7 +15,7 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{lineno}
-% \linenumbers
+\linenumbers
 \usepackage{xcolor}
 \usepackage{rotating}
 \usepackage{subcaption}
@@ -50,7 +50,7 @@
 
 \title{Towards single-shot coherent imaging via overlap-free ptychography}
 
-\author{O. Hoidn,\authormark{1,*} A. Mishra,\authormark{1} S. Henke,\authormark{2} A. Vong,\authormark{2} and M. Seaberg\authormark{1}}
+\author{O. Hoidn,\authormark{1,*} A. Vong,\authormark{2} S. Henke,\authormark{2} A. Mishra,\authormark{1} and M. Seaberg\authormark{1}}
 \address{\authormark{1}SLAC National Accelerator Laboratory, Menlo Park, California 94025, USA\\
 \authormark{2}Argonne National Laboratory, Lemont, Illinois 60439, USA}
 \email{\authormark{*}ohoidn@slac.stanford.edu}
@@ -73,13 +73,7 @@ In this context, we address several limitations of prior approaches with a physi
 
 A key property of this formulation is that real-space redundancy is treated as a configurable parameter rather than a hard requirement. Specifically, the number of simultaneously reconstructed coherent scattering shots can be dialed to match the acquisition regime, including the overlap-free setting. In practice, when a curved or defocused probe provides sufficient phase diversity, the diffraction-domain likelihood alone can anchor reconstruction and spatial redundancy can be reduced to zero. This is the principle underlying Fresnel CDI~\cite{Williams2006FresnelCDI,Stockmar2013Nearfield}. We use ``single-shot'' throughout in the limited sense of a single diffraction measurement with a structured probe (without lateral scanning, beam multiplexing~\cite{Sidorenko2015Optica,Kharitonov2022SciRep}, or downstream modulators~\cite{Zhang2016CMI,Dong2018CMI}).
 
-Our previous work~\cite{Hoidn2023PtychoPINN} demonstrated this physics-constrained approach on synthetic data; here, we extend it to realistic probes, arbitrary scan geometries, and single-shot reconstruction. We evaluate the model under both typical and non-ideal conditions, including low photon dose and large position jitter, and demonstrate good performance on experimental data from the Advanced Photon Source (APS) and the Linac Coherent Light Source (LCLS). Specifically, this work demonstrates:
-\begin{enumerate}
-  \item self-supervised reconstruction of experimental data (APS, LCLS) at ${\sim}6.1\times10^3$ diffraction patterns/s;
-  \item overlap-free, single-shot reconstruction in Fresnel CDI geometry;
-  \item dose-efficient imaging via Poisson likelihood at ${\sim}10^4$ photons/frame;
-  \item an order-of-magnitude improvement in data efficiency over a supervised baseline with the same network architecture.
-\end{enumerate}
+Our previous work~\cite{Hoidn2023PtychoPINN} demonstrated this physics-constrained approach on synthetic data; here, we extend it to realistic probes, arbitrary scan geometries, and single-shot reconstruction. We evaluate the model under both typical and non-ideal conditions, including low photon dose and large position jitter, and demonstrate good performance on experimental data from the Advanced Photon Source (APS) and the Linac Coherent Light Source (LCLS). Specifically, we demonstrate (i) self-supervised reconstruction of experimental data (APS, LCLS) at ${\sim}6.1\times10^3$ diffraction patterns/s; (ii) overlap-free, single-shot reconstruction in Fresnel CDI geometry; (iii) dose-efficient imaging via Poisson likelihood at ${\sim}10^4$ photons/frame; and (iv) an order-of-magnitude improvement in data efficiency over a supervised baseline with the same network architecture.
 In this study all reconstructions are performed in overlap-free single-shot mode, except in explicitly labeled overlap ablations.
 
 
@@ -124,15 +118,7 @@ In this study all reconstructions are performed in overlap-free single-shot mode
 We learn an inverse map $G: X \!\to\! Y$ from diffraction space to real space and optimize it by composing with a differentiable forward model $F: Y \!\to\! X$. The overall autoencoder is $F \circ G$, trained to match measured diffraction statistics without ground-truth images.
 
 \paragraph{Data model and notation.}
-Each training sample comprises $C_g$ diffraction amplitude images $\{x_k\}_{k=1}^{C_g}$ acquired at probe coordinates $\{\vec{r}_k\}_{k=1}^{C_g}$. The network $G(x,r)$ outputs $C_g$ complex object patches $\{O_k\}_{k=1}^{C_g}$ on an $N\times N$ grid.  We use:
-\begin{itemize}\itemsep3pt
-  \item $\mathcal{T}_{\Delta \vec{r}}[\cdot]$: real-space translation by $\Delta \vec{r}$,
-  \item $\mathrm{Pad}[\cdot]$: zero-padding to a canvas large enough to contain all translated patches,
-  \item $\mathrm{Pad}_{N/4}[\cdot]$: zero-padding that embeds a central $N/2\times N/2$ tile into an $N\times N$ grid,
-  \item $\mathrm{Crop}_N[\cdot]$: center-cropping to $N\times N$,
-  \item $\mathbf{1}$: an all-ones array of appropriate size,
-  \item $\odot$: elementwise (Hadamard) product.
-\end{itemize}
+Each training sample comprises $C_g$ diffraction amplitude images $\{x_k\}_{k=1}^{C_g}$ acquired at probe coordinates $\{\vec{r}_k\}_{k=1}^{C_g}$. The network $G(x,r)$ outputs $C_g$ complex object patches $\{O_k\}_{k=1}^{C_g}$ on an $N\times N$ grid. In the expressions that follow, $\mathcal{T}_{\Delta \vec{r}}[\cdot]$ denotes real-space translation by $\Delta \vec{r}$; $\mathrm{Pad}[\cdot]$ zero-pads to a canvas large enough to contain all translated patches; $\mathrm{Pad}_{N/4}[\cdot]$ embeds a central $N/2\times N/2$ tile into an $N\times N$ grid; $\mathrm{Crop}_N[\cdot]$ center-crops to $N\times N$; $\mathbf{1}$ is an all-ones array of appropriate size; and $\odot$ denotes the elementwise (Hadamard) product.
 
 \paragraph{Constraint map ($F_c$): translation-aware merging.}
 To enforce overlap consistency, per-patch reconstructions are merged in a translation-aligned frame:
@@ -726,6 +712,8 @@ $\lambda_{ijk}$ & Scalar & Poisson rate parameter for a single pixel \\
 \begin{backmatter}
 \bmsection{Funding}
 This work was supported by the U.S. Department of Energy, Laboratory Directed Research and Development program at SLAC National Accelerator Laboratory, under Contract No. DE-AC02-76SF00515.
+
+It was also supported by the U.S. Department of Energy (DOE) Office of Science-Basic Energy Sciences award Collaborative Machine Learning Platform for Scientific Discovery 2.0. Use of the Advanced Photon Source was supported by the U. S. Department of Energy, Office of Science, Office of Basic Energy Sciences, under Contract No. DE-AC02-06CH11357.
 
 \bmsection{Disclosures}
 The authors declare no conflicts of interest.
