@@ -1,1 +1,2 @@
 - fixed overuse of lists / bullet points presentation issue
+- added a same-split PyNX HIO/ER non-ML single-shot CDI benchmark to Table 2 context using the accepted `gs1_custom` primary support-threshold 0.05 outcome; the text discloses the known-probe support prior, direct-stitch/no-oracle-alignment metric contract, and same-split PtychoPINN comparator.

@@ -137,6 +137,78 @@
       ]
     }
   ],
+  "same_split_cdi_benchmark": {
+    "condition_id": "gs1_custom",
+    "presentation": "same-split comparator block for Table 2",
+    "source_outcome_summary": "/home/ollie/Documents/PtychoPINN/.artifacts/revision_studies/non_ml_single_shot_cdi_benchmark/full_gs1_custom_pynx_primary_reuse_pinn_bundle_20260413T060016Z/outcome_summary.md",
+    "data_identity": {
+      "decision": "same_split_reused_bundle_frozen_for_comparator",
+      "train_x_sha256": "7b3dc1e139b29d3a8f03ca0f2b76a06f784791d70dbc80203a1c5c811ed9a048",
+      "test_x_sha256": "b7230835dbed810950dcb5181416c8312e5b24619466beb9340110f90f956a3b",
+      "historical_table2_policy": "historical_context_only_not_same_data_comparator"
+    },
+    "metric_contract": {
+      "mode": "direct-stitch",
+      "table2_compatible": false,
+      "ambiguity_policy": "direct_support_anchored_no_ground_truth_shift_twin_orientation_or_phase_sign_selection"
+    },
+    "support_prior": {
+      "source": "known_probe_amplitude",
+      "support_rule": "abs(P) >= support_threshold * max(abs(P))",
+      "primary_support_threshold": 0.05,
+      "selection_policy": "pre_registered_primary_not_metric_selected"
+    },
+    "rows": [
+      {
+        "id": "gs1_custom_same_split_ptychopinn",
+        "label": "PtychoPINN ($C_g=1$, same split)",
+        "method": "PtychoPINN",
+        "metrics": {
+          "psnr": [
+            70.738232,
+            null
+          ],
+          "ssim": [
+            0.943263,
+            null
+          ]
+        }
+      },
+      {
+        "id": "gs1_custom_pynx_hio_er_support_0p05",
+        "label": "PyNX HIO/ER ($\\tau=0.05$, same split)",
+        "method": "PyNX HIO/ER",
+        "solver_version": "PyNX 2024.1",
+        "eval_status": "ok",
+        "n_test_frames": 2178,
+        "support_threshold": 0.05,
+        "metrics": {
+          "psnr": [
+            38.934707,
+            null
+          ],
+          "ssim": [
+            0.005343,
+            null
+          ]
+        }
+      }
+    ],
+    "sensitivity_rows": [
+      {
+        "support_threshold": 0.01,
+        "role": "sensitivity",
+        "ssim": 0.012754,
+        "psnr": 43.861927
+      },
+      {
+        "support_threshold": 0.10,
+        "role": "sensitivity",
+        "ssim": 0.005076,
+        "psnr": 38.319959
+      }
+    ]
+  },
   "notes": {
     "alignment": "align_for_evaluation using scan coordinates from global_offsets and stitch_patch_size=20",
     "ground_truth": "simulated lines object (objectGuess) cropped to scanned region",

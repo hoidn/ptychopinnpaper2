@@ -300,7 +300,7 @@ Dataset & Method & Amplitude & Phase & Amplitude & Phase \\
 
 \subsection{Overlap-Free Reconstruction}
 
-In overlap-free operation, we set the group size to a single diffraction frame ($C_g = 1$), removing overlap-based real-space consistency. Reconstruction then relies entirely on the diffraction likelihood and the known probe structure (defocused probe/Fresnel geometry). Figure~\ref{fig:recon_2x2} illustrates this single-frame mode compared with multi-position ptychography. Quantitative comparisons across overlap and probe-structuring variants on a synthetic line-pattern dataset are summarized in Table~\ref{tab:sim_lines_metrics} (overlap-free $C_g=1$ vs overlap $C_g=4$). With an experimental probe, removing overlap reduces amplitude SSIM by 0.064 (0.968 to 0.904) and PSNR by 4.14 dB (73.03 to 68.89).
+In overlap-free operation, we set the group size to a single diffraction frame ($C_g = 1$), removing overlap-based real-space consistency. Reconstruction then relies entirely on the diffraction likelihood and the known probe structure (defocused probe/Fresnel geometry). Figure~\ref{fig:recon_2x2} illustrates this single-frame mode compared with multi-position ptychography. Quantitative comparisons across overlap and probe-structuring variants on a synthetic line-pattern dataset are summarized in Table~\ref{tab:sim_lines_metrics} (overlap-free $C_g=1$ vs overlap $C_g=4$). With an experimental probe, removing overlap reduces amplitude SSIM by 0.064 (0.968 to 0.904) and PSNR by 4.14 dB (73.03 to 68.89). On the accepted same-generated-split, support-constrained direct-stitch comparator, PtychoPINN reached SSIM 0.943263 and PSNR 70.738232 dB, whereas PyNX HIO/ER reached SSIM 0.005343 and PSNR 38.934707 dB.
 \begin{table}[htbp]
 \centering
 \caption{Synthetic line-pattern amplitude reconstruction metrics on the test split. Ground truth is the simulated object (amplitude only; the object has constant zero phase).}
@@ -313,9 +313,15 @@ overlap-free ($C_g=1$) + idealized probe & 60.67 & 0.620 \\
 overlap-free ($C_g=1$) + experimental probe & 68.89 & 0.904 \\
 overlap ($C_g=4$) + idealized probe & 71.34 & 0.952 \\
 overlap ($C_g=4$) + experimental probe & 73.03 & 0.968 \\
+\midrule
+\multicolumn{3}{@{}l}{Same-split experimental-probe benchmark} \\
+PtychoPINN ($C_g=1$, same split) & 70.74 & 0.943 \\
+PyNX HIO/ER ($\tau=0.05$, known-probe support) & 38.93 & 0.005 \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+The first four rows report the historical overlap/probe ablation values. The same-split benchmark block uses the accepted generated-split comparator bundle; PyNX HIO/ER uses PyNX 2024.1 with a known-probe support prior, $|P|\ge0.05\max |P|$, and direct support-anchored evaluation without oracle shift, twin-image, orientation, or phase-sign alignment.
 
 \subsection{Photon-Limited Performance}
 
@@ -636,7 +642,7 @@ PtychoPINN processes approximately 6.1k diffraction patterns per second at $64\t
 \section{Discussion}
 
 \subsection*{Overlap-free reconstruction}
-Table~\ref{tab:sim_lines_metrics} reveals a clear interaction between probe structure and overlap. With the idealized (flat-phase) probe, removing overlap ($C_g=1$) drops amplitude SSIM from 0.952 to 0.620; with the experimental (curved) probe, the same change yields 0.968 to 0.904. Probe curvature largely compensates for the loss of overlap-based redundancy, consistent with the expected role of structured phase diversity in Fresnel CDI. These trends indicate that overlap and probe diversity are partially substitutable sources of constraint, but their interaction warrants further study across a broader range of probe geometries.
+Table~\ref{tab:sim_lines_metrics} reveals a clear interaction between probe structure and overlap. With the idealized (flat-phase) probe, removing overlap ($C_g=1$) drops amplitude SSIM from 0.952 to 0.620; with the experimental (curved) probe, the same change yields 0.968 to 0.904. Probe curvature largely compensates for the loss of overlap-based redundancy, consistent with the expected role of structured phase diversity in Fresnel CDI. In the same-generated-split direct-stitch comparison, the PtychoPINN overlap-free experimental-probe reconstruction also outperformed the PyNX HIO/ER reference. This is a scoped comparison to one support-constrained CDI baseline with a known-probe support prior, not a broad claim about every classical CDI method. These trends indicate that overlap and probe diversity are partially substitutable sources of constraint, but their interaction warrants further study across a broader range of probe geometries.
 
 Making overlap a tunable parameter rather than a hard requirement has concrete implications for experimental design. Scans can use fewer positions, less overlap, or---in the Fresnel regime---no scanning at all, reducing acquisition time and total dose. The framework is also more tolerant of position jitter than overlap-dependent methods, since the reconstruction does not rely on precise inter-frame registration to enforce real-space consistency. Together, these properties are particularly relevant for dynamic or radiation-sensitive samples at high-rate sources, where overlap requirements, scan precision, and photon budget are simultaneous constraints.
 

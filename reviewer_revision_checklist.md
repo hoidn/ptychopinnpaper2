@@ -50,10 +50,11 @@
 - [ ] **R2: Address SSIM versus direct-error metrics.**
   Add text explaining that PSNR is derived from MSE, so the table reports a direct pixel-error-based metric alongside SSIM.
 
-- [ ] **R3: Decide whether to add a non-ML single-shot CDI benchmark.**
+- [x] **R3: Decide whether to add a non-ML single-shot CDI benchmark.**
   Decision needed: either add a benchmark against a standard non-ML single-shot phase retrieval method such as ER/HIO/support-constrained or ADMM phase retrieval, or soften competitive single-shot Fresnel CDI claims and explain scope.
   Investigation note (2026-04-12): Existing non-ML baselines are Tike/PtyChi ptychographic reconstructions using multi-position scan data (RPIE/DM/LSQML/PIE), not single-shot CDI ER/HIO/ADMM. No in-repo single-shot CDI phase-retrieval implementation was found. Addressing this experimentally likely requires a new baseline implementation/integration plus a support/initialization/evaluation policy, or a scoped rebuttal that narrows the claim.
   Initial design doc: `revision_designs/non_ml_single_shot_cdi_benchmark.md`. Current decision: attempt a real support-constrained HIO/ER-style benchmark first; pivot to a scoped manuscript/response revision if the baseline cannot be made cleanly comparable or if the result requires changing the paper's claim. The design now requires an external-solver/dependency discovery pass, including version/license/install provenance, before choosing an in-repo or package-based HIO/ER/ADMM path.
+  Resolution note (2026-04-13): The accepted same-bundle PyNX HIO/ER `gs1_custom` primary result has been added to the Table 2 paper assets. The presentation uses a same-split comparator block with PtychoPINN SSIM `0.943263` / PSNR `70.738232` dB and PyNX HIO/ER SSIM `0.005343` / PSNR `38.934707` dB on 2178 frames, PyNX `2024.1`, known-probe support threshold `0.05`, and direct-stitch/no-oracle-alignment caveats. PDF compile/inspection passed with the table-block presentation.
 
 - [ ] **R3: Decide whether to add a probe-mischaracterization stress test.**
   Decision needed: either perturb the assumed probe amplitude/phase or blur/defocus and report degradation, or strengthen the fixed-probe limitation and avoid overstating robustness.
@@ -106,3 +107,4 @@
 - 2026-04-12: Drafted initial design docs for the non-ML single-shot CDI benchmark, probe-mischaracterization stress test, Fig. 5 OOD metrics/low-frequency phase analysis, and Eq. 1 epsilon response under `revision_designs/`.
 - 2026-04-12: Updated the non-ML benchmark design to require external solver/dependency discovery and install provenance before choosing an in-repo or package-based HIO/ER/ADMM implementation.
 - 2026-04-12: Updated the Fig. 5 metrics design to require dependency provenance for any repaired or replacement FRC/metric package.
+- 2026-04-13: Completed the Table 2 paper update for the same-bundle PyNX HIO/ER benchmark: `data/sim_lines_4x_metrics.json`, `tables/sim_lines_4x_metrics.tex`, inline Table 2, Results/Discussion text, `data/README.md`, and `changelog.txt` now cite the accepted outcome and scoped same-split direct-stitch contract; PDF inspection passed with the compact same-split table block.

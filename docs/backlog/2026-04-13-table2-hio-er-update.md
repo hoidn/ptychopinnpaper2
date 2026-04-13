@@ -1,6 +1,6 @@
 # Table 2 HIO/ER Benchmark Update
 
-Status: open
+Status: done
 
 ## Goal
 
@@ -26,6 +26,7 @@ Do not reopen metric generation unless the final provenance read exposes a speci
 - Execution plan: `/home/ollie/Documents/PtychoPINN/docs/plans/revision-studies/non-ml-single-shot-cdi-benchmark-execution-plan.md`
 - PyNX replacement plan: `/home/ollie/Documents/PtychoPINN/docs/plans/revision-studies/non-ml-single-shot-cdi-benchmark-pynx-replacement-plan.md`
 - Final outcome summary: `/home/ollie/Documents/PtychoPINN/.artifacts/revision_studies/non_ml_single_shot_cdi_benchmark/full_gs1_custom_pynx_primary_reuse_pinn_bundle_20260413T060016Z/outcome_summary.md`
+- Paper-update implementation plan: `docs/plans/paper-backlog/2026-04-13-table2-hio-er-update-implementation-plan.md`
 - Paper metrics provenance: `data/README.md`, section `SIM-LINES-4X Metrics Table (tables/sim_lines_4x_metrics.tex)`
 - Table generator: `tables/scripts/generate_sim_lines_4x_metrics.py`
 
@@ -52,17 +53,33 @@ Do not reopen metric generation unless the final provenance read exposes a speci
 - Compile the paper and inspect Table 2 for width, line breaks, row labels, caption clarity, and consistency with the text.
 - Update `data/README.md`, `reviewer_revision_checklist.md`, and `changelog.txt`.
 
+## Implementation Record
+
+- Final presentation: same-split Table 2 block appended below the historical overlap/probe ablation rows in the inline manuscript table.
+- Accepted outcome summary: `/home/ollie/Documents/PtychoPINN/.artifacts/revision_studies/non_ml_single_shot_cdi_benchmark/full_gs1_custom_pynx_primary_reuse_pinn_bundle_20260413T060016Z/outcome_summary.md`
+- Paper data source: `data/sim_lines_4x_metrics.json`, top-level `same_split_cdi_benchmark` block.
+- Generated table asset: `tables/sim_lines_4x_metrics.tex`.
+- Table-generation command:
+
+```bash
+python tables/scripts/generate_sim_lines_4x_metrics.py \
+  --input data/sim_lines_4x_metrics.json \
+  --output tables/sim_lines_4x_metrics.tex
+```
+
+- Compile inspection: passed for `ptychopinn_2025.pdf` using the same-split table block; `latexmk` was unavailable, so the PDF was compiled with the `pdflatex`/`bibtex`/`pdflatex`/`pdflatex` fallback.
+
 ## Acceptance Criteria
 
-- [ ] The accepted HIO/ER metric values and provenance are copied from the final outcome artifact, not from an exploratory or superseded run.
-- [ ] The table source used by the paper is updated and reproducible.
-- [ ] Table caption or note discloses the HIO/ER method class, support/known-prior assumptions, and same-bundle comparator status at the level needed for reviewer clarity.
-- [ ] The text/table does not compare the HIO/ER row to historical Table 2 values as if they were same-data; it uses the same-split PtychoPINN comparator or clearly labels historical context.
-- [ ] Sensitivity rows are either omitted from the main table or clearly labeled as support-threshold sensitivity, not alternate primary results.
-- [ ] Results text accurately interprets the HIO/ER result without overclaiming.
-- [ ] The compiled PDF has been inspected for Table 2 formatting and readability.
-- [ ] Any table layout issue is iterated until it is publication-ready.
-- [ ] `data/README.md` records the new Table 2 data source, outcome artifact, table-generation command, and caveats.
-- [ ] `reviewer_revision_checklist.md` marks the non-ML single-shot CDI benchmark item complete or records a clear remaining caveat.
-- [ ] `changelog.txt` records the Table 2/HIO/ER revision.
-- [ ] The backlog item records the final artifact path and any table-generation command used.
+- [x] The accepted HIO/ER metric values and provenance are copied from the final outcome artifact, not from an exploratory or superseded run.
+- [x] The table source used by the paper is updated and reproducible.
+- [x] Table caption or note discloses the HIO/ER method class, support/known-prior assumptions, and same-bundle comparator status at the level needed for reviewer clarity.
+- [x] The text/table does not compare the HIO/ER row to historical Table 2 values as if they were same-data; it uses the same-split PtychoPINN comparator or clearly labels historical context.
+- [x] Sensitivity rows are either omitted from the main table or clearly labeled as support-threshold sensitivity, not alternate primary results.
+- [x] Results text accurately interprets the HIO/ER result without overclaiming.
+- [x] The compiled PDF has been inspected for Table 2 formatting and readability.
+- [x] Any table layout issue is iterated until it is publication-ready.
+- [x] `data/README.md` records the new Table 2 data source, outcome artifact, table-generation command, and caveats.
+- [x] `reviewer_revision_checklist.md` marks the non-ML single-shot CDI benchmark item complete or records a clear remaining caveat.
+- [x] `changelog.txt` records the Table 2/HIO/ER revision.
+- [x] The backlog item records the final artifact path and any table-generation command used.

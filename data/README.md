@@ -117,6 +117,16 @@ Source artifacts:
 - `PtychoPINN/.artifacts/sim_lines_4x_metrics_2026-01-27/gs2_ideal_nll/metrics.json` (2026-02-03 run, NLL-only)
 - `PtychoPINN/.artifacts/sim_lines_4x_metrics_2026-01-27/gs2_custom/metrics.json` (2026-01-27 run)
 
+Same-split PyNX HIO/ER comparator block (added 2026-04-13):
+- Accepted outcome summary: `/home/ollie/Documents/PtychoPINN/.artifacts/revision_studies/non_ml_single_shot_cdi_benchmark/full_gs1_custom_pynx_primary_reuse_pinn_bundle_20260413T060016Z/outcome_summary.md`
+- Data source: optional top-level `same_split_cdi_benchmark` block in `data/sim_lines_4x_metrics.json`
+- Same-split PtychoPINN comparator: SSIM `0.943263`, PSNR `70.738232` dB
+- PyNX HIO/ER primary row: PyNX `2024.1`, support threshold `0.05`, `eval_status=ok`, `n_test_frames=2178`, SSIM `0.005343`, PSNR `38.934707` dB
+- Historical Table 2 `gs1_custom` row is context only and is not used as the same-data comparator.
+- HIO/ER uses a known-probe support prior, `abs(P) >= support_threshold * max(abs(P))`, with pre-registered primary threshold `0.05`.
+- The HIO/ER metric uses direct-stitch, no-oracle-alignment evaluation: no ground-truth shift, twin-image, orientation, or phase-sign selection is applied.
+- Support-threshold sensitivities `0.01` and `0.10` are supporting evidence only, not main-table primary rows.
+
 Workflow parameters:
 - `N=64`, `nimgs-train=2`, `nimgs-test=2`, `nepochs=60`, `batch-size=16`
 - `realspace-weight=0.0`
@@ -165,7 +175,14 @@ python scripts/studies/grid_lines_workflow.py \
   --realspace-weight 0.0
 ```
 
-Generator script: `paper/tables/scripts/generate_sim_lines_4x_metrics.py`
+Generator script: `tables/scripts/generate_sim_lines_4x_metrics.py`
+
+Table-generation command (from paper repo root):
+```bash
+python tables/scripts/generate_sim_lines_4x_metrics.py \
+  --input data/sim_lines_4x_metrics.json \
+  --output tables/sim_lines_4x_metrics.tex
+```
 
 ### metrics.tex (backlog)
 
