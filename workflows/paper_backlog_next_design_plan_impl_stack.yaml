@@ -1,0 +1,237 @@
+version: "2.7"
+name: "paper-backlog-next-design-plan-impl-stack"
+
+imports:
+  item_stack: library/backlog_item_design_plan_impl_stack.yaml
+
+context:
+  workflow_model: "gpt-5.4"
+  workflow_effort: "high"
+
+inputs:
+  backlog_dir:
+    type: relpath
+    under: docs
+    must_exist_target: true
+    default: docs/backlog
+  selector_state_root:
+    type: relpath
+    under: state
+    default: state/paper-backlog-selector
+
+providers:
+  codex:
+    command: ["codex", "exec", "--dangerously-bypass-approvals-and-sandbox", "--skip-git-repo-check", "--model", "${model}", "--config", "reasoning_effort=${effort}"]
+    input_mode: "stdin"
+    defaults:
+      model: "${context.workflow_model}"
+      effort: "${context.workflow_effort}"
+
+steps:
+  - name: SelectNextBacklogItem
+    id: select_next_backlog_item
+    provider: codex
+    asset_file: prompts/paper_backlog/select_next_backlog_item.md
+    timeout_sec: 1800
+    depends_on:
+      required:
+        - "${inputs.backlog_dir}/*.md"
+      optional:
+        - reviewer_revision_checklist.md
+        - changelog.txt
+        - data/README.md
+      inject:
+        mode: list
+        instruction: "Candidate backlog and paper-context files:"
+        position: prepend
+    output_bundle:
+      path: ${inputs.selector_state_root}/selection.json
+      fields:
+        - name: selection_decision
+          json_pointer: /selection_decision
+          type: enum
+          allowed: ["READY", "NONE_READY"]
+        - name: selected_item_path
+          json_pointer: /selected_item_path
+          type: relpath
+          under: docs/backlog
+          must_exist_target: true
+
+  - name: PrepareSelectedBacklogItemInputs
+    id: prepare_selected_backlog_item_inputs
+    command:
+      - python
+      - -c
+      - |
+        import json
+        import pathlib
+        import re
+        import sys
+
+        decision = sys.argv[1]
+        selected_item_path = pathlib.Path(sys.argv[2])
+        selector_state_root = pathlib.Path(sys.argv[3])
+        run_id = sys.argv[4]
+
+        if decision not in {"READY", "NONE_READY"}:
+            raise SystemExit(f"Unexpected selection decision: {decision}")
+        if not selected_item_path.exists():
+            raise SystemExit(f"Selected backlog item does not exist: {selected_item_path}")
+
+        def path_safe_id(path):
+            stem = path.stem
+            cleaned = re.sub(r"[^A-Za-z0-9_.-]+", "-", stem).strip("-")
+            return cleaned or "paper-backlog-item"
+
+        if decision == "READY":
+            item_id = path_safe_id(selected_item_path)
+            brief_path = selected_item_path.as_posix()
+        else:
+            item_id = "none-ready"
+            brief_path = selected_item_path.as_posix()
+
+        item_run_root = f"paper-backlog-stack/{run_id}/{item_id}"
+        selection_summary_path = pathlib.Path("artifacts/work/paper-backlog") / run_id / "selection-summary.md"
+        selection_summary_path.parent.mkdir(parents=True, exist_ok=True)
+        selector_state_root.mkdir(parents=True, exist_ok=True)
+
+        payload = {
+            "selection_decision": decision,
+            "selected_item_path": selected_item_path.as_posix(),
+            "brief_path": brief_path,
+            "selection_summary_path": selection_summary_path.as_posix(),
+            "item_state_root": f"state/{item_run_root}/item",
+            "design_phase_state_root": f"state/{item_run_root}/design-phase",
+            "plan_phase_state_root": f"state/{item_run_root}/plan-phase",
+            "implementation_phase_state_root": f"state/{item_run_root}/implementation-phase",
+            "design_target_path": f"docs/plans/paper-backlog/{item_id}-design.md",
+            "design_review_report_target_path": f"artifacts/review/paper-backlog/{run_id}/{item_id}-design-review.json",
+            "plan_target_path": f"docs/plans/paper-backlog/{item_id}-implementation-plan.md",
+            "plan_review_report_target_path": f"artifacts/review/paper-backlog/{run_id}/{item_id}-plan-review.json",
+            "execution_report_target_path": f"artifacts/work/paper-backlog/{run_id}/{item_id}-execution-report.md",
+            "implementation_review_report_target_path": f"artifacts/review/paper-backlog/{run_id}/{item_id}-implementation-review.md",
+            "item_summary_target_path": f"artifacts/work/paper-backlog/{run_id}/{item_id}-summary.json",
+        }
+
+        selection_summary_path.write_text(
+            "\n".join(
+                [
+                    "# Paper Backlog Selection Summary",
+                    "",
+                    f"- Decision: `{decision}`",
+                    f"- Selected item: `{selected_item_path.as_posix()}`",
+                    "",
+                    "Selection rationale is in the provider stdout and debug logs for `SelectNextBacklogItem`.",
+                ]
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+
+        output_path = selector_state_root / "current-item-inputs.json"
+        output_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+      - ${steps.SelectNextBacklogItem.artifacts.selection_decision}
+      - ${steps.SelectNextBacklogItem.artifacts.selected_item_path}
+      - ${inputs.selector_state_root}
+      - ${run.id}
+    output_bundle:
+      path: ${inputs.selector_state_root}/current-item-inputs.json
+      fields:
+        - name: selection_decision
+          json_pointer: /selection_decision
+          type: enum
+          allowed: ["READY", "NONE_READY"]
+        - name: selected_item_path
+          json_pointer: /selected_item_path
+          type: relpath
+          under: docs/backlog
+          must_exist_target: true
+        - name: brief_path
+          json_pointer: /brief_path
+          type: relpath
+          under: docs
+          must_exist_target: true
+        - name: selection_summary_path
+          json_pointer: /selection_summary_path
+          type: relpath
+          under: artifacts/work
+          must_exist_target: true
+        - name: item_state_root
+          json_pointer: /item_state_root
+          type: relpath
+          under: state
+        - name: design_phase_state_root
+          json_pointer: /design_phase_state_root
+          type: relpath
+          under: state
+        - name: plan_phase_state_root
+          json_pointer: /plan_phase_state_root
+          type: relpath
+          under: state
+        - name: implementation_phase_state_root
+          json_pointer: /implementation_phase_state_root
+          type: relpath
+          under: state
+        - name: design_target_path
+          json_pointer: /design_target_path
+          type: relpath
+          under: docs/plans
+        - name: design_review_report_target_path
+          json_pointer: /design_review_report_target_path
+          type: relpath
+          under: artifacts/review
+        - name: plan_target_path
+          json_pointer: /plan_target_path
+          type: relpath
+          under: docs/plans
+        - name: plan_review_report_target_path
+          json_pointer: /plan_review_report_target_path
+          type: relpath
+          under: artifacts/review
+        - name: execution_report_target_path
+          json_pointer: /execution_report_target_path
+          type: relpath
+          under: artifacts/work
+        - name: implementation_review_report_target_path
+          json_pointer: /implementation_review_report_target_path
+          type: relpath
+          under: artifacts/review
+        - name: item_summary_target_path
+          json_pointer: /item_summary_target_path
+          type: relpath
+          under: artifacts/work
+
+  - name: RunSelectedBacklogItem
+    id: run_selected_backlog_item
+    when:
+      compare:
+        left:
+          ref: root.steps.PrepareSelectedBacklogItemInputs.artifacts.selection_decision
+        op: eq
+        right: READY
+    call: item_stack
+    with:
+      item_state_root:
+        ref: root.steps.PrepareSelectedBacklogItemInputs.artifacts.item_state_root
+      design_phase_state_root:
+        ref: root.steps.PrepareSelectedBacklogItemInputs.artifacts.design_phase_state_root
+      plan_phase_state_root:
+        ref: root.steps.PrepareSelectedBacklogItemInputs.artifacts.plan_phase_state_root
+      implementation_phase_state_root:
+        ref: root.steps.PrepareSelectedBacklogItemInputs.artifacts.implementation_phase_state_root
+      brief_path:
+        ref: root.steps.PrepareSelectedBacklogItemInputs.artifacts.brief_path
+      design_target_path:
+        ref: root.steps.PrepareSelectedBacklogItemInputs.artifacts.design_target_path
+      design_review_report_target_path:
+        ref: root.steps.PrepareSelectedBacklogItemInputs.artifacts.design_review_report_target_path
+      plan_target_path:
+        ref: root.steps.PrepareSelectedBacklogItemInputs.artifacts.plan_target_path
+      plan_review_report_target_path:
+        ref: root.steps.PrepareSelectedBacklogItemInputs.artifacts.plan_review_report_target_path
+      execution_report_target_path:
+        ref: root.steps.PrepareSelectedBacklogItemInputs.artifacts.execution_report_target_path
+      implementation_review_report_target_path:
+        ref: root.steps.PrepareSelectedBacklogItemInputs.artifacts.implementation_review_report_target_path
+      item_summary_target_path:
+        ref: root.steps.PrepareSelectedBacklogItemInputs.artifacts.item_summary_target_path
