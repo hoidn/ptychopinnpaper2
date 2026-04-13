@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Add a paper-local workflow that selects the next ready paper backlog item and runs it through the generic design-plan-implementation stack.
+**Goal:** Add a paper-local workflow that repeatedly selects ready paper backlog items and runs each through the generic design-plan-implementation stack until no ready items remain.
 
-**Architecture:** Reuse the generic `backlog_item_design_plan_impl_stack` and its imported phase workflows without flattening them. Add only a thin selector/driver workflow in the paper repo; selection is an agent judgment step with deterministic output validation and path derivation.
+**Architecture:** Reuse the generic `backlog_item_design_plan_impl_stack` and its imported phase workflows without flattening them. Add only a thin selector/driver workflow in the paper repo; selection is an agent judgment step with deterministic output validation, path derivation, and a run-local processed-item ledger so the loop does not reselect the same item.
 
 **Tech Stack:** agent-orchestration DSL 2.7, reusable `call` workflows, Codex provider prompts, Python path-derivation command.
 
@@ -22,7 +22,7 @@
 - [x] Copy the generic library stack and prompt bundle from `/home/ollie/Documents/agent-orchestration/workflows/library/` into the paper repo.
 - [x] Verify imported `asset_file` prompt paths still resolve relative to `workflows/library/`.
 
-### Task 2: Add Paper Backlog Selector Driver
+### Task 2: Add Paper Backlog Draining Driver
 
 **Files:**
 - Create: `workflows/paper_backlog_next_design_plan_impl_stack.yaml`
@@ -32,7 +32,9 @@
 - [x] Treat status, prerequisites, and current-blocker sections as readiness evidence rather than hard-coded exclusion rules.
 - [x] Emit a JSON bundle with the selection decision and selected backlog path.
 - [x] Add a deterministic preparation step that derives item id, state roots, and target artifact paths from the selected backlog path.
-- [x] Route `READY` to the generic item stack and `NONE_READY` to a no-op summary.
+- [x] Route `READY` to the generic item stack and `NONE_READY` to loop termination.
+- [x] Use a run-local processed-item ledger so the selector can skip items already attempted in the current workflow run.
+- [x] Repeat selection and execution until the selector returns `NONE_READY`, bounded by a max item count.
 
 ### Task 3: Validate
 
